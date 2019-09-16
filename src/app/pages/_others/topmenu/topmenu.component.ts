@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-topmenu',
-  templateUrl: './topmenu.component.html',
-  styleUrls: ['./topmenu.component.css']
+  templateUrl: './topmenu.component.html'
 })
 export class TopmenuComponent implements OnInit {
 

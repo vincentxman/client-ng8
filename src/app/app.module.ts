@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './home/home.component';
-import { DownloadComponent } from './download/download.component';
-import { TopmenuComponent } from './compoinents/core/topmenu/topmenu.component';
-import { FooterComponent } from './compoinents/core/footer/footer.component';
+
+import { TopmenuComponent } from './pages/_others/topmenu/topmenu.component';
+import { FooterComponent } from './pages/_others/footer/footer.component';
 import { IconsComponent } from './shared/icons/icons.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { DownloadComponent } from './pages/download/download.component';
+import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { IconsComponent } from './shared/icons/icons.component';
     DownloadComponent,
     TopmenuComponent,
     FooterComponent,
-    IconsComponent
+    IconsComponent,
+    GettingStartedComponent
   ],
   imports: [
     NgbModule,
