@@ -14,21 +14,28 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/audioprint",
-            "index": "src/index.html",
+            "index": "src/public/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-                   
+              {
+                "glob": "favicon.ico",
+                "input": "src/public",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/public",
+                "output": "/"
+              }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css",
-              "src/assets/app.scss",
-              "src/assets/demos.css"         
+              "src/style/styles.css",
+              "src/style/app.scss",
+              "src/style/demos.css"         
             ],
             "scripts": []
           },
@@ -89,12 +96,24 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "src/public",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/public",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/style/styles.css",
+              "src/style/app.scss",
+              "src/style/demos.css"         
             ],
+
             "scripts": []
           }
         },
