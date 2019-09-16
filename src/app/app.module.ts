@@ -13,6 +13,7 @@ import { IconsComponent } from './shared/icons/icons.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DownloadComponent } from './pages/download/download.component';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
+import { PageWrapperComponent } from './shared/icons/page-wrapper/page-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
     TopmenuComponent,
     FooterComponent,
     IconsComponent,
-    GettingStartedComponent
+    GettingStartedComponent,
+    PageWrapperComponent
   ],
   imports: [
     NgbModule,
