@@ -6,25 +6,29 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { TopmenuComponent } from './pages/_others/topmenu/topmenu.component';
+import { HeaderComponent } from './pages/_others/header/header.component';
 import { FooterComponent } from './pages/_others/footer/footer.component';
 import { IconsComponent } from './shared/icons/icons.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { DownloadComponent } from './pages/download/download.component';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
-import { PageWrapperComponent } from './shared/icons/page-wrapper/page-wrapper.component';
+import { PageWrapperComponent } from './shared/page-wrapper/page-wrapper.component';
+import { ParentComponent } from './t/parent/parent.component';
+import { ChildComponent } from './t/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DownloadComponent,
-    TopmenuComponent,
+    HeaderComponent,
     FooterComponent,
     IconsComponent,
     GettingStartedComponent,
-    PageWrapperComponent
+    PageWrapperComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     NgbModule,
