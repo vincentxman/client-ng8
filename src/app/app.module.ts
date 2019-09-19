@@ -20,6 +20,7 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
+import { FragmentDirective } from './shared/fragment.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PageHeaderComponent } from './shared/page-header/page-header.component'
     SideNavComponent,
     AccordionComponent,
     AlertComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    FragmentDirective
   ],
   imports: [
     NgbModule,

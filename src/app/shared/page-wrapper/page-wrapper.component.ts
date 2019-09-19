@@ -14,7 +14,7 @@ export class PageWrapperComponent {
     const largeScreenQL = matchMedia('(max-width: 1199.98px)');
     this.isLargeScreenOrLess = largeScreenQL.matches;
     // tslint:disable-next-line: deprecation
-    largeScreenQL.addListener((event) => ngZone.run(() => this.isLargeScreenOrLess = event.matches));    
+    largeScreenQL.addListener((event) => ngZone.run(() => this.isLargeScreenOrLess = event.matches));
   }
 
 }

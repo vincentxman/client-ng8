@@ -6,4 +6,66 @@
         As a result no dependency on jQuery or Bootstrap's JavaScript is
         required.
     </p>
+    <p>
+        Here is a list of minimal required versions of <a
+            href="https://angular.io" target="_blank">Angular</a>
+        and <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> CSS
+        for ng-bootstrap:
+    </p>
+    <table class="table" style="width: auto">
+        <thead>
+            <tr>
+                <th scope="col">ng-bootstrap</th>
+                <th scope="col">Angular</th>
+                <th scope="col">Bootstrap CSS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1.x.x</th>
+                <td>5.0.2</td>
+                <td>4.0.0</td>
+            </tr>
+            <tr>
+                <th scope="row">2.x.x</th>
+                <td>6.0.0</td>
+                <td>4.0.0</td>
+            </tr>
+            <tr>
+                <th scope="row">3.x.x</th>
+                <td>6.1.0</td>
+                <td>4.0.0</td>
+            </tr>
+            <tr>
+                <th scope="row">4.x.x</th>
+                <td>7.0.0</td>
+                <td>4.0.0</td>
+            </tr>
+            <tr>
+                <th scope="row">5.x.x</th>
+                <td>8.0.0</td>
+                <td>4.3.1</td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-alert type="warning" [dismissible]="false">
+        <p>Should I add <b>bootstrap.js</b> or <b>bootstrap.min.js</b> to my
+            project?</p>
+
+        No, the goal of ng-bootstrap is to <i>completely replace</i> JavaScript
+        implementation for components. Nor should you include other dependencies
+        like jQuery or popper.js. It is not necessary and might interfere with
+        ng-bootstrap code.
+    </ngb-alert>
+    <app-page-header title="Supported Browsers" fragment="browsers"></app-page-header>
+    <p>We strive to support the same browsers and versions as supported by both
+        Bootstrap 4 and Angular, whichever is more restrictive. Check browser
+        support notes for
+        <a href="https://angular.io/guide/browser-support" target="_blank">Angular</a>
+        and
+        <a
+            href="https://getbootstrap.com/docs/4.0/getting-started/browsers-devices/"
+            target="_blank">Bootstrap</a>.
+    </p>
+    <p>Our code is automatically tested on all the supported browsers.</p>
 </app-page-wrapper>
