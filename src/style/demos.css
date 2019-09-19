@@ -33,12 +33,12 @@ th[sortable].desc:before {
 }
 
 /* Filtering table demo */
-ngbd-table-filtering span.ngb-highlight {
+app-table-filtering span.ngb-highlight {
   background-color: yellow;
 }
 
 /* Complete table demo */
-ngbd-table-complete span.ngb-highlight {
+app-table-complete span.ngb-highlight {
   background-color: yellow;
 }
 

@@ -200,7 +200,7 @@ div.api-doc-component, .overview {
     }
   }
 
-  section, ngbd-overview-section {
+  section, app-overview-section {
     margin-top: 3rem;
     h4 {
       margin-top: 2rem;
@@ -217,7 +217,7 @@ div.api-doc-component, .overview {
   }
 }
 
-ngbd-page-header {
+app-page-header {
   margin-top: 3rem;
 
   h2 {
@@ -329,9 +329,9 @@ div.component-demo {
   font-size: 80%;
 }
 
-ngbd-api-docs,
-ngbd-api-docs-class,
-ngbd-api-docs-config {
+app-api-docs,
+app-api-docs-class,
+app-api-docs-config {
   display: block;
 
   &:not(:first-child) {
