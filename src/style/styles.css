@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: PingFang;
+  src: url(https://sqimg.qq.com/qq_product_operations/im/pcqq/9.0/font/PingFang.eot);
+  src: url(https://sqimg.qq.com/qq_product_operations/im/pcqq/9.0/font/PingFang.eot?#font-spider) format('embedded-opentype'), url(https://sqimg.qq.com/qq_product_operations/im/pcqq/9.0/font/PingFang.woff) format('woff'), url(https://sqimg.qq.com/qq_product_operations/im/pcqq/9.0/font/PingFang.ttf) format('truetype'), url(https://sqimg.qq.com/qq_product_operations/im/pcqq/9.0/font/PingFang.svg) format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+
+* {
+  font-family: PingFang;
+}

@@ -4,7 +4,7 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
   selector: 'app-page-header',
   templateUrl: './page-header.component.html'
 })
-export class PageHeaderComponent{
+export class PageHeaderComponent {
   @Input() title: string;
   @Input() fragment: string;
 }

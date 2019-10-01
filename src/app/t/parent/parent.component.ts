@@ -6,7 +6,7 @@ import { ChildComponent } from '../child/child.component';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements AfterContentInit{
+export class ParentComponent implements AfterContentInit {
 
   @ContentChildren(ChildComponent) private tableOfContents: QueryList<ChildComponent>;
   constructor() { }
