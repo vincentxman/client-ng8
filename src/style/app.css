@@ -1,0 +1,396 @@
+header.navbar {
+  background: linear-gradient(135deg, #0143a3, #0273d4);
+}
+
+.masthead-followup img {
+  width: 64px;
+  height: 64px;
+}
+
+.footer {
+  padding: 3rem 0;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.footer a {
+  font-weight: 500;
+  color: #000;
+  text-decoration: underline;
+}
+
+.social-buttons svg {
+  margin-left: 1rem;
+  fill: #fff;
+}
+
+.sidebar-collapsed {
+  margin-left: -15px;
+  margin-right: -15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1rem;
+}
+
+header.title {
+  margin-left: -15px;
+  margin-right: -15px;
+  position: relative;
+}
+
+header.title .content-tabset {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+header.title .content-tabset .nav-link {
+  border-style: solid;
+  border-width: 3px 1px 1px;
+  border-radius: 3px 3px 0 0;
+}
+
+header.title .content-tabset .nav-link:not(.active):hover {
+  border-color: transparent;
+}
+
+header.title .content-tabset .active {
+  border-top-color: #28a745;
+}
+
+header.title .content-tabset .navigation-dropdown {
+  cursor: pointer;
+}
+
+header.title .content-tabset .navigation-dropdown .nav-link {
+  padding-right: 0.3rem;
+  line-height: 1em;
+  border-color: transparent;
+  background: none;
+  color: #007bff;
+}
+
+header.title .content-tabset .navigation-dropdown .nav-link:hover {
+  color: #0056b3;
+}
+
+header.title .content-tabset .navigation-dropdown .dropdown-toggle:after {
+  display: none;
+}
+
+header.title .content-tabset .navigation-dropdown .dropdown-menu {
+  border-color: #d9d9d9;
+}
+
+header.title .content-tabset .navigation-dropdown svg {
+  width: 22px;
+  height: 22px;
+}
+
+header.title .content-tabset .navigation-dropdown.show .nav-link {
+  color: #0056b3;
+}
+
+.toc {
+  margin-left: -15px;
+  margin-right: -15px;
+  font-size: 1.1rem;
+}
+
+.toc .toc-item .toc-link {
+  display: block;
+  padding: 0.25rem 1.5rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.toc .toc-item .nav > li > a {
+  font-size: 0.85em;
+}
+
+.toc .toc-item .nav > li > a:hover, .toc .toc-item .nav > li > a:focus {
+  text-decoration: none;
+  color: #0275d8;
+}
+
+.toc .toc-item .nav > li.active > a {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.toc .toc-item.active > .toc-link {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.contextual-nav .nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.contextual-nav .nav a {
+  color: inherit;
+  font-size: 90%;
+  padding: .25rem 1rem;
+}
+
+.contextual-nav .nav a:hover {
+  color: #0275d8;
+}
+
+.deprecated h3 {
+  text-decoration: line-through;
+}
+
+.deprecated h5 {
+  display: inline-block;
+}
+
+.deprecated td.label-cell code,
+.deprecated p.signature,
+.deprecated code.selector,
+.deprecated code.export-as {
+  text-decoration: line-through;
+}
+
+.deprecated .description,
+.deprecated .meta,
+.deprecated .lead {
+  opacity: 0.5;
+}
+
+div.api-doc-component, .overview {
+  margin-bottom: 3rem;
+}
+
+div.api-doc-component h2 .github-link,
+div.api-doc-component h3 .github-link, .overview h2 .github-link,
+.overview h3 .github-link {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0.3;
+  margin-left: .5rem;
+}
+
+div.api-doc-component h2:hover .github-link,
+div.api-doc-component h3:hover .github-link, .overview h2:hover .github-link,
+.overview h3:hover .github-link {
+  opacity: 1;
+}
+
+div.api-doc-component h2:hover > .title-fragment,
+div.api-doc-component h3:hover > .title-fragment, .overview h2:hover > .title-fragment,
+.overview h3:hover > .title-fragment {
+  opacity: 1;
+}
+
+div.api-doc-component section, div.api-doc-component app-overview-section, .overview section, .overview app-overview-section {
+  margin-top: 3rem;
+}
+
+div.api-doc-component section h4, div.api-doc-component app-overview-section h4, .overview section h4, .overview app-overview-section h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+div.api-doc-component section .meta, div.api-doc-component app-overview-section .meta, .overview section .meta, .overview app-overview-section .meta {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+div.api-doc-component section .meta > div, div.api-doc-component app-overview-section .meta > div, .overview section .meta > div, .overview app-overview-section .meta > div {
+  margin-bottom: 0.5rem;
+}
+
+app-page-header {
+  margin-top: 3rem;
+}
+
+app-page-header h2:hover > .title-fragment {
+  opacity: 1;
+}
+
+a.title-fragment {
+  opacity: 0;
+  -webkit-transition: opacity 125ms ease;
+  transition: opacity 125ms ease;
+  line-height: inherit;
+  position: absolute;
+  margin-left: -1.2em;
+  padding-right: 0.5em;
+}
+
+a.title-fragment > img {
+  width: 1em;
+  height: 1em;
+}
+
+div.component-demo {
+  margin-bottom: 3rem;
+}
+
+div.component-demo h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+div.component-demo h2 span {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+div.component-demo h2 .stackblitz, div.component-demo h2 .toggle-code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+div.component-demo h2 .toggle-code svg {
+  vertical-align: middle;
+  fill: #28a745;
+}
+
+div.component-demo h2 .stackblitz .stackblitz-icon {
+  height: 1.2rem;
+  margin-left: -0.5rem;
+}
+
+div.component-demo h2:hover > .title-fragment {
+  opacity: 1;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav {
+  padding: 0.5rem 1.25rem 0;
+  font-size: 80%;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav .nav-link.active {
+  background-color: #f5f2f0;
+  border-bottom: 1px solid #f5f2f0;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav .nav-link:not(.active) {
+  color: #999;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav .nav-link:not(.active):hover {
+  color: #666;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav.nav-pills {
+  border-right: 1px solid  #dee2e6;
+  padding-left: .75rem;
+  padding-right: 0;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav.nav-pills .nav-link.active {
+  color: #666;
+  background-color: #f5f5f5;
+  border: 1px solid  #dee2e6;
+  border-right-color: #f5f5f5;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -1px;
+}
+
+div.component-demo .tabset-code ngb-tabset .nav.nav-pills + .tab-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: hidden;
+}
+
+div.component-demo .tabset-code ngb-tabset pre {
+  margin: 0;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.examples-legend {
+  font-size: 80%;
+}
+
+app-api-docs,
+app-api-docs-class,
+app-api-docs-config {
+  display: block;
+}
+
+app-api-docs:not(:first-child),
+app-api-docs-class:not(:first-child),
+app-api-docs-config:not(:first-child) {
+  margin-top: 3rem;
+  border-top: 1px solid #999;
+  padding-top: 1rem;
+}
+
+.overview .alert {
+  border-left-width: 5px;
+  border-radius: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+code[class*='language-'],
+pre[class*='language-'], ngb-alert {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+span.token.tag {
+  font-size: 1em;
+  padding: 0;
+}
+
+ngb-datepicker.rtl {
+  direction: rtl;
+}
+
+ngb-datepicker.rtl ngb-datepicker-navigation-select select.custom-select {
+  background-position: left 0.25rem center;
+}
+
+ngb-datepicker.rtl .ngb-dp-arrow.right .ngb-dp-navigation-chevron {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  margin: 0 0 0 0.25rem;
+}
+
+ngb-datepicker.rtl .ngb-dp-navigation-chevron {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 0 0.25rem 0 0;
+}
+
+ngb-datepicker.hebrew .ngb-dp-day {
+  width: 2.75rem;
+  height: 2.75rem;
+  line-height: 1rem;
+}
+
+ngb-datepicker.hebrew .ngb-dp-weekday {
+  width: 2.75rem;
+}
+
+ngb-carousel .carousel-item img {
+  width: 100%;
+}
+/*# sourceMappingURL=app.css.map */

@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display AudioPrint', () => {
+  it('should display 欧朋点读笔', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('AudioPrint');
+    expect(page.getTitleText()).toEqual('欧朋点读笔');
   });
 
   afterEach(async () => {

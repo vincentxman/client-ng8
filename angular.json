@@ -35,7 +35,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/style/styles.css",
               "src/style/app.scss",
-              "src/style/demos.css"         
+              "src/style/demos.css"
             ],
             "scripts": []
           },
@@ -111,7 +111,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/style/styles.css",
               "src/style/app.scss",
-              "src/style/demos.css"         
+              "src/style/demos.css"
             ],
 
             "scripts": []
