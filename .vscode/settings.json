@@ -6,9 +6,9 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/*.bak": true,
-        "**/*.spec.ts": true,
-        "**/node_modules": true,
-        "**/e2e": true
+        "**/*.spec.ts": false,
+        "**/node_modules": false,
+        "**/e2e": false
     },
     "explorerExclude.backup": null
 }
