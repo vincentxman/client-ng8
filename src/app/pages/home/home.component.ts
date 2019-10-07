@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Crawler } from 'crawler';
+
 
 @Component({
   selector: 'app-home',
@@ -9,4 +9,5 @@ import { Crawler } from 'crawler';
 })
 export class HomeComponent {
   public version: string = environment.version;
+
 }
