@@ -21,6 +21,7 @@ import { AccordionComponent } from './components/accordion/accordion.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
 import { FragmentDirective } from './shared/fragment.directive';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { FragmentDirective } from './shared/fragment.directive';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
