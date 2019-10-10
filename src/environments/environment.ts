@@ -7,6 +7,7 @@ import { versions } from './versions';
 export const environment = {
   production: false,
   // vincent
+  isMemoDB: false,
   version: versions.app
 };
 

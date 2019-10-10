@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "0-start": "ng serve --proxy-config proxy.conf.json",
     "start-4200": "ng serve --open --proxy-config proxy.conf.json",
     "build": "ng build",
-    "build-prod": "ng build --prod --aot",
-    "client2Ftp": "gulp client2Ftp",
+    "1-build-prod": "ng build --prod --aot",
+    "2-client2Ftp": "gulp client2Ftp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,7 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "bootstrap": "^4.3.1",
     "concurrently": "^4.1.2",
-    "rxjs": "~6.4.0",
+    "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
@@ -39,6 +39,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-in-memory-web-api": "^0.9.0",
     "codelyzer": "^5.0.0",
     "ftp-deploy": "^2.3.5",
     "gulp": "^4.0.2",

@@ -4,7 +4,7 @@ var FtpDeploy = require("ftp-deploy");
 var ftpDeploy = new FtpDeploy();
 var config = {
   user: "audioprint",
-  password: "audioprint12345",
+  password: "12@*aZs&f=-23@%^@sddAZ",
   host: "o-pen.com.cn",
   port: 21,
   localRoot: __dirname + "/dist/audioprint/",
