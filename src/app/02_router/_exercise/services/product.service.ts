@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './messages.service';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/model/t/product';
+import { Product } from 'src/app/02_router/_exercise/class/product';
 
 @Injectable({
   providedIn: 'root'
