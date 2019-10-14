@@ -5,14 +5,20 @@ import { CodeHighlightService } from './code/code-highlight.service';
 import { VCodeComponent } from './code/code.component';
 import { FragmentDirective } from './fragment/fragment.directive';
 import { SideNavComponent } from './wrapper/side-nav/side-nav.component';
+import { PageHeaderComponent } from './wrapper/page-header/page-header.component';
+import { PageWrapperComponent } from './wrapper/page-wrapper/page-wrapper.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     VCodeComponent,
     FragmentDirective,
     SideNavComponent,
+    PageHeaderComponent,
+    PageWrapperComponent,
   ],
   imports: [
+    NgbModule,
     CommonModule,
     RouterModule
   ],
@@ -20,8 +26,10 @@ import { SideNavComponent } from './wrapper/side-nav/side-nav.component';
     VCodeComponent,
     FragmentDirective,
     SideNavComponent,
+    PageHeaderComponent,
+    PageWrapperComponent,
   ],
   providers: [CodeHighlightService],
 })
-export class VToolModule {
+export class VShareModule {
 }
