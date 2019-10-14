@@ -14,17 +14,16 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './01_header/header.component';
 import { FooterComponent } from './03_footer/footer.component';
-import { IconsComponent } from './shared/icons/icons.component';
+import { IconsComponent } from '../_share/icons/icons.component';
 
 import { HomeComponent } from './02_router/home/home.component';
 import { DownloadComponent } from './02_router/download/download.component';
-import { GettingStartedComponent } from './02_router/_getting-started/getting-started/getting-started.component';
+import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
 import { PageWrapperComponent } from './02_router/_getting-started/page-wrapper/page-wrapper.component';
-import { SideNavComponent } from './02_router/_getting-started/side-nav/side-nav.component';
+import { SideNavComponent } from '../_share/wrapper/side-nav/side-nav.component';
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { PageHeaderComponent } from './02_router/_getting-started/page-header/page-header.component';
-import { FragmentDirective } from './shared/fragment.directive';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ProductComponent } from './02_router/_exercise/product/product.component';
 import { HeroComponent } from './02_router/_exercise/hero/hero.component';
@@ -45,7 +44,6 @@ import { VToolModule } from 'src/_share';
     AccordionComponent,
     AlertComponent,
     PageHeaderComponent,
-    FragmentDirective,
     ProductComponent,
     HeroComponent,
     ExerciseComponent,

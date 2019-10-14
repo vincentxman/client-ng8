@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DownloadComponent } from './02_router/download/download.component';
 import { HomeComponent } from './02_router/home/home.component';
-import { GettingStartedComponent } from './02_router/_getting-started/getting-started/getting-started.component';
+import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
 import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
