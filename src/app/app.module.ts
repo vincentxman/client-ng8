@@ -40,7 +40,6 @@ import { VToolModule } from 'src/_share';
     IconsComponent,
     GettingStartedComponent,
     PageWrapperComponent,
-    SideNavComponent,
     AccordionComponent,
     AlertComponent,
     PageHeaderComponent,
