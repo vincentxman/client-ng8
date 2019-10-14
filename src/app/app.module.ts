@@ -29,6 +29,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ProductComponent } from './02_router/_exercise/product/product.component';
 import { HeroComponent } from './02_router/_exercise/hero/hero.component';
 import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
+import { VToolModule } from 'src/_tools';
 
 @NgModule({
   declarations: [
@@ -47,13 +48,14 @@ import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.compo
     FragmentDirective,
     ProductComponent,
     HeroComponent,
-    ExerciseComponent
+    ExerciseComponent,
   ],
   imports: [
     NgbModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    VToolModule,
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : []

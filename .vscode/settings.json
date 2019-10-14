@@ -6,7 +6,7 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/*.bak": true,
-        "**/*.spec.ts": false,
+        "**/*.spec.ts": true,
         "**/node_modules": true,
         "**/e2e": true
     },

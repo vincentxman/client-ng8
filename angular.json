@@ -34,9 +34,10 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/style/styles.css",
-              "src/style/app.scss"
+              "src/style/app.scss",
+              "node_modules/prismjs/themes/prism.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/prismjs/prism.js"]
           },
           "configurations": {
             "production": {
@@ -110,10 +111,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/style/styles.css",
               "src/style/app.scss",
-              "src/style/demos.css"
+              "src/style/demos.css",
+              "node_modules/prismjs/themes/prism.css"
             ],
 
-            "scripts": []
+            "scripts": ["node_modules/prismjs/prism.js"]
           }
         },
         "lint": {
@@ -124,9 +126,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -142,6 +142,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "audioprint"
 }
