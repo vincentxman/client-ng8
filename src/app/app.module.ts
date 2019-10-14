@@ -29,7 +29,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ProductComponent } from './02_router/_exercise/product/product.component';
 import { HeroComponent } from './02_router/_exercise/hero/hero.component';
 import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
-import { VToolModule } from 'src/_tools';
+import { VToolModule } from 'src/_share';
 
 @NgModule({
   declarations: [

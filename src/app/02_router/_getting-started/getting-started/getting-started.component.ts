@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Snippet } from 'src/_tools/code/snippet';
+import { Snippet } from 'src/_share/code/snippet';
 
 @Component({
   selector: 'app-getting-started',
