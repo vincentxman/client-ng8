@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Snippet } from 'src/_share/code/snippet';
 
 @Component({
@@ -50,10 +50,4 @@ export class GettingStartedComponent implements OnInit {
       }
     `,
   });
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

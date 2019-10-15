@@ -10,9 +10,9 @@ import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.compo
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
+  { path: 'getting-started', component: GettingStartedComponent},
   { path: 'download', component: DownloadComponent },
   { path: 'exercise', component: ExerciseComponent },
-  { path: 'getting-started', component: GettingStartedComponent},
   { path: 'components', pathMatch: 'full', redirectTo: 'components/alert' },
   { path: 'components/alert',  component: AlertComponent },
   { path: 'components/accordion',  component: AccordionComponent },

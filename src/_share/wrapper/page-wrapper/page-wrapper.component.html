@@ -41,8 +41,8 @@
           <li
             ngbDropdown placement="bottom-right"
             class="nav-item align-self-center ml-0 ml-md-auto
-            navigation-dropdown">
-            <!-- *ngIf="tableOfContents.length && isLargeScreenOrLess"> -->
+            navigation-dropdown"
+            *ngIf="tableOfContents.length && isLargeScreenOrLess">
             <span ngbDropdownToggle class="nav-link" title="Table of
               contents">
               <span class="sr-only">Table of content</span>
@@ -64,11 +64,11 @@
                   36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36z"></path></svg>
             </span>
 
-            <!-- <div class="dropdown-menu-right" ngbDropdownMenu>
-                            <a *ngFor="let topic of tableOfContents"
-                                class="dropdown-item" [routerLink]=""
-                                [fragment]="topic.fragment">{{topic.title}}</a>
-                        </div> -->
+            <div class="dropdown-menu-right" ngbDropdownMenu>
+              <a *ngFor="let topic of tableOfContents"
+                class="dropdown-item" [routerLink]=""
+                [fragment]="topic.fragment">{{topic.title}}</a>
+            </div>
           </li>
         </ul>
       </header>
@@ -76,7 +76,6 @@
         <div class="col-12 col-xl-9 px-md-0 pr-xl-4">
           <ng-content></ng-content>
         </div>
-        <p>--------------------------------------------------</p>
         <div class="col-12 col-xl-3 d-none d-xl-block contextual-nav">
           <ul class="nav flex-column text-muted pt-4">
             <li *ngFor="let topic of tableOfContents" class="nav-item">
@@ -85,7 +84,6 @@
             </li>
           </ul>
         </div>
-        <p>=================================================</p>
       </section>
     </div>
   </div>
