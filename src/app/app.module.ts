@@ -24,10 +24,16 @@ import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VShareModule } from 'src/_share';
 import { VExerciseModule } from './02_router/_exercise/exercise.module';
+import { PageWrapperComponent } from './02_router/_components/_wrapper/page-wrapper/page-wrapper.component';
+import { PageHeaderComponent } from './02_router/_components/_wrapper/page-header/page-header.component';
+import { SideNavComponent } from './02_router/_components/_wrapper/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SideNavComponent,
+    PageHeaderComponent,
+    PageWrapperComponent,
     HomeComponent,
     DownloadComponent,
     HeaderComponent,
