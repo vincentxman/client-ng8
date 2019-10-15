@@ -6,7 +6,7 @@ import { Snippet } from 'src/_share/code/snippet';
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.css']
 })
-export class GettingStartedComponent implements OnInit {
+export class GettingStartedComponent {
 
   codeInstall = Snippet({
     lang: 'bash',

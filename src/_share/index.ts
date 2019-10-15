@@ -8,6 +8,7 @@ import { SideNavComponent } from './wrapper/side-nav/side-nav.component';
 import { PageHeaderComponent } from './wrapper/page-header/page-header.component';
 import { PageWrapperComponent } from './wrapper/page-wrapper/page-wrapper.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SideNavComponent,
     PageHeaderComponent,
     PageWrapperComponent,
+    AppOverviewSectionComponent,
+    AppOverviewDirective,
   ],
   imports: [
     NgbModule,
@@ -28,6 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SideNavComponent,
     PageHeaderComponent,
     PageWrapperComponent,
+    AppOverviewSectionComponent,
+    AppOverviewDirective,
   ],
   providers: [CodeHighlightService],
 })

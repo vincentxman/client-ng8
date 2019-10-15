@@ -14,6 +14,7 @@ export class FooterComponent implements OnInit {
 
   @Input()
   star = new Star('aa', 'bb');
+
   changeStar() {
     this.star.lastName = 'xjl';
   }
