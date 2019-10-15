@@ -22,9 +22,7 @@ import { GettingStartedComponent } from './02_router/getting-started/getting-sta
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
 import { VShareModule } from 'src/_share';
-import { ExSideNavComponent } from './02_router/_exercise/_wrapper/ex-side-nav/ex-side-nav.component';
 import { VExerciseModule } from './02_router/_exercise/exercise.module';
 
 @NgModule({
@@ -38,8 +36,6 @@ import { VExerciseModule } from './02_router/_exercise/exercise.module';
     GettingStartedComponent,
     AccordionComponent,
     AlertComponent,
-    ExerciseComponent,
-    ExSideNavComponent,
   ],
   imports: [
     NgbModule,

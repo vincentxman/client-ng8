@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ExSideNavComponent } from './_wrapper/ex-side-nav/ex-side-nav.component';
 import { ProductComponent } from './product/product.component';
 import { HeroComponent } from './hero/hero.component';
 
@@ -22,10 +21,8 @@ export const ROUTES = [
     NgbModule,
     CommonModule,
     RouterModule,
-    //ExSideNavComponent,
   ],
   exports: [
-    //ExSideNavComponent,
     ProductComponent,
     HeroComponent,
   ],

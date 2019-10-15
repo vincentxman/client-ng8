@@ -5,7 +5,6 @@ import { HomeComponent } from './02_router/home/home.component';
 import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
 import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
-import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
 
 import {ROUTES as EXERCISE_ROUTES} from './02_router/_exercise/exercise.module';
 const routes: Routes = [
