@@ -8,7 +8,13 @@
         "**/*.bak": true,
         "**/*.spec.ts": true,
         "**/node_modules": true,
-        "**/e2e": true
+        "**/e2e": true,
+        ".idea": true,
+        "dist": true,
+        ".vscode": true,
+        "yarn-error.log": true,
+        "yarn.lock": true,
+        "**/browserslist": true
     },
     "explorerExclude.backup": null
 }

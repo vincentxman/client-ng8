@@ -6,11 +6,11 @@ import { ExSideNavComponent } from './_wrapper/ex-side-nav/ex-side-nav.component
 import { ProductComponent } from './product/product.component';
 import { HeroComponent } from './hero/hero.component';
 
-
 export const ROUTES = [
   { path: '', pathMatch: 'full', redirectTo: 'products' },
   { path: 'products', component: ProductComponent },
   { path: 'heroes', component: HeroComponent },
+  { path: '**', component: HeroComponent },
 ];
 
 @NgModule({
