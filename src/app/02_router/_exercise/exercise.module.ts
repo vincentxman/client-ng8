@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductComponent } from './product/product.component';
 import { HeroComponent } from './hero/hero.component';
+import { SideNavExerciseComponent } from './_wrapper/side-nav-exercise/side-nav-exercise.component';
+import { PageWrapperExerciseComponent } from './_wrapper/page-wrapper-exercise/page-wrapper-exercise.component';
 
 export const ROUTES = [
   { path: '', pathMatch: 'full', redirectTo: 'products' },
@@ -16,6 +18,8 @@ export const ROUTES = [
   declarations: [
     ProductComponent,
     HeroComponent,
+    SideNavExerciseComponent,
+    PageWrapperExerciseComponent,
   ],
   imports: [
     NgbModule,
