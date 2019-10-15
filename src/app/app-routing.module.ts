@@ -7,15 +7,16 @@ import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
 
+import {ROUTES as EXERCISE_ROUTES} from './02_router/_exercise/exercise.module';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'download', component: DownloadComponent },
-  { path: 'exercise', component: ExerciseComponent },
   { path: 'components', pathMatch: 'full', redirectTo: 'components/alert' },
   { path: 'components/alert', component: AlertComponent },
   { path: 'components/accordion', component: AccordionComponent },
+  { path: 'exercise', children: EXERCISE_ROUTES },
   { path: '**', redirectTo: 'home' }
 ];
 

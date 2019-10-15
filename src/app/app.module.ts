@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 
 // TODO InMemoryDataService
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './02_router/_exercise/services/in-memory-data.service';
+import { InMemoryDataService } from '../services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +22,10 @@ import { GettingStartedComponent } from './02_router/getting-started/getting-sta
 import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { ProductComponent } from './02_router/_exercise/product/product.component';
-import { HeroComponent } from './02_router/_exercise/hero/hero.component';
 import { ExerciseComponent } from './02_router/_exercise/exercise/exercise.component';
 import { VShareModule } from 'src/_share';
+import { ExSideNavComponent } from './02_router/_exercise/_wrapper/ex-side-nav/ex-side-nav.component';
+import { VExerciseModule } from './02_router/_exercise/exercise.module';
 
 @NgModule({
   declarations: [
@@ -38,9 +38,8 @@ import { VShareModule } from 'src/_share';
     GettingStartedComponent,
     AccordionComponent,
     AlertComponent,
-    ProductComponent,
-    HeroComponent,
     ExerciseComponent,
+    ExSideNavComponent,
   ],
   imports: [
     NgbModule,
@@ -50,7 +49,8 @@ import { VShareModule } from 'src/_share';
     VShareModule,
 
     // TODO InMemoryDataService
-    environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : []
+    environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
+    VExerciseModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
