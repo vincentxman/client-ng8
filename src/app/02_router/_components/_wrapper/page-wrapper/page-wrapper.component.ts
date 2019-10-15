@@ -1,15 +1,13 @@
 import { Component, Input, NgZone, ContentChildren, QueryList } from '@angular/core';
-import { PageHeaderComponent } from '../page-header/page-header.component';
+import { PageHeaderComponent } from '../../../../../_share/wrapper/page-header/page-header.component';
 
 @Component({
   selector: 'app-page-wrapper',
   templateUrl: './page-wrapper.component.html'
 })
 export class PageWrapperComponent {
-
   @Input() pageTitle: string;
   @ContentChildren(PageHeaderComponent) private mtableOfContents: QueryList<PageHeaderComponent>;
-
 
   isLargeScreenOrLess: boolean;
   sidebarCollapsed = true;
@@ -24,6 +22,4 @@ export class PageWrapperComponent {
   get tableOfContents() {
     return this.mtableOfContents ? this.mtableOfContents.toArray() : [];
   }
-
 }
-

@@ -6,6 +6,7 @@ import { VCodeComponent } from './code/code.component';
 import { FragmentDirective } from './fragment/fragment.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
+import { PageHeaderComponent } from './wrapper/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
     FragmentDirective,
     AppOverviewSectionComponent,
     AppOverviewDirective,
+    PageHeaderComponent,
   ],
   imports: [
     NgbModule,
@@ -24,6 +26,7 @@ import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
     FragmentDirective,
     AppOverviewSectionComponent,
     AppOverviewDirective,
+    PageHeaderComponent,
   ],
   providers: [CodeHighlightService],
 })
