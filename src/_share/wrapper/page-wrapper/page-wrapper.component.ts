@@ -1,4 +1,5 @@
-import { Component, Input, NgZone } from '@angular/core';
+import { Component, Input, NgZone, ContentChildren, QueryList } from '@angular/core';
+import { PageHeaderComponent } from '../page-header/page-header.component';
 
 @Component({
   selector: 'app-page-wrapper',
@@ -7,6 +8,9 @@ import { Component, Input, NgZone } from '@angular/core';
 export class PageWrapperComponent {
 
   @Input() pageTitle: string;
+  @ContentChildren(PageHeaderComponent) private mtableOfContents: QueryList<PageHeaderComponent>;
+
+
   isLargeScreenOrLess: boolean;
   sidebarCollapsed = true;
 
@@ -15,6 +19,10 @@ export class PageWrapperComponent {
     this.isLargeScreenOrLess = largeScreenQL.matches;
     // tslint:disable-next-line: deprecation
     largeScreenQL.addListener((event) => ngZone.run(() => this.isLargeScreenOrLess = event.matches));
+  }
+
+  get tableOfContents() {
+    return this.mtableOfContents ? this.mtableOfContents.toArray() : [];
   }
 
 }

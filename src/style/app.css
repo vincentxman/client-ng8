@@ -123,7 +123,7 @@ header.title .content-tabset .navigation-dropdown.show .nav-link {
 }
 
 .toc .toc-item .nav > li.active > a {
-  font-weight: 500;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.85);
 }
 

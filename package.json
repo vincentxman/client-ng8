@@ -6,8 +6,8 @@
     "0-start": "ng serve --proxy-config proxy.conf.json",
     "start-4200": "ng serve --open --proxy-config proxy.conf.json",
     "build": "ng build",
-    "1-build-prod": "ng build --prod --aot",
-    "2-client2Ftp": "gulp client2Ftp",
+     "1-build-prod": "ng build --prod --aot",
+     "2-client2Ftp": "gulp client2Ftp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
