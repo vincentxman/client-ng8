@@ -3,18 +3,16 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { DownloadComponent } from './02_router/download/download.component';
 import { HomeComponent } from './02_router/home/home.component';
 import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
-import { AlertComponent } from './02_router/_components/alert/alert.component';
-import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
 
 import {ROUTES as EXERCISE_ROUTES} from './02_router/_exercise/exercise.module';
+import {ROUTES as COMPONENTS_ROUTES} from './02_router/_components/components.module';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'download', component: DownloadComponent },
-  { path: 'components', pathMatch: 'full', redirectTo: 'components/alert' },
-  { path: 'components/alert', component: AlertComponent },
-  { path: 'components/accordion', component: AccordionComponent },
+  { path: 'components', children: COMPONENTS_ROUTES},
   { path: 'exercise', children: EXERCISE_ROUTES },
   { path: '**', redirectTo: 'home' }
 ];

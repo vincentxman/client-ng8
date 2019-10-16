@@ -7,6 +7,7 @@ import { FragmentDirective } from './fragment/fragment.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
 import { PageHeaderComponent } from './wrapper/page-header/page-header.component';
+import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PageHeaderComponent } from './wrapper/page-header/page-header.component
     AppOverviewSectionComponent,
     AppOverviewDirective,
     PageHeaderComponent,
+    IconsComponent,
   ],
   imports: [
     NgbModule,
@@ -27,6 +29,7 @@ import { PageHeaderComponent } from './wrapper/page-header/page-header.component
     AppOverviewSectionComponent,
     AppOverviewDirective,
     PageHeaderComponent,
+    IconsComponent,
   ],
   providers: [CodeHighlightService],
 })

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-const componentsList = [
-  'Products', 'Heroes', 'GraphQL'
-];
 
 @Component({
   selector: 'app-side-nav-exercise',
@@ -11,8 +8,10 @@ const componentsList = [
   styleUrls: ['./side-nav-exercise.component.css']
 })
 export class SideNavExerciseComponent implements OnInit {
-  components = componentsList;
-  constructor(private router: Router) { }
+  static sidebarItems: string[];
+  components = SideNavExerciseComponent.sidebarItems;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }
@@ -20,4 +19,6 @@ export class SideNavExerciseComponent implements OnInit {
   isActive(currentRoute: any[], exact = true): boolean {
     return this.router.isActive(this.router.createUrlTree(currentRoute), exact);
   }
+
 }
+

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-const componentsList = [
-  'Accordion', 'Alert'
-];
 
 @Component({
   selector: 'app-side-nav',
@@ -11,7 +8,9 @@ const componentsList = [
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
-  components = componentsList;
+  static sidebarItems: string[];
+  components = SideNavComponent.sidebarItems;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -20,5 +19,5 @@ export class SideNavComponent implements OnInit {
   isActive(currentRoute: any[], exact = true): boolean {
     return this.router.isActive(this.router.createUrlTree(currentRoute), exact);
   }
-
 }
+

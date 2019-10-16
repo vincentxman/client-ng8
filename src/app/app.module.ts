@@ -14,32 +14,23 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './01_header/header.component';
 import { FooterComponent } from './03_footer/footer.component';
-import { IconsComponent } from '../_share/icons/icons.component';
 
 import { HomeComponent } from './02_router/home/home.component';
 import { DownloadComponent } from './02_router/download/download.component';
 import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
-import { AccordionComponent } from './02_router/_components/accordion/accordion.component';
-import { AlertComponent } from './02_router/_components/alert/alert.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VShareModule } from 'src/_share';
 import { VExerciseModule } from './02_router/_exercise/exercise.module';
-import { PageWrapperComponent } from './02_router/_components/_wrapper/page-wrapper/page-wrapper.component';
-import { SideNavComponent } from './02_router/_components/_wrapper/side-nav/side-nav.component';
+import { VComponentsModule } from './02_router/_components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
-    PageWrapperComponent,
     HomeComponent,
     DownloadComponent,
     HeaderComponent,
     FooterComponent,
-    IconsComponent,
     GettingStartedComponent,
-    AccordionComponent,
-    AlertComponent,
   ],
   imports: [
     NgbModule,
@@ -47,6 +38,7 @@ import { SideNavComponent } from './02_router/_components/_wrapper/side-nav/side
     AppRoutingModule,
     HttpClientModule,
     VShareModule,
+    VComponentsModule,
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
