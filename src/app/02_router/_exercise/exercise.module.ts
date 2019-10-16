@@ -10,6 +10,7 @@ import { SortableHeaderDirective } from './country/directive/sortable.directive'
 import { NgbdTableCompleteComponent } from './country/table-complete/table-complete.component';
 import { FormsModule } from '@angular/forms';
 import { ExerciseRoutingModule } from './exercise-routing.module';
+import { VShareModule } from 'src/_share';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ExerciseRoutingModule } from './exercise-routing.module';
     NgbModule,
     FormsModule,
     CommonModule,
+    VShareModule,
     ExerciseRoutingModule,
   ],
   exports: [

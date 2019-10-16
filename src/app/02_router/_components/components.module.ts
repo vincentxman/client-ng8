@@ -6,6 +6,7 @@ import { AlertComponent } from './alert/alert.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { SideNavComponent } from './_wrapper/side-nav/side-nav.component';
 import { PageWrapperComponent } from './_wrapper/page-wrapper/page-wrapper.component';
+import { VShareModule } from 'src/_share';
 
 SideNavComponent.sidebarItems = [
   'Accordion', 'Alert'
@@ -30,6 +31,7 @@ export const ROUTES = [
     NgbModule,
     CommonModule,
     RouterModule,
+    VShareModule,
   ],
   exports: [
     PageWrapperComponent

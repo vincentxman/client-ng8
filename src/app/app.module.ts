@@ -39,10 +39,10 @@ import { VComponentsModule } from './02_router/_components/components.module';
     HttpClientModule,
     VShareModule,
     VComponentsModule,
+    VExerciseModule,
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
-    VExerciseModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
