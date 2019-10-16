@@ -6,11 +6,13 @@ import { ProductComponent } from './product/product.component';
 import { HeroComponent } from './hero/hero.component';
 import { SideNavExerciseComponent } from './_wrapper/side-nav-exercise/side-nav-exercise.component';
 import { PageWrapperExerciseComponent } from './_wrapper/page-wrapper-exercise/page-wrapper-exercise.component';
+import { GhQLComponent } from './gh-ql/gh-ql.component';
 
 export const ROUTES = [
   { path: '', pathMatch: 'full', redirectTo: 'products' },
   { path: 'products', component: ProductComponent },
   { path: 'heroes', component: HeroComponent },
+  { path: 'graphql', component: GhQLComponent },
   { path: '**', component: HeroComponent },
 ];
 
@@ -20,6 +22,7 @@ export const ROUTES = [
     HeroComponent,
     SideNavExerciseComponent,
     PageWrapperExerciseComponent,
+    GhQLComponent,
   ],
   imports: [
     NgbModule,

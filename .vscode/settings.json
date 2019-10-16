@@ -16,5 +16,6 @@
         "yarn.lock": true,
         "**/browserslist": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+    "git.ignoreLimitWarning": true
 }

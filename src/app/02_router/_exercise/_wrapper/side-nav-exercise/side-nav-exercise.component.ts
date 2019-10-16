@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 const componentsList = [
-  'Products', 'Heroes'
+  'Products', 'Heroes', 'GraphQL'
 ];
 
 @Component({
