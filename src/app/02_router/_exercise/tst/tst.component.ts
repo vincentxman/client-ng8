@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/services/product.service';
-import { HeroService } from 'src/services/hero.service';
-import { Hero } from '../_class/hero';
+import { ProductService } from 'src/app/02_router/_exercise/tst/service/product.service';
+import { HeroService } from 'src/app/02_router/_exercise/tst/service/hero.service';
+import { Hero } from './class/hero';
 
 @Component({
   selector: 'app-tst',
