@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CodeHighlightService } from './code/code-highlight.service';
 import { VCodeComponent } from './code/code.component';
-import { FragmentDirective } from './fragment/fragment.directive';
+import { FragmentDirective } from './directive/fragment.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppOverviewSectionComponent, AppOverviewDirective } from './overview';
 import { PageHeaderComponent } from './wrapper/page-header/page-header.component';
