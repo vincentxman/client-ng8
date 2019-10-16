@@ -1,7 +1,7 @@
 import {DecimalPipe} from '@angular/common';
 import {Component, QueryList, ViewChildren} from '@angular/core';
 import {Observable} from 'rxjs';
-import { SortableHeaderDirective, SortEvent } from '../directive/sortable.directive';
+import { SortableHeaderDirective, SortEvent } from '../../../../../_share/directive/sortable.directive';
 import { CountryService } from '../service/country.service';
 import { Country } from '../interface/country';
 

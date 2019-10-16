@@ -7,7 +7,8 @@ import { COUNTRIES } from '../db/countries';
 
 import { DecimalPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
-import { SortDirection } from '../directive/sortable.directive';
+import { SortDirection } from '../../../../../_share/directive/sortable.directive';
+import { CountryLazyServiceModule } from '../country.lazy.service.module';
 
 
 interface SearchResult {
@@ -44,7 +45,8 @@ function matches(country: Country, term: string, pipe: PipeTransform) {
     || pipe.transform(country.population).includes(term);
 }
 
-@Injectable({ providedIn: 'root' })
+// @Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: CountryLazyServiceModule}) // 懒加载服务
 export class CountryService {
   // tslint:disable-next-line: variable-name
   private _loading$ = new BehaviorSubject<boolean>(true);

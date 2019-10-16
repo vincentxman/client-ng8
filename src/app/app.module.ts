@@ -20,7 +20,6 @@ import { DownloadComponent } from './02_router/download/download.component';
 import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VShareModule } from 'src/_share';
-import { VExerciseModule } from './02_router/_exercise/exercise.module';
 import { VComponentsModule } from './02_router/_components/components.module';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { VComponentsModule } from './02_router/_components/components.module';
     HttpClientModule,
     VShareModule,
     VComponentsModule,
-    VExerciseModule,
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],

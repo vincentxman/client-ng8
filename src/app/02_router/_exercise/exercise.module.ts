@@ -6,11 +6,12 @@ import { PageWrapperExerciseComponent } from './_wrapper/page-wrapper-exercise/p
 import { GhQLComponent } from './gh-ql/gh-ql.component';
 import { TstComponent } from './tst/tst.component';
 import { CountryComponent } from './country/country.component';
-import { SortableHeaderDirective } from './country/directive/sortable.directive';
+import { SortableHeaderDirective } from '../../../_share/directive/sortable.directive';
 import { NgbdTableCompleteComponent } from './country/table-complete/table-complete.component';
 import { FormsModule } from '@angular/forms';
 import { ExerciseRoutingModule } from './exercise-routing.module';
 import { VShareModule } from 'src/_share';
+import { CountryLazyServiceModule } from './country/country.lazy.service.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { VShareModule } from 'src/_share';
     CommonModule,
     VShareModule,
     ExerciseRoutingModule,
+    CountryLazyServiceModule,
   ],
   exports: [
   ],
@@ -38,4 +40,5 @@ import { VShareModule } from 'src/_share';
   ],
 })
 export class VExerciseModule {
+  // { path: 'exercise', loadChildren: './02_router/_exercise/exercise.module#VExerciseModule' }, // 懒加载
 }

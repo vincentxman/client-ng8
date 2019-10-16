@@ -8,6 +8,8 @@ export interface SortEvent {
   direction: SortDirection;
 }
 
+// 表单栏位排序
+// <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
 @Directive({
   selector: 'th[sortable]',
   host: {
