@@ -1,3 +1,12 @@
 <app-page-wrapper-exercise pageTitle="GraphQL">
-</app-page-wrapper-exercise>
 
+  <button type="button" class="btn btn-success m-2" (click)="getCats()">Get Cats</button>
+
+  <app-page-header title="All of Cats" fragment="all-of-cats" class="mt-0"></app-page-header>
+
+  <div class="card" *ngFor="let cat of data.cats">
+    <label class="content">Name: {{ cat.name }}</label>
+    <label class="content">Age: {{ cat.age }}</label>
+    <label class="content">Breed: {{ cat.breed }}</label>
+  </div>
+</app-page-wrapper-exercise>

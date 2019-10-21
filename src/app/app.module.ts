@@ -21,6 +21,7 @@ import { GettingStartedComponent } from './02_router/getting-started/getting-sta
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VShareModule } from 'src/_share';
 import { VComponentsModule } from './02_router/_components/components.module';
+import { GraphqlModule } from './graphql/graphql.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { VComponentsModule } from './02_router/_components/components.module';
     NgbModule,
     BrowserModule,
     AppRoutingModule,
+    GraphqlModule,
     HttpClientModule,
     VShareModule,
     VComponentsModule,
@@ -43,7 +45,7 @@ import { VComponentsModule } from './02_router/_components/components.module';
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy }, // URL 使用 #
   ],
   bootstrap: [AppComponent]
 })
