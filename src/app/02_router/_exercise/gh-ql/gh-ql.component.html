@@ -2,7 +2,7 @@
 
   <button type="button" class="btn btn-success m-2" (click)="getCats()">Get Cats</button>
 
-  <app-page-header title="All of Cats" fragment="all-of-cats" class="mt-0"></app-page-header>
+  <app-page-header title="All" fragment="all" class="mt-0"></app-page-header>
 
   <div class="card" *ngFor="let cat of data.cats">
     <label class="content">Name: {{ cat.name }}</label>

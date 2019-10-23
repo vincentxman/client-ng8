@@ -1,0 +1,12 @@
+mutation createCat{
+  createCat(catDto:{
+    name: "cat3",
+    age:27,
+    breed: "whitedog"
+  }){
+    id
+    name
+    age
+    breed
+  }
+}

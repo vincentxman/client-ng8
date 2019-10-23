@@ -28,6 +28,7 @@ export class GhQLComponent implements OnInit {
       }`
     }).subscribe(({ data, loading }) => {
       this.data = data;
+
       console.log(data);
     });
   }

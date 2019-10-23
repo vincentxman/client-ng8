@@ -1,0 +1,8 @@
+query getCats{
+  cats {
+    id
+    name
+    age
+    breed
+  }
+}
