@@ -1,0 +1,12 @@
+mutation updateCat{
+  updateCat(id:"5da9ea5dd78cac2298dcdcb0", catDto:{
+    name: "cat3",
+    age:3353,
+    breed: "whitedog"
+  }){
+    id
+    name
+    age
+    breed
+  }
+}

@@ -1,0 +1,8 @@
+query getCat{
+  cat(id:"5da9f717ad271613e015d73e"){
+    id
+    name
+    age
+    breed
+  }
+}

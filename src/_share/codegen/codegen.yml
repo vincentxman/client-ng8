@@ -1,9 +1,15 @@
 overwrite: true
 schema: http://localhost:8000/graphql
 generates:
-  ./src/_share/codegen/types.d.ts:
-    documents: src/**/*.graphql
+  ./src/_share/codegen/gh-ql.apollo-angular.ts:
+    documents: src/app/02_router/_exercise/gh-ql/**/*.graphql
     plugins:
       - typescript
-      - typescript-apollo-angular
       - typescript-operations
+      - typescript-apollo-angular
+  # ./src/_share/codegen/apollo-resolvers.ts:
+  #   documents: src/**/*.graphql
+  #   plugins:
+  #     - typescript
+  #     - typescript-operations
+  #     - typescript-resolvers

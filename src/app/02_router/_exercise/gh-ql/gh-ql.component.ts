@@ -1,35 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Cat, GetCatsGQL } from 'src/_share/codegen/gh-ql.apollo-angular';
 
 @Component({
   selector: 'app-gh-ql',
   templateUrl: './gh-ql.component.html',
   styleUrls: ['./gh-ql.component.css']
 })
-export class GhQLComponent implements OnInit {
-  data: any;
-  constructor(private apollo: Apollo) { }
+export class GhQLComponent {
+  cats: Observable<Cat[]>;
 
-  ngOnInit() {
-    this.getCats();
-  }
-
-  getCats(): void {
-    this.apollo.query({
-      query: gql`query {
-        cats {
-          id
-          name
-          age
-          breed
-        }
-      }`
-    }).subscribe(({ data, loading }) => {
-      this.data = data;
-
-      console.log(data);
-    });
+  constructor(getCatsGQL: GetCatsGQL) {
+    this.cats = getCatsGQL.watch().valueChanges.pipe(map(
+      result => {
+        return result.data.cats;
+      }
+    ));
   }
 }

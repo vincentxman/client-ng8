@@ -1,12 +1,8 @@
 <app-page-wrapper-exercise pageTitle="GraphQL">
 
-  <button type="button" class="btn btn-success m-2" (click)="getCats()">Get Cats</button>
-
   <app-page-header title="All" fragment="all" class="mt-0"></app-page-header>
-
-  <div class="card" *ngFor="let cat of data.cats">
-    <label class="content">Name: {{ cat.name }}</label>
-    <label class="content">Age: {{ cat.age }}</label>
-    <label class="content">Breed: {{ cat.breed }}</label>
-  </div>
+  <h1>Feed:</h1>
+  <ul>
+    <li *ngFor="let cat of cats | async">{{cat.id}}, {{ cat.name }}, {{cat.age}}, {{cat.breed}}</li>
+  </ul>
 </app-page-wrapper-exercise>
