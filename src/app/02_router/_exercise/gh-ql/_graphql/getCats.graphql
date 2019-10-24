@@ -1,5 +1,5 @@
-query getCats{
-  cats {
+query getCats($limit: Int!) {
+  cats(limit: $limit) {
     id
     name
     age

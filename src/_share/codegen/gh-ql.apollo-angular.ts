@@ -14,7 +14,7 @@ export type Scalars = {
 
 
 export type Cat = {
-  __typename?: 'Cat',
+   __typename?: 'Cat',
   id: Scalars['ID'],
   name: Scalars['String'],
   age: Scalars['Int'],
@@ -28,7 +28,7 @@ export type CatDto = {
 };
 
 export type Mutation = {
-  __typename?: 'Mutation',
+   __typename?: 'Mutation',
   createCat: Cat,
   updateCat: Cat,
   deleteCat: Cat,
@@ -51,10 +51,15 @@ export type MutationDeleteCatArgs = {
 };
 
 export type Query = {
-  __typename?: 'Query',
+   __typename?: 'Query',
   hello: Scalars['String'],
   cats: Array<Cat>,
   cat: Cat,
+};
+
+
+export type QueryCatsArgs = {
+  limit: Scalars['Int']
 };
 
 
@@ -63,7 +68,7 @@ export type QueryCatArgs = {
 };
 
 export type Subscription = {
-  __typename?: 'Subscription',
+   __typename?: 'Subscription',
   catAdded: Cat,
 };
 
@@ -72,64 +77,62 @@ export type CreateCatMutationVariables = {};
 
 export type CreateCatMutation = (
   { __typename?: 'Mutation' }
-  & {
-    createCat: (
-      { __typename?: 'Cat' }
-      & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
-    )
-  }
+  & { createCat: (
+    { __typename?: 'Cat' }
+    & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
+  ) }
 );
 
-export type DeleteCatMutationVariables = {};
+export type DeleteCatMutationVariables = {
+  id: Scalars['String']
+};
 
 
 export type DeleteCatMutation = (
   { __typename?: 'Mutation' }
-  & {
-    deleteCat: (
-      { __typename?: 'Cat' }
-      & Pick<Cat, 'id' | 'name' | 'age'>
-    )
-  }
+  & { deleteCat: (
+    { __typename?: 'Cat' }
+    & Pick<Cat, 'id' | 'name' | 'age'>
+  ) }
 );
 
-export type GetCatQueryVariables = {};
+export type GetCatQueryVariables = {
+  id: Scalars['String']
+};
 
 
 export type GetCatQuery = (
   { __typename?: 'Query' }
-  & {
-    cat: (
-      { __typename?: 'Cat' }
-      & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
-    )
-  }
+  & { cat: (
+    { __typename?: 'Cat' }
+    & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
+  ) }
 );
 
-export type GetCatsQueryVariables = {};
+export type GetCatsQueryVariables = {
+  limit: Scalars['Int']
+};
 
 
 export type GetCatsQuery = (
   { __typename?: 'Query' }
-  & {
-    cats: Array<(
-      { __typename?: 'Cat' }
-      & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
-    )>
-  }
+  & { cats: Array<(
+    { __typename?: 'Cat' }
+    & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
+  )> }
 );
 
-export type UpdateCatMutationVariables = {};
+export type UpdateCatMutationVariables = {
+  id: Scalars['String']
+};
 
 
 export type UpdateCatMutation = (
   { __typename?: 'Mutation' }
-  & {
-    updateCat: (
-      { __typename?: 'Cat' }
-      & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
-    )
-  }
+  & { updateCat: (
+    { __typename?: 'Cat' }
+    & Pick<Cat, 'id' | 'name' | 'age' | 'breed'>
+  ) }
 );
 
 
@@ -144,16 +147,16 @@ export const CreateCatDocument = gql`
 }
     `;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CreateCatGQL extends Apollo.Mutation<CreateCatMutation, CreateCatMutationVariables> {
-  document = CreateCatDocument;
-
-}
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CreateCatGQL extends Apollo.Mutation<CreateCatMutation, CreateCatMutationVariables> {
+    document = CreateCatDocument;
+    
+  }
 export const DeleteCatDocument = gql`
-    mutation deleteCat {
-  deleteCat(id: "5da9ea5dd78cac2298dcdcb0") {
+    mutation deleteCat($id: String!) {
+  deleteCat(id: $id) {
     id
     name
     age
@@ -161,16 +164,16 @@ export const DeleteCatDocument = gql`
 }
     `;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class DeleteCatGQL extends Apollo.Mutation<DeleteCatMutation, DeleteCatMutationVariables> {
-  document = DeleteCatDocument;
-
-}
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class DeleteCatGQL extends Apollo.Mutation<DeleteCatMutation, DeleteCatMutationVariables> {
+    document = DeleteCatDocument;
+    
+  }
 export const GetCatDocument = gql`
-    query getCat {
-  cat(id: "5da9f717ad271613e015d73e") {
+    query getCat($id: String!) {
+  cat(id: $id) {
     id
     name
     age
@@ -179,16 +182,16 @@ export const GetCatDocument = gql`
 }
     `;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class GetCatGQL extends Apollo.Query<GetCatQuery, GetCatQueryVariables> {
-  document = GetCatDocument;
-
-}
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetCatGQL extends Apollo.Query<GetCatQuery, GetCatQueryVariables> {
+    document = GetCatDocument;
+    
+  }
 export const GetCatsDocument = gql`
-    query getCats {
-  cats {
+    query getCats($limit: Int!) {
+  cats(limit: $limit) {
     id
     name
     age
@@ -197,16 +200,16 @@ export const GetCatsDocument = gql`
 }
     `;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class GetCatsGQL extends Apollo.Query<GetCatsQuery, GetCatsQueryVariables> {
-  document = GetCatsDocument;
-
-}
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetCatsGQL extends Apollo.Query<GetCatsQuery, GetCatsQueryVariables> {
+    document = GetCatsDocument;
+    
+  }
 export const UpdateCatDocument = gql`
-    mutation updateCat {
-  updateCat(id: "5da9ea5dd78cac2298dcdcb0", catDto: {name: "cat3", age: 3353, breed: "whitedog"}) {
+    mutation updateCat($id: String!) {
+  updateCat(id: $id, catDto: {name: "cat3", age: 3353, breed: "whitedog"}) {
     id
     name
     age
@@ -215,10 +218,10 @@ export const UpdateCatDocument = gql`
 }
     `;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UpdateCatGQL extends Apollo.Mutation<UpdateCatMutation, UpdateCatMutationVariables> {
-  document = UpdateCatDocument;
-
-}
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdateCatGQL extends Apollo.Mutation<UpdateCatMutation, UpdateCatMutationVariables> {
+    document = UpdateCatDocument;
+    
+  }

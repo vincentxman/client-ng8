@@ -1,5 +1,5 @@
-query getCat{
-  cat(id:"5da9f717ad271613e015d73e"){
+query getCat($id: String!) {
+  cat(id: $id){
     id
     name
     age

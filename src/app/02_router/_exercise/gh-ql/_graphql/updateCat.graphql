@@ -1,5 +1,5 @@
-mutation updateCat{
-  updateCat(id:"5da9ea5dd78cac2298dcdcb0", catDto:{
+mutation updateCat($id: String!){
+  updateCat(id: $id, catDto:{
     name: "cat3",
     age:3353,
     breed: "whitedog"

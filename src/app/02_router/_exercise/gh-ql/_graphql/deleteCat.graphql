@@ -1,5 +1,5 @@
-mutation deleteCat{
-  deleteCat(id:"5da9ea5dd78cac2298dcdcb0"){
+mutation deleteCat($id: String!){
+  deleteCat(id: $id){
     id
     name
     age
