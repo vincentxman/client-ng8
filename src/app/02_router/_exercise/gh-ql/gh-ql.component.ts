@@ -63,7 +63,7 @@ export class GhQLComponent implements OnInit {
   deleteCat(id: string): boolean {
     this.deleteCatGQL.mutate({ id: this.selId }).subscribe(
       (result) => {
-        console.log('got data', result.data);
+        console.log('deleteCat...', result.data);
         return true;
       },
       (error) => {
@@ -82,7 +82,7 @@ export class GhQLComponent implements OnInit {
       }
     ).valueChanges.pipe(map(
       (result, loading) => {
-        console.log(result.data.cats);
+        console.log('valueChanges...', result.data.cats);
         return result.data.cats;
       }
     ));
@@ -92,7 +92,7 @@ export class GhQLComponent implements OnInit {
     // this.createCatGQL.mutate({ name: cat.name, age: cat.age, breed: cat.breed }).subscribe(
     this.createCat2GQL.mutate({ catDt: cat }).subscribe(
       (result) => {
-        console.log('got data', result.data);
+        console.log('createCat...', result.data);
       },
       (error) => {
         console.log('there was an error sending the query', error);
@@ -103,7 +103,7 @@ export class GhQLComponent implements OnInit {
   updateCat(id: string, cat: CatDto) {
     this.updateCatGQL.mutate({ id, cat }).subscribe(
       (result) => {
-        console.log('got data', result.data);
+        console.log('updateCat...', result.data);
       },
       (error) => {
         console.log('there was an error sending the query', error);
