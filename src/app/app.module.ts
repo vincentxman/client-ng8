@@ -21,7 +21,7 @@ import { GettingStartedComponent } from './02_router/getting-started/getting-sta
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VShareModule } from 'src/_share';
 import { VComponentsModule } from './02_router/_components/components.module';
-import { GraphqlModule } from './graphql/graphql.module';
+import { GraphqlModule } from './graphql.module';
 
 @NgModule({
   declarations: [

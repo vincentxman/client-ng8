@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "3-codegen": "graphql-codegen --config src/_share/codegen/codegen.yml",
+    "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
     "generate-init": "graphql-codegen init"
   },
   "private": true,

@@ -1,8 +1,8 @@
-mutation createCat{
+mutation createCat($name: String!, $age: Int!, $breed: String){
   createCat(catDto:{
-    name: "cat3",
-    age:27,
-    breed: "whitedog"
+    name: $name,
+    age: $age,
+    breed: $breed
   }){
     id
     name

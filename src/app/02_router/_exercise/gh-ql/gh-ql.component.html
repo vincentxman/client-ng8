@@ -1,10 +1,14 @@
 <app-page-wrapper-exercise pageTitle="GraphQL">
 
   <app-page-header title="All" fragment="all" class="mt-0"></app-page-header>
+  <button type="button" class="btn btn-success m-2" (click)="doCreate()">Create</button>
+  <button type="button" class="btn btn-success m-2" (click)="doUpdate(selId)">Update</button>
   <button type="button" class="btn btn-success m-2" (click)="doDelete(selId)">Delete</button>
+  <button type="button" class="btn btn-success m-2" (click)="doGetCats()">getAllGets</button>
+
   <h6>selId: {{selId}}</h6>
   <ul>
     <li *ngFor="let i = index ; let cat of cats | async" (click)="doClick(cat.id)" >{{i}}:{{cat.id}}, {{ cat.name
-      }}, {{cat.age}}, {{cat.breed}}{{dump(5)}}</li>
+      }}, {{cat.age}}, {{cat.breed}}</li>
   </ul>
 </app-page-wrapper-exercise>

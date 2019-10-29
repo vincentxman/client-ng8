@@ -1,0 +1,9 @@
+subscription catAdded{
+  catAdded{
+    id
+    name
+    age
+    breed
+  }
+
+}

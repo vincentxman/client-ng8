@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Cat, GetCatsGQL, DeleteCatGQL } from 'src/_share/codegen/gh-ql.apollo-angular';
-import { Mutation, Subscription } from '../../../../_share/codegen/gh-ql.apollo-angular';
+import { Mutation, Subscription, CatDto, CreateCatGQL, Cat, GetCatsGQL, DeleteCatGQL, UpdateCatGQL, CreateCat2GQL, CatAddedGQL } from './_graphql/_codegen';
+import { filter } from 'minimatch';
 
 @Component({
   selector: 'app-gh-ql',
@@ -12,51 +12,104 @@ import { Mutation, Subscription } from '../../../../_share/codegen/gh-ql.apollo-
 })
 export class GhQLComponent implements OnInit {
   cats: Observable<Cat[]>;
+  catDto: CatDto;
   selId = "";
+  lastCat = null;
 
-  dump(idx: number): void {
-    console.log('cats.................' + idx);
+  dump(idx: number, msg?: string): void {
+    console.log('cats.................' + idx + ' msg:' + (msg || ''));
   }
 
-  constructor(private getCatsGQL: GetCatsGQL, private deleteCatGQL: DeleteCatGQL) {
+  constructor(
+    private getCatsGQL: GetCatsGQL,
+    private deleteCatGQL: DeleteCatGQL,
+    private updateCatGQL: UpdateCatGQL,
+    // private createCatGQL: CreateCatGQL,
+    private createCat2GQL: CreateCat2GQL,
+    private catAddedGQL: CatAddedGQL,
+  ) {
     this.getAllCats();
+
+    // this.lastCat = catAddedGQL.subscribe();
   }
 
   ngOnInit(): void {
-    this.dump(3);
   }
 
+  doGetCats() {
+    this.getAllCats();
+  }
   doClick(id: string) {
     this.selId = id;
   }
 
-  doDelete(id: string) {
-    this.deleteCat(id);
+  doCreate() {
+    const cat: CatDto = { name: 'petter', age: 55, breed: 'yellow' };
+    this.createCat(cat);
   }
 
+  doUpdate(id: string) {
+    const cat: CatDto = { name: 'jerry', age: 55, breed: 'black' };
+    this.updateCat(id, cat);
+  }
+
+  doDelete(id: string) {
+    this.deleteCat(id);
+    this.getCatsGQL.fetch();
+    // this.cats = this.cats.pipe(map(cats => {
+    //   return cats.filter((cat) => cat.id !== id);
+    // }));
+  }
+  deleteCat(id: string): boolean {
+    this.deleteCatGQL.mutate({ id: this.selId }).subscribe(
+      (result) => {
+        console.log('got data', result.data);
+        return true;
+      },
+      (error) => {
+        console.log('there was an error sending the query', error);
+      }
+    );
+    return false;
+  }
   getAllCats() {
-    this.dump(1);
     // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
-    this.cats = this.getCatsGQL.watch({ limit: 30 }).valueChanges.pipe(map(
-      result => {
-        this.dump(4);
+    this.cats = this.getCatsGQL.watch(
+      { limit: 30 },
+      {
+        notifyOnNetworkStatusChange: true,
+        fetchPolicy: 'network-only'
+      }
+    ).valueChanges.pipe(map(
+      (result, loading) => {
+        console.log(result.data.cats);
         return result.data.cats;
       }
     ));
-    this.dump(2);
   }
 
-  deleteCat(id: string) {
-    this.dump(0.1);
-    this.deleteCatGQL.mutate({ id: this.selId }).subscribe(
+  createCat(cat: CatDto) {
+    // this.createCatGQL.mutate({ name: cat.name, age: cat.age, breed: cat.breed }).subscribe(
+    this.createCat2GQL.mutate({ catDt: cat }).subscribe(
       (result) => {
-        this.dump(0.3);
         console.log('got data', result.data);
       },
       (error) => {
         console.log('there was an error sending the query', error);
       }
     );
-    this.dump(0.2);
   }
+
+  updateCat(id: string, cat: CatDto) {
+    this.updateCatGQL.mutate({ id, cat }).subscribe(
+      (result) => {
+        console.log('got data', result.data);
+      },
+      (error) => {
+        console.log('there was an error sending the query', error);
+      }
+    );
+  }
+
+
 }
