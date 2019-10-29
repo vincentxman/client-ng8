@@ -1,0 +1,13 @@
+<app-page-wrapper-exercise pageTitle="Cats">
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="error">
+    Error :(
+  </div>
+  <div *ngIf="cats">
+    <div *ngFor="let cat of cats">
+      <p class="alert alert-info m-1 p-0">{{cat.id}}: {{cat.name}}/{{cat.age}}</p>
+    </div>
+  </div>
+</app-page-wrapper-exercise>

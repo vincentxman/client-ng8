@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ExerciseRoutingModule } from './exercise-routing.module';
 import { VShareModule } from 'src/_share';
 import { CountryLazyServiceModule } from './country/country.lazy.service.module';
+import { GhCatComponent } from './gh-cat/gh-cat.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { CountryLazyServiceModule } from './country/country.lazy.service.module'
     SortableHeaderDirective,
 
     NgbdTableCompleteComponent,
+
+    GhCatComponent,
   ],
   imports: [
     NgbModule,

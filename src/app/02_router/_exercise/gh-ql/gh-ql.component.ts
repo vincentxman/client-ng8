@@ -55,7 +55,7 @@ export class GhQLComponent implements OnInit {
 
   doDelete(id: string) {
     this.deleteCat(id);
-    this.getCatsGQL.fetch();
+    // this.getAllCats();
     // this.cats = this.cats.pipe(map(cats => {
     //   return cats.filter((cat) => cat.id !== id);
     // }));
