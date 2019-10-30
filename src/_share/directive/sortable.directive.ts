@@ -1,6 +1,7 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 export type SortDirection = 'asc' | 'desc' | '';
+// tslint:disable-next-line:object-literal-key-quotes
 const rotate: { [key: string]: SortDirection } = { 'asc': 'desc', 'desc': '', '': 'asc' };
 
 export interface SortEvent {
@@ -11,6 +12,7 @@ export interface SortEvent {
 // 表单栏位排序
 // <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: 'th[sortable]',
   host: {
     '[class.asc]': 'direction === "asc"',

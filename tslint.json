@@ -86,7 +86,10 @@
     "use-lifecycle-interface": true,
     "no-string-literal": false,
     "use-pipe-transform-interface": true,
-    "interface-over-type-literal": false
+    "interface-over-type-literal": false,
+    "variable-name": false,
+    "eofline": false,
+    "object-literal-shorthand": false
   },
   "rulesDirectory": [
     "codelyzer"

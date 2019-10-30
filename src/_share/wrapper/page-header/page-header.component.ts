@@ -4,6 +4,7 @@ import { AppOverviewSection } from 'src/_share/overview';
   selector: 'app-page-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
+    // tslint:disable-next-line:object-literal-key-quotes
     'class': 'd-block'
   },
   template: `

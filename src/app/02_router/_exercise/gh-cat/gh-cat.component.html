@@ -1,4 +1,14 @@
 <app-page-wrapper-exercise pageTitle="Cats">
+
+  <app-page-header title="Function" fragment="function" class="mt-0"></app-page-header>
+  <button type="button" class="btn btn-success m-2" (click)="doCat_create()">Create</button>
+  <button type="button" class="btn btn-success m-2" (click)="doCat_update(selectedId)">Update</button>
+  <button type="button" class="btn btn-success m-2" (click)="doCat_delete(selectedId)">Delete</button>
+  <button type="button" class="btn btn-success m-2" (click)="doCat_getAll()">getAllGets</button>
+
+  <h6>selectedId: {{selectedId}}</h6>
+
+  <app-page-header title="All" fragment="all" class="mt-0"></app-page-header>
   <div *ngIf="loading">
     Loading...
   </div>

@@ -13,7 +13,7 @@ import { filter } from 'minimatch';
 export class GhQLComponent implements OnInit {
   cats: Observable<Cat[]>;
   catDto: CatDto;
-  selId = "";
+  idSelected = "";
   lastCat = null;
 
   dump(idx: number, msg?: string): void {
@@ -28,7 +28,7 @@ export class GhQLComponent implements OnInit {
     private createCat2GQL: CreateCat2GQL,
     private catAddedGQL: CatAddedGQL,
   ) {
-    this.getAllCats();
+    this.cat_getAll();
 
     // this.lastCat = catAddedGQL.subscribe();
   }
@@ -36,32 +36,32 @@ export class GhQLComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doGetCats() {
-    this.getAllCats();
+  doCat_getAll() {
+    this.cat_getAll();
   }
   doClick(id: string) {
-    this.selId = id;
+    this.idSelected = id;
   }
 
-  doCreate() {
+  doCat_create() {
     const cat: CatDto = { name: 'petter', age: 55, breed: 'yellow' };
-    this.createCat(cat);
+    this.cat_create(cat);
   }
 
-  doUpdate(id: string) {
+  doCat_update(id: string) {
     const cat: CatDto = { name: 'jerry', age: 55, breed: 'black' };
-    this.updateCat(id, cat);
+    this.cat_update(id, cat);
   }
 
-  doDelete(id: string) {
-    this.deleteCat(id);
+  doCat_delete(id: string) {
+    this.cat_delete(id);
     // this.getAllCats();
     // this.cats = this.cats.pipe(map(cats => {
     //   return cats.filter((cat) => cat.id !== id);
     // }));
   }
-  deleteCat(id: string): boolean {
-    this.deleteCatGQL.mutate({ id: this.selId }).subscribe(
+  cat_delete(id: string): boolean {
+    this.deleteCatGQL.mutate({ id: this.idSelected }).subscribe(
       (result) => {
         console.log('deleteCat...', result.data);
         return true;
@@ -72,13 +72,13 @@ export class GhQLComponent implements OnInit {
     );
     return false;
   }
-  getAllCats() {
+  cat_getAll() {
     // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
     this.cats = this.getCatsGQL.watch(
-      { limit: 30 },
+      { limit: 10 },
       {
         notifyOnNetworkStatusChange: true,
-        fetchPolicy: 'network-only'
+        // fetchPolicy: 'network-only'
       }
     ).valueChanges.pipe(map(
       (result, loading) => {
@@ -88,7 +88,7 @@ export class GhQLComponent implements OnInit {
     ));
   }
 
-  createCat(cat: CatDto) {
+  cat_create(cat: CatDto) {
     // this.createCatGQL.mutate({ name: cat.name, age: cat.age, breed: cat.breed }).subscribe(
     this.createCat2GQL.mutate({ catDt: cat }).subscribe(
       (result) => {
@@ -100,7 +100,7 @@ export class GhQLComponent implements OnInit {
     );
   }
 
-  updateCat(id: string, cat: CatDto) {
+  cat_update(id: string, cat: CatDto) {
     this.updateCatGQL.mutate({ id, cat }).subscribe(
       (result) => {
         console.log('updateCat...', result.data);

@@ -13,7 +13,7 @@ SideNavExerciseComponent.sidebarItems = [
 ];
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'graphql' },
+  { path: '', pathMatch: 'full', redirectTo: 'tst' },
   { path: 'graphql', component: GhQLComponent },
   { path: 'cats', component: GhCatComponent },
   { path: 'tst', component: TstComponent },
