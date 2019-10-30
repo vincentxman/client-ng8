@@ -6,6 +6,7 @@
   <button type="button" class="btn btn-success m-2" (click)="doCat_delete(idSelected)">Delete</button>
   <button type="button" class="btn btn-success m-2" (click)="doCat_getAll()">getAllGets</button>
 
+  <h6 *ngIf="lastCat" >lastCat:{{lastCat|async|json}}</h6>
   <h6>idSelected: {{idSelected}}</h6>
   <ul>
     <li *ngFor="let i = index ; let cat of cats | async" (click)="doClick(cat.id)" >{{i}}:{{cat.id}}, {{ cat.name

@@ -9,6 +9,7 @@ generates:
     # config:
     #   skipTypename: true
     plugins:
+      - time
       - typescript
       - typescript-operations
       - typescript-apollo-angular

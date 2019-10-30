@@ -2,10 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Mutation, Subscription, CatDto, CreateCatGQL, Cat, GetCatsGQL, DeleteCatGQL, UpdateCatGQL, CreateCat2GQL, CatAddedGQL } from './_graphql/_codegen';
-import { filter } from 'minimatch';
+import { CatDto, Cat, GetCatsGQL, DeleteCatGQL, UpdateCatGQL, CreateCat2GQL, CatAddedGQL } from './_graphql/_codegen';
 import { WatchQueryFetchPolicy } from 'apollo-client';
-import { sleep } from 'src/_share/utilities/tools';
 
 @Component({
   selector: 'app-gh-ql',
@@ -16,7 +14,7 @@ export class GhQLComponent implements OnInit {
   cats: Observable<Cat[]>;
   catDto: CatDto;
   idSelected = "";
-  lastCat = null;
+  lastCat: any;
 
   dump(idx: number, msg?: string): void {
     console.log('cats.................' + idx + ' msg:' + (msg || ''));
@@ -32,7 +30,11 @@ export class GhQLComponent implements OnInit {
   ) {
     this.cat_getAll('cache-first');
     console.log(this.cats);
-    // this.lastCat = catAddedGQL.subscribe();
+    this.lastCat = catAddedGQL.subscribe(
+      (result) => {
+        console.log('cat_getAll...', result.data);
+      }
+    );
   }
 
   ngOnInit(): void {
