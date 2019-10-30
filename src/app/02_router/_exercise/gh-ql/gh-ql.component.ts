@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Mutation, Subscription, CatDto, CreateCatGQL, Cat, GetCatsGQL, DeleteCatGQL, UpdateCatGQL, CreateCat2GQL, CatAddedGQL } from './_graphql/_codegen';
 import { filter } from 'minimatch';
+import { WatchQueryFetchPolicy } from 'apollo-client';
+import { sleep } from 'src/_share/utilities/tools';
 
 @Component({
   selector: 'app-gh-ql',
@@ -22,14 +24,14 @@ export class GhQLComponent implements OnInit {
 
   constructor(
     private getCatsGQL: GetCatsGQL,
-    private deleteCatGQL: DeleteCatGQL,
     private updateCatGQL: UpdateCatGQL,
+    private deleteCatGQL: DeleteCatGQL,
     // private createCatGQL: CreateCatGQL,
     private createCat2GQL: CreateCat2GQL,
     private catAddedGQL: CatAddedGQL,
   ) {
-    this.cat_getAll();
-
+    this.cat_getAll('cache-first');
+    console.log(this.cats);
     // this.lastCat = catAddedGQL.subscribe();
   }
 
@@ -37,7 +39,7 @@ export class GhQLComponent implements OnInit {
   }
 
   doCat_getAll() {
-    this.cat_getAll();
+    this.cat_getAll('network-only');
   }
   doClick(id: string) {
     this.idSelected = id;
@@ -49,7 +51,7 @@ export class GhQLComponent implements OnInit {
   }
 
   doCat_update(id: string) {
-    const cat: CatDto = { name: 'jerry', age: 55, breed: 'black' };
+    const cat: CatDto = { name: 'tom', age: 99, breed: 'white' };
     this.cat_update(id, cat);
   }
 
@@ -72,20 +74,20 @@ export class GhQLComponent implements OnInit {
     );
     return false;
   }
-  cat_getAll() {
+  cat_getAll(fetchPolicy: WatchQueryFetchPolicy = 'cache-first') {
     // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
     this.cats = this.getCatsGQL.watch(
-      { limit: 10 },
-      {
-        notifyOnNetworkStatusChange: true,
-        // fetchPolicy: 'network-only'
-      }
-    ).valueChanges.pipe(map(
-      (result, loading) => {
-        console.log('valueChanges...', result.data.cats);
-        return result.data.cats;
-      }
-    ));
+        { limit: 10 },
+        {
+          notifyOnNetworkStatusChange: true,
+          fetchPolicy,
+        }
+      ).valueChanges.pipe(map(
+        (result, loading) => {
+          console.log('valueChanges...', result.data.cats);
+          return result.data.cats;
+        })
+      );
   }
 
   cat_create(cat: CatDto) {
@@ -101,7 +103,21 @@ export class GhQLComponent implements OnInit {
   }
 
   cat_update(id: string, cat: CatDto) {
-    this.updateCatGQL.mutate({ id, cat }).subscribe(
+    this.updateCatGQL.mutate(
+      { id, cat },
+      {
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updateCat: {
+            __typename: 'Cat',
+            id: id,
+            name: cat.name,
+            age: cat.age,
+            breed: cat.breed
+          }
+        }
+      }
+    ).subscribe(
       (result) => {
         console.log('updateCat...', result.data);
       },

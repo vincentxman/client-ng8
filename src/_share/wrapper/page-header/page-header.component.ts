@@ -8,12 +8,12 @@ import { AppOverviewSection } from 'src/_share/overview';
     'class': 'd-block'
   },
   template: `
-    <h2>
+    <h4>
       <a [routerLink]="" [fragment]="fragment" appFragment>
         <img src="img/link-symbol.svg" />
       </a>
-      {{ title }}
-    </h2>
+      <span class="badge badge-info">{{ title }}</span>
+    </h4>
   `,
 })
 export class PageHeaderComponent implements AppOverviewSection {
