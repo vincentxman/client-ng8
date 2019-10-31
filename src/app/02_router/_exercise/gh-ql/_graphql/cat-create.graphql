@@ -10,3 +10,12 @@ mutation createCat($name: String!, $age: Int!, $breed: String){
     breed
   }
 }
+
+mutation createCat2($catDt: CatDto!){
+  createCat(catDto: $catDt){
+    id
+    name
+    age
+    breed
+  }
+}

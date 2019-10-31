@@ -1,3 +1,12 @@
+query getCat($id: String!) {
+  cat(id: $id){
+    id
+    name
+    age
+    breed
+  }
+}
+
 query getCats($limit: Int!) {
   cats(limit: $limit) {
     id

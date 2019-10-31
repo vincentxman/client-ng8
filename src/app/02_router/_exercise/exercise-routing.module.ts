@@ -9,12 +9,12 @@ import { GhCatComponent } from './gh-cat/gh-cat.component';
 
 // 必须与router的path名称相同，大小写不用一样
 SideNavExerciseComponent.sidebarItems = [
-  'GraphQL', 'Cats', 'Tst', 'Country'
+  'GraphQL-test', 'Cats', 'Tst', 'Country'
 ];
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'tst' },
-  { path: 'graphql', component: GhQLComponent },
+  { path: 'graphql-test', component: GhQLComponent },
   { path: 'cats', component: GhCatComponent },
   { path: 'tst', component: TstComponent },
   { path: 'country', component: CountryComponent },

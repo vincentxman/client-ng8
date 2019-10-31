@@ -5,5 +5,4 @@ subscription catAdded{
     age
     breed
   }
-
 }

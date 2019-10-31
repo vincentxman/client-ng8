@@ -1,8 +1,0 @@
-query getCat($id: String!) {
-  cat(id: $id){
-    id
-    name
-    age
-    breed
-  }
-}

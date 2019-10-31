@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2019-10-30T21:49:27+08:00
+// Generated in 2019-10-31T16:09:04+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -69,12 +69,6 @@ export type Subscription = {
   catDeleted: Cat;
 };
 
-export type CatAddedSubscriptionVariables = {};
-
-export type CatAddedSubscription = { __typename?: "Subscription" } & {
-  catAdded: { __typename?: "Cat" } & Pick<Cat, "id" | "name" | "age" | "breed">;
-};
-
 export type CreateCatMutationVariables = {
   name: Scalars["String"];
   age: Scalars["Int"];
@@ -137,26 +131,12 @@ export type UpdateCatMutation = { __typename?: "Mutation" } & {
   >;
 };
 
-export const CatAddedDocument = gql`
-  subscription catAdded {
-    catAdded {
-      id
-      name
-      age
-      breed
-    }
-  }
-`;
+export type CatAddedSubscriptionVariables = {};
 
-@Injectable({
-  providedIn: "root"
-})
-export class CatAddedGQL extends Apollo.Subscription<
-  CatAddedSubscription,
-  CatAddedSubscriptionVariables
-> {
-  document = CatAddedDocument;
-}
+export type CatAddedSubscription = { __typename?: "Subscription" } & {
+  catAdded: { __typename?: "Cat" } & Pick<Cat, "id" | "name" | "age" | "breed">;
+};
+
 export const CreateCatDocument = gql`
   mutation createCat($name: String!, $age: Int!, $breed: String) {
     createCat(catDto: { name: $name, age: $age, breed: $breed }) {
@@ -272,4 +252,24 @@ export class UpdateCatGQL extends Apollo.Mutation<
   UpdateCatMutationVariables
 > {
   document = UpdateCatDocument;
+}
+export const CatAddedDocument = gql`
+  subscription catAdded {
+    catAdded {
+      id
+      name
+      age
+      breed
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: "root"
+})
+export class CatAddedGQL extends Apollo.Subscription<
+  CatAddedSubscription,
+  CatAddedSubscriptionVariables
+> {
+  document = CatAddedDocument;
 }
