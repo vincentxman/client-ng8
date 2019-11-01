@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/02_router/_exercise/tst/service/product.service';
 import { HeroService } from 'src/app/02_router/_exercise/tst/service/hero.service';
 import { Hero } from './class/hero';
+import { dump } from '../../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-tst',
@@ -19,16 +20,16 @@ export class TstComponent implements OnInit {
   }
 
   getProducts(): void {
-    console.log('onclick....');
+    dump('onclick');
     this.productService.getProducts()
-      .subscribe(products => console.log(products));
+      .subscribe(products => dump(products, 'getProducts'));
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe((heroes) => {
         this.heroes = heroes;
-        console.log(heroes);
+        dump(heroes, 'getHeroes');
       });
   }
 }

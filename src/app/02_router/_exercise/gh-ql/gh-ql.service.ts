@@ -48,7 +48,7 @@ export class GhQLService {
       }
     ).valueChanges.pipe(map(
       (result, loading) => {
-        console.log('valueChanges...', result.data.cats);
+        dump(result.data.cats, 'valueChanges');
         return result.data.cats;
       })
     );
@@ -59,7 +59,7 @@ export class GhQLService {
       { id },
     ).valueChanges.pipe(map(
       (result, loading) => {
-        console.log('valueChanges...', result.data.cat);
+        dump(result.data.cat, 'valueChanges');
         return result.data.cat;
       })
     );
@@ -69,10 +69,10 @@ export class GhQLService {
     // this.createCatGQL.mutate({ name: cat.name, age: cat.age, breed: cat.breed }).subscribe(
     this.createCatGQL.mutate({ catDt: cat }).subscribe(
       (result) => {
-        console.log('createCat...', result.data);
+        dump(result.data, 'createCat');
       },
       (error) => {
-        console.log('there was an error sending the query', error);
+        dump(error, 'there was an error sending the query');
       }
     );
   }
@@ -80,11 +80,11 @@ export class GhQLService {
   cat_delete(id: string): boolean {
     this.deleteCatGQL.mutate({ id }).subscribe(
       (result) => {
-        console.log('deleteCat...', result.data);
+        dump(result.data, 'deleteCat');
         return true;
       },
       (error) => {
-        console.log('there was an error sending the query', error);
+        dump(error, 'there was an error sending the query');
       }
     );
     return false;
@@ -107,10 +107,10 @@ export class GhQLService {
       }
     ).subscribe(
       (result) => {
-        console.log('updateCat...', result.data);
+        dump(result.data, 'updateCat');
       },
       (error) => {
-        console.log('there was an error sending the query', error);
+        dump(error, 'there was an error sending the query');
       }
     );
   }
