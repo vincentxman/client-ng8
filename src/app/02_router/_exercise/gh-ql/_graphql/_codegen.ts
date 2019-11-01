@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2019-10-31T16:09:04+08:00
+// Generated in 2019-11-01T14:22:38+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -56,6 +56,7 @@ export type Query = {
 
 export type QueryCatsArgs = {
   limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
 };
 
 export type QueryCatArgs = {
@@ -70,23 +71,10 @@ export type Subscription = {
 };
 
 export type CreateCatMutationVariables = {
-  name: Scalars["String"];
-  age: Scalars["Int"];
-  breed?: Maybe<Scalars["String"]>;
-};
-
-export type CreateCatMutation = { __typename?: "Mutation" } & {
-  createCat: { __typename?: "Cat" } & Pick<
-    Cat,
-    "id" | "name" | "age" | "breed"
-  >;
-};
-
-export type CreateCat2MutationVariables = {
   catDt: CatDto;
 };
 
-export type CreateCat2Mutation = { __typename?: "Mutation" } & {
+export type CreateCatMutation = { __typename?: "Mutation" } & {
   createCat: { __typename?: "Cat" } & Pick<
     Cat,
     "id" | "name" | "age" | "breed"
@@ -110,7 +98,8 @@ export type GetCatQuery = { __typename?: "Query" } & {
 };
 
 export type GetCatsQueryVariables = {
-  limit: Scalars["Int"];
+  offset?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
 };
 
 export type GetCatsQuery = { __typename?: "Query" } & {
@@ -137,9 +126,27 @@ export type CatAddedSubscription = { __typename?: "Subscription" } & {
   catAdded: { __typename?: "Cat" } & Pick<Cat, "id" | "name" | "age" | "breed">;
 };
 
+export type CatUpdatedSubscriptionVariables = {};
+
+export type CatUpdatedSubscription = { __typename?: "Subscription" } & {
+  catUpdated: { __typename?: "Cat" } & Pick<
+    Cat,
+    "id" | "name" | "age" | "breed"
+  >;
+};
+
+export type CatDeletedSubscriptionVariables = {};
+
+export type CatDeletedSubscription = { __typename?: "Subscription" } & {
+  catDeleted: { __typename?: "Cat" } & Pick<
+    Cat,
+    "id" | "name" | "age" | "breed"
+  >;
+};
+
 export const CreateCatDocument = gql`
-  mutation createCat($name: String!, $age: Int!, $breed: String) {
-    createCat(catDto: { name: $name, age: $age, breed: $breed }) {
+  mutation createCat($catDt: CatDto!) {
+    createCat(catDto: $catDt) {
       id
       name
       age
@@ -156,26 +163,6 @@ export class CreateCatGQL extends Apollo.Mutation<
   CreateCatMutationVariables
 > {
   document = CreateCatDocument;
-}
-export const CreateCat2Document = gql`
-  mutation createCat2($catDt: CatDto!) {
-    createCat(catDto: $catDt) {
-      id
-      name
-      age
-      breed
-    }
-  }
-`;
-
-@Injectable({
-  providedIn: "root"
-})
-export class CreateCat2GQL extends Apollo.Mutation<
-  CreateCat2Mutation,
-  CreateCat2MutationVariables
-> {
-  document = CreateCat2Document;
 }
 export const DeleteCatDocument = gql`
   mutation deleteCat($id: String!) {
@@ -214,8 +201,8 @@ export class GetCatGQL extends Apollo.Query<GetCatQuery, GetCatQueryVariables> {
   document = GetCatDocument;
 }
 export const GetCatsDocument = gql`
-  query getCats($limit: Int!) {
-    cats(limit: $limit) {
+  query getCats($offset: Int, $limit: Int) {
+    cats(offset: $offset, limit: $limit) {
       id
       name
       age
@@ -272,4 +259,44 @@ export class CatAddedGQL extends Apollo.Subscription<
   CatAddedSubscriptionVariables
 > {
   document = CatAddedDocument;
+}
+export const CatUpdatedDocument = gql`
+  subscription catUpdated {
+    catUpdated {
+      id
+      name
+      age
+      breed
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: "root"
+})
+export class CatUpdatedGQL extends Apollo.Subscription<
+  CatUpdatedSubscription,
+  CatUpdatedSubscriptionVariables
+> {
+  document = CatUpdatedDocument;
+}
+export const CatDeletedDocument = gql`
+  subscription catDeleted {
+    catDeleted {
+      id
+      name
+      age
+      breed
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: "root"
+})
+export class CatDeletedGQL extends Apollo.Subscription<
+  CatDeletedSubscription,
+  CatDeletedSubscriptionVariables
+> {
+  document = CatDeletedDocument;
 }

@@ -13,6 +13,7 @@ import { ExerciseRoutingModule } from './exercise-routing.module';
 import { VShareModule } from 'src/_share';
 import { CountryLazyServiceModule } from './country/country.lazy.service.module';
 import { GhCatComponent } from './gh-cat/gh-cat.component';
+import { GhQlLazyModule } from './gh-ql/gh-ql-lazy.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GhCatComponent } from './gh-cat/gh-cat.component';
     VShareModule,
     ExerciseRoutingModule,
     CountryLazyServiceModule,
+    GhQlLazyModule,
   ],
   exports: [
   ],

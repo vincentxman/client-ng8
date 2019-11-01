@@ -1,17 +1,4 @@
-mutation createCat($name: String!, $age: Int!, $breed: String){
-  createCat(catDto:{
-    name: $name,
-    age: $age,
-    breed: $breed
-  }){
-    id
-    name
-    age
-    breed
-  }
-}
-
-mutation createCat2($catDt: CatDto!){
+mutation createCat($catDt: CatDto!){
   createCat(catDto: $catDt){
     id
     name

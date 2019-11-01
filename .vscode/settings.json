@@ -10,7 +10,7 @@
         "**/node_modules": true,
         "**/e2e": true,
         ".idea": true,
-        "dist": true,
+        "dist": false,
         ".vscode": true,
         "yarn-error.log": true,
         "yarn.lock": true,
@@ -21,5 +21,7 @@
         "**/*.lnk": true
     },
     "explorerExclude.backup": null,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.importModuleSpecifier": "relative"
 }

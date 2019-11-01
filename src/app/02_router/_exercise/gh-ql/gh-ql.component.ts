@@ -1,133 +1,66 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CatDto, Cat, GetCatsGQL, DeleteCatGQL, UpdateCatGQL, CreateCat2GQL, CatAddedGQL } from './_graphql/_codegen';
-import { WatchQueryFetchPolicy } from 'apollo-client';
+import { CatDto, Cat } from './_graphql/_codegen';
+import { GhQLService } from './gh-ql.service';
 
 @Component({
   selector: 'app-gh-ql',
   templateUrl: './gh-ql.component.html',
   styleUrls: ['./gh-ql.component.css']
 })
-export class GhQLComponent implements OnInit {
+export class GhQLComponent implements OnInit, OnDestroy {
   cats: Observable<Cat[]>;
+  cat: Observable<Cat>;
   catDto: CatDto;
   idSelected = "";
-  lastCat: any;
-
-  dump(idx: number, msg?: string): void {
-    console.log('cats.................' + idx + ' msg:' + (msg || ''));
-  }
+  catAdded: any;
+  catUpdated: any;
+  catDeleted: any;
 
   constructor(
-    private getCatsGQL: GetCatsGQL,
-    private updateCatGQL: UpdateCatGQL,
-    private deleteCatGQL: DeleteCatGQL,
-    // private createCatGQL: CreateCatGQL,
-    private createCat2GQL: CreateCat2GQL,
-    private catAddedGQL: CatAddedGQL,
+    private ghQlService: GhQLService,
   ) {
-    this.cat_getAll('cache-first');
+    this.cats = this.ghQlService.cat_getAll(0, 5);
     console.log(this.cats);
-    this.lastCat = catAddedGQL.subscribe(
-      (result) => {
-        console.log('cat_getAll...', result.data);
-      }
-    );
   }
 
   ngOnInit(): void {
+    this.catAdded = this.ghQlService.subscription_catAdded();
+    this.catUpdated = this.ghQlService.subscription_catUpdated();
+    this.catDeleted = this.ghQlService.subscription_catDeleted();
+  }
+
+  ngOnDestroy(): void {
   }
 
   doCat_getAll() {
-    this.cat_getAll('network-only');
+    this.cats = this.ghQlService.cat_getAll(0, 5, 'network-only');
   }
+
   doClick(id: string) {
     this.idSelected = id;
   }
 
   doCat_create() {
     const cat: CatDto = { name: 'petter', age: 55, breed: 'yellow' };
-    this.cat_create(cat);
+    this.ghQlService.cat_create(cat);
   }
 
   doCat_update(id: string) {
     const cat: CatDto = { name: 'tom', age: 99, breed: 'white' };
-    this.cat_update(id, cat);
+    this.ghQlService.cat_update(id, cat);
   }
 
   doCat_delete(id: string) {
-    this.cat_delete(id);
+    this.ghQlService.cat_delete(id);
     // this.getAllCats();
     // this.cats = this.cats.pipe(map(cats => {
     //   return cats.filter((cat) => cat.id !== id);
     // }));
   }
-  cat_delete(id: string): boolean {
-    this.deleteCatGQL.mutate({ id: this.idSelected }).subscribe(
-      (result) => {
-        console.log('deleteCat...', result.data);
-        return true;
-      },
-      (error) => {
-        console.log('there was an error sending the query', error);
-      }
-    );
-    return false;
-  }
-  cat_getAll(fetchPolicy: WatchQueryFetchPolicy = 'cache-first') {
-    // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
-    this.cats = this.getCatsGQL.watch(
-        { limit: 10 },
-        {
-          notifyOnNetworkStatusChange: true,
-          fetchPolicy,
-        }
-      ).valueChanges.pipe(map(
-        (result, loading) => {
-          console.log('valueChanges...', result.data.cats);
-          return result.data.cats;
-        })
-      );
-  }
 
-  cat_create(cat: CatDto) {
-    // this.createCatGQL.mutate({ name: cat.name, age: cat.age, breed: cat.breed }).subscribe(
-    this.createCat2GQL.mutate({ catDt: cat }).subscribe(
-      (result) => {
-        console.log('createCat...', result.data);
-      },
-      (error) => {
-        console.log('there was an error sending the query', error);
-      }
-    );
+  doCat_get() {
+    this.cat = this.ghQlService.cat_get(this.idSelected);
   }
-
-  cat_update(id: string, cat: CatDto) {
-    this.updateCatGQL.mutate(
-      { id, cat },
-      {
-        optimisticResponse: {
-          __typename: 'Mutation',
-          updateCat: {
-            __typename: 'Cat',
-            id: id,
-            name: cat.name,
-            age: cat.age,
-            breed: cat.breed
-          }
-        }
-      }
-    ).subscribe(
-      (result) => {
-        console.log('updateCat...', result.data);
-      },
-      (error) => {
-        console.log('there was an error sending the query', error);
-      }
-    );
-  }
-
-
 }

@@ -6,3 +6,21 @@ subscription catAdded{
     breed
   }
 }
+
+subscription catUpdated{
+  catUpdated{
+    id
+    name
+    age
+    breed
+  }
+}
+
+subscription catDeleted{
+  catDeleted{
+    id
+    name
+    age
+    breed
+  }
+}
