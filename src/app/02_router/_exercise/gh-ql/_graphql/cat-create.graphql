@@ -1,8 +1,0 @@
-mutation createCat($catDt: CatDto!){
-  createCat(catDto: $catDt){
-    id
-    name
-    age
-    breed
-  }
-}

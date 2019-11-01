@@ -1,7 +1,0 @@
-mutation deleteCat($id: String!){
-  deleteCat(id: $id){
-    id
-    name
-    age
-  }
-}

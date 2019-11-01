@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { CatDto, Cat } from './_graphql/_codegen';
@@ -9,7 +9,7 @@ import { GhQLService } from './gh-ql.service';
   templateUrl: './gh-ql.component.html',
   styleUrls: ['./gh-ql.component.css']
 })
-export class GhQLComponent implements OnInit, OnDestroy {
+export class GhQLComponent implements OnInit {
   cats: Observable<Cat[]>;
   cat: Observable<Cat>;
   catDto: CatDto;
@@ -29,9 +29,6 @@ export class GhQLComponent implements OnInit, OnDestroy {
     this.catAdded = this.ghQlService.subscription_catAdded();
     this.catUpdated = this.ghQlService.subscription_catUpdated();
     this.catDeleted = this.ghQlService.subscription_catDeleted();
-  }
-
-  ngOnDestroy(): void {
   }
 
   doCat_getAll() {

@@ -1,0 +1,47 @@
+# get
+query getCat($id: String!) {
+  cat(id: $id){
+    id
+    name
+    age
+    breed
+  }
+}
+
+query getCats($offset:Int, $limit: Int) {
+  cats(offset: $offset, limit: $limit) {
+    id
+    name
+    age
+    breed
+  }
+}
+
+# create
+mutation createCat($catDt: CatDto!){
+  createCat(catDto: $catDt){
+    id
+    name
+    age
+    breed
+  }
+}
+
+# delete
+mutation deleteCat($id: String!){
+  deleteCat(id: $id){
+    id
+    name
+    age
+  }
+}
+
+# update
+mutation updateCat($id: String!, $cat: CatDto!){
+  updateCat(id: $id, catDto: $cat){
+    id
+    name
+    age
+    breed
+  }
+}
