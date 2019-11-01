@@ -35,7 +35,7 @@ export class GhQLComponent implements OnInit {
     this.cats = this.ghQlService.cat_getAll(0, 5, 'network-only');
   }
 
-  doClick(id: string) {
+  doSelect(id: string) {
     this.idSelected = id;
   }
 
