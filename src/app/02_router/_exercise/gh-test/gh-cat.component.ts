@@ -23,7 +23,7 @@ export class GhCatComponent implements OnInit, OnDestroy {
   }
 
   doCat_getAll() {
-    //this.cat_GetAll(0, 10);
+    // this.cat_GetAll(0, 10);
   }
 
   doCat_create() {

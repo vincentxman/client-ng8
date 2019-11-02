@@ -32,7 +32,6 @@ export class GhQLComponent implements OnInit {
     this.ghQlService.loading$.subscribe({
       next: (v) => {
         this.loading = v;
-        console.log('....v', v);
       },
     });
   }

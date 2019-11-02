@@ -28,12 +28,12 @@
     "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [
-      true,
+      false,
       180
     ],
     "member-access": false,
     "member-ordering": [
-      true,
+      false,
       {
         "order": [
           "static-field",
@@ -59,7 +59,7 @@
       "ignore-params"
     ],
     "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
+    "no-redundant-jsdoc": false,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-requires": false,
@@ -90,7 +90,14 @@
     "interface-over-type-literal": false,
     "variable-name": false,
     "eofline": false,
-    "object-literal-shorthand": false
+    "object-literal-shorthand": false,
+    "class-name": false,
+    "semicolon": false,
+    "ban-types": false,
+    "callable-types": false,
+    "jsdoc-format": false,
+    "no-empty-interface": false,
+    "unified-signatures": false
   },
   "rulesDirectory": [
     "codelyzer"
