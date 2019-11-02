@@ -1,8 +1,8 @@
 overwrite: true
 schema: http://localhost:8000/graphql
 generates:
-  src/app/02_router/_exercise/gh-ql/_graphql/_codegen.ts:
-    documents: src/app/02_router/_exercise/gh-ql/_graphql/**/*.graphql
+  src/app/02_router/_exercise/gh-codegen/_graphql/_codegen.ts:
+    documents: src/app/02_router/_exercise/gh-codegen/_graphql/**/*.graphql
     hooks:
       afterOneFileWrite:
         - prettier --write

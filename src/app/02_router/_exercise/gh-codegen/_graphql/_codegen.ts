@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2019-11-01T14:40:58+08:00
+// Generated in 2019-11-02T12:22:46+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {

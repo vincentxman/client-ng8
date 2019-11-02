@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { Subscription } from 'rxjs';
-import { getAllCats_gql } from './_gql';
+import { Subscription, Observable } from 'rxjs';
+import { GetCatsDocument, Cat } from '../gh-codegen/_graphql/_codegen';
+import { WatchQueryFetchPolicy } from 'apollo-client';
 
 @Component({
   selector: 'app-gh-cat',
@@ -11,18 +12,18 @@ import { getAllCats_gql } from './_gql';
 export class GhCatComponent implements OnInit, OnDestroy {
   private catsSubscription: Subscription;
   selectedId: string;
-  cats: any; // ApolloQueryResult<Array<Cat>>;
+  cats: Observable<Cat[]>;
   loading = true;
   error: any;
 
   constructor(private apollo: Apollo) { }
 
   ngOnInit() {
-    this.cat_GetAll(10);
+    this.cat_GetAll(0, 10);
   }
 
   doCat_getAll() {
-    this.cat_GetAll(10);
+    //this.cat_GetAll(0, 10);
   }
 
   doCat_create() {
@@ -36,13 +37,40 @@ export class GhCatComponent implements OnInit, OnDestroy {
 
   }
 
-  cat_GetAll(limit: number) {
+  /*
+  cat_getAll(
+    offset: number,
+    limit: number,
+    fetchPolicy: WatchQueryFetchPolicy = 'cache-first'
+  ): Observable<Array<Cat>> {
+    // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
+    return this.getCatsGQL.watch(
+      { offset, limit }, // curPage, orderBy, filter, offset = (curPage-1)*pageSize
+      {
+        notifyOnNetworkStatusChange: true,
+        fetchPolicy,
+      }
+    ).valueChanges.pipe(map(
+      (result, loading) => {
+        dump(result.data.cats, 'valueChanges');
+        return result.data.cats;
+      })
+    );
+  }
+
+  */
+  cat_GetAll(
+    offset: number,
+    limit: number,
+    fetchPolicy: WatchQueryFetchPolicy = 'cache-first'
+  ) {
     this.catsSubscription = this.apollo
       .watchQuery({
-        query: getAllCats_gql,
+        query: GetCatsDocument,
         notifyOnNetworkStatusChange: true,
         variables: {
-          limit: limit,
+          offset,
+          limit,
         },
       })
       .valueChanges.subscribe({

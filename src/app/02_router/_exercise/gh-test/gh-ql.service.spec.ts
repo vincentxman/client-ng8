@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CatsServiceService } from './cats-service.service';
+import { GhQLService } from './gh-ql.service';
 
-describe('CatsServiceService', () => {
+describe('GhQLService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CatsServiceService = TestBed.get(CatsServiceService);
+    const service: GhQLService = TestBed.get(GhQLService);
     expect(service).toBeTruthy();
   });
 });

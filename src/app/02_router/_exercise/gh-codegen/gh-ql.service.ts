@@ -11,6 +11,7 @@ import { dump } from '../../../../_share/utilities/tools';
 })
 export class GhQLService {
 
+  loading: number;
   constructor(
     private getCatsGQL: GetCatsGQL,
     private getCatGQL: GetCatGQL,
@@ -48,6 +49,7 @@ export class GhQLService {
       }
     ).valueChanges.pipe(map(
       (result, loading) => {
+        this.loading = loading;
         dump(result.data.cats, 'valueChanges');
         return result.data.cats;
       })

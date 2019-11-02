@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CatDto, Cat } from './_graphql/_codegen';
 import { GhQLService } from './gh-ql.service';
-import { dump } from '../../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-gh-ql',
