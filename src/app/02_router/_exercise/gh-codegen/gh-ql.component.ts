@@ -10,28 +10,35 @@ import { GhQLService } from './gh-ql.service';
   styleUrls: ['./gh-ql.component.css']
 })
 export class GhQLComponent implements OnInit {
-  cats: Observable<Cat[]>;
-  cat: Observable<Cat>;
-  catDto: CatDto;
+  cats$: Observable<Cat[]>;
+  cat$: Observable<Cat>;
+  loading$: Observable<number>;
+  loading: number;
+  catAdded$: Observable<any>;
+  catUpdated$: Observable<any>;
+  catDeleted$: Observable<any>;
   idSelected = '';
-  catAdded: any;
-  catUpdated: any;
-  catDeleted: any;
 
   constructor(
     private ghQlService: GhQLService,
   ) {
-    this.cats = this.ghQlService.cat_getAll(0, 5);
+    this.cats$ = this.ghQlService.cat_getAll(0, 5);
   }
 
   ngOnInit(): void {
-    this.catAdded = this.ghQlService.subscription_catAdded();
-    this.catUpdated = this.ghQlService.subscription_catUpdated();
-    this.catDeleted = this.ghQlService.subscription_catDeleted();
+    this.catAdded$ = this.ghQlService.subscription_catAdded();
+    this.catUpdated$ = this.ghQlService.subscription_catUpdated();
+    this.catDeleted$ = this.ghQlService.subscription_catDeleted();
+    this.ghQlService.loading$.subscribe({
+      next: (v) => {
+        this.loading = v;
+        console.log('....v', v);
+      },
+    });
   }
 
   doCat_getAll() {
-    this.cats = this.ghQlService.cat_getAll(0, 5, 'network-only');
+    this.cats$ = this.ghQlService.cat_getAll(0, 5, 'network-only');
   }
 
   doSelect(id: string) {
@@ -57,6 +64,6 @@ export class GhQLComponent implements OnInit {
   }
 
   doCat_get() {
-    this.cat = this.ghQlService.cat_get(this.idSelected);
+    this.cat$ = this.ghQlService.cat_get(this.idSelected);
   }
 }

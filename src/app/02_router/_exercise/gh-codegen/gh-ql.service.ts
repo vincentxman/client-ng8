@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { GetCatsGQL, GetCatGQL, UpdateCatGQL, DeleteCatGQL, CreateCatGQL, CatAddedGQL, CatUpdatedGQL, CatDeletedGQL, Cat, CatDto } from './_graphql/_codegen';
 import { WatchQueryFetchPolicy } from 'apollo-client';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { GhQlLazyModule } from './gh-ql-lazy.module';
 import { dump } from '../../../../_share/utilities/tools';
+import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: GhQlLazyModule
 })
 export class GhQLService {
-
-  loading: number;
+  loading$ = new EventEmitter<number>();
   constructor(
     private getCatsGQL: GetCatsGQL,
     private getCatGQL: GetCatGQL,
@@ -21,7 +21,8 @@ export class GhQLService {
     private catAddedGQL: CatAddedGQL,
     private catUpdatedGQL: CatUpdatedGQL,
     private catDeletedGQL: CatDeletedGQL,
-  ) { }
+  ) {
+  }
 
   subscription_catAdded(): Observable<any> {
     return this.catAddedGQL.subscribe((result) => { dump(result.data, 'catAddedGQL'); });
@@ -49,7 +50,7 @@ export class GhQLService {
       }
     ).valueChanges.pipe(map(
       (result, loading) => {
-        this.loading = loading;
+        this.loading$.emit(loading);
         dump(result.data.cats, 'valueChanges');
         return result.data.cats;
       })
@@ -61,6 +62,7 @@ export class GhQLService {
       { id },
     ).valueChanges.pipe(map(
       (result, loading) => {
+        this.loading$.emit(loading);
         dump(result.data.cat, 'valueChanges');
         return result.data.cat;
       })
