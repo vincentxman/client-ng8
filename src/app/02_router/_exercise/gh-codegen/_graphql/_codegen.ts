@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2019-11-02T12:22:46+08:00
+// Generated in 2019-11-03T01:01:17+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -56,7 +56,7 @@ export type Query = {
 
 export type QueryCatsArgs = {
   limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
 };
 
 export type QueryCatArgs = {
@@ -79,7 +79,7 @@ export type GetCatQuery = { __typename?: "Query" } & {
 };
 
 export type GetCatsQueryVariables = {
-  offset?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
 
@@ -162,8 +162,8 @@ export class GetCatGQL extends Apollo.Query<GetCatQuery, GetCatQueryVariables> {
   document = GetCatDocument;
 }
 export const GetCatsDocument = gql`
-  query getCats($offset: Int, $limit: Int) {
-    cats(offset: $offset, limit: $limit) {
+  query getCats($skip: Int, $limit: Int) {
+    cats(skip: $skip, limit: $limit) {
       id
       name
       age

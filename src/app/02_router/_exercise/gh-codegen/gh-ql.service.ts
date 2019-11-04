@@ -37,13 +37,14 @@ export class GhQLService {
   }
 
   cat_getAll(
-    offset: number,
+    skip: number,
     limit: number,
     fetchPolicy: WatchQueryFetchPolicy = 'cache-first'
   ): Observable<Array<Cat>> {
     // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
+    this.loading$.emit(1);
     return this.getCatsGQL.watch(
-      { offset, limit }, // curPage, orderBy, filter, offset = (curPage-1)*pageSize
+      { skip , limit }, // curPage, orderBy, filter, skip = (curPage-1)*pageSize
       {
         notifyOnNetworkStatusChange: true,
         fetchPolicy,
@@ -58,8 +59,10 @@ export class GhQLService {
   }
 
   cat_get(id: string): Observable<Cat> {
+    this.loading$.emit(1);
     return this.getCatGQL.watch(
       { id },
+      { notifyOnNetworkStatusChange: true }
     ).valueChanges.pipe(map(
       (result, loading) => {
         this.loading$.emit(loading);

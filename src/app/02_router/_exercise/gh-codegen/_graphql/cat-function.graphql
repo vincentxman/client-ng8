@@ -8,8 +8,8 @@ query getCat($id: String!) {
   }
 }
 
-query getCats($offset:Int, $limit: Int) {
-  cats(offset: $offset, limit: $limit) {
+query getCats($skip: Int, $limit: Int) {
+  cats(skip: $skip, limit: $limit) {
     id
     name
     age

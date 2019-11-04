@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/02_router/_exercise/tst/service/product.
 import { HeroService } from 'src/app/02_router/_exercise/tst/service/hero.service';
 import { Hero } from './class/hero';
 import { dump } from '../../../../_share/utilities/tools';
+import { ExcepService } from './service/excep.service';
 
 @Component({
   selector: 'app-tst',
@@ -14,7 +15,9 @@ export class TstComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private heroService: HeroService) { }
+    private heroService: HeroService,
+    private excepService: ExcepService,
+    ) { }
 
   ngOnInit() {
   }
@@ -31,5 +34,10 @@ export class TstComponent implements OnInit {
         this.heroes = heroes;
         dump(heroes, 'getHeroes');
       });
+  }
+
+  getExcep(): void {
+    this.excepService.getProducts()
+    .subscribe(products => dump(products, 'getProducts'));
   }
 }

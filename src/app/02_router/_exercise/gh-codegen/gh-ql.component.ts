@@ -12,12 +12,11 @@ import { GhQLService } from './gh-ql.service';
 export class GhQLComponent implements OnInit {
   cats$: Observable<Cat[]>;
   cat$: Observable<Cat>;
-  loading$: Observable<number>;
-  loading: number;
   catAdded$: Observable<any>;
   catUpdated$: Observable<any>;
   catDeleted$: Observable<any>;
-  idSelected = '';
+  loading = true;
+  idSelected: string;
 
   constructor(
     private ghQlService: GhQLService,
@@ -29,11 +28,7 @@ export class GhQLComponent implements OnInit {
     this.catAdded$ = this.ghQlService.subscription_catAdded();
     this.catUpdated$ = this.ghQlService.subscription_catUpdated();
     this.catDeleted$ = this.ghQlService.subscription_catDeleted();
-    this.ghQlService.loading$.subscribe({
-      next: (v) => {
-        this.loading = v;
-      },
-    });
+    this.ghQlService.loading$.subscribe({ next: (v) => this.loading = (v > 0) });
   }
 
   doCat_getAll() {

@@ -8,8 +8,6 @@ import { WebSocketLink } from 'apollo-link-ws';
 import { split } from 'apollo-link';
 import { getMainDefinition } from 'apollo-utilities/lib/getFromAST';
 import { OperationDefinitionNode } from 'graphql/language/ast';
-import * as os from 'os';
-import { dump } from 'src/_share/utilities/tools';
 import { environment } from 'src/environments/environment';
 
 export function createApollo(httpLink: HttpLink) {
