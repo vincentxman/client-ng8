@@ -21,7 +21,7 @@ export class GhQLComponent implements OnInit {
   constructor(
     private ghQlService: GhQLService,
   ) {
-    this.cats$ = this.ghQlService.cat_getAll(0, 5);
+    this.cats$ = this.ghQlService.cat_getSome(0, 5);
   }
 
   ngOnInit(): void {
@@ -31,8 +31,8 @@ export class GhQLComponent implements OnInit {
     this.ghQlService.loading$.subscribe({ next: (v) => this.loading = (v > 0) });
   }
 
-  doCat_getAll() {
-    this.cats$ = this.ghQlService.cat_getAll(0, 5, 'network-only');
+  doCat_getSome() {
+    this.cats$ = this.ghQlService.cat_getSome(0, 5, 'network-only');
   }
 
   doSelect(id: string) {

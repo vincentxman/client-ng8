@@ -11,14 +11,14 @@ import { ItemsComponent } from './items/items.component';
 
 // 必须与router的path名称相同，大小写不用一样
 SideNavExerciseComponent.sidebarItems = [
-  'Gh-codegen', 'Gh-test', 'Tst', 'Item', 'Country'
+  'Gh-codegen', 'Gh-test', 'Tst', 'Items', 'Country'
 ];
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'tst' },
   { path: 'gh-codegen', component: GhQLComponent },
   { path: 'gh-test', component: GhCatComponent },
-  { path: 'item', component: ItemsComponent },
+  { path: 'items', component: ItemsComponent },
   { path: 'tst', component: TstComponent },
   { path: 'country', component: CountryComponent },
   { path: '**', component: TstComponent },

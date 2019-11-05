@@ -1,5 +1,6 @@
 export class Item {
-  readonly name: string;
-  readonly description: string;
-  readonly qty: number;
+  _id: string;
+  name: string;
+  qty: number;
+  description: string;
 }

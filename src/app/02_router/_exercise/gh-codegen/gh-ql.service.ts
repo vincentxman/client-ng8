@@ -36,7 +36,7 @@ export class GhQLService {
     return this.catDeletedGQL.subscribe((result) => { dump(result.data, 'catDeletedGQL'); });
   }
 
-  cat_getAll(
+  cat_getSome(
     skip: number,
     limit: number,
     fetchPolicy: WatchQueryFetchPolicy = 'cache-first'

@@ -1,11 +1,15 @@
 
 <app-page-wrapper-exercise pageTitle="Items">
-  <button type="button" class="btn btn-success m-2" (click)="doGetItems()">Get Items</button>
-  <div>Config=:{{config$|async|json}}</div>
-
+  <button type="button" class="btn btn-success m-2" (click)="doCreateItem()">Create Item</button>
+  <button type="button" class="btn btn-success m-2" (click)="doDeleteItem()">Delete Item</button>
+  <button type="button" class="btn btn-success m-2" (click)="doUpdateItem()">Update Item</button>
+  <button type="button" class="btn btn-success m-2" (click)="doGetItems()">Get Some Items</button>
+  <button type="button" class="btn btn-success m-2" (click)="doGetItem()">Get Item</button>
+  <div>Config={{config$|async|json}}</div>
+  <div>idSelected=:{{idSelected}}</div>
   <ul>
-    <li *ngFor="let i = index ; let item of items$ | async" (click)="doSelect(item.name)" >{{i}}:{{item.name}}, {{ item.qty
-      }}, {{item.description}}</li>
+    <li *ngFor="let i = index ; let item of items$ | async" (click)="doSelect(item._id)" >{{i}}:/{{item._id}}/{{item.name}}/{{ item.qty
+      }}/{{item.description}}</li>
   </ul>
 
 </app-page-wrapper-exercise>

@@ -4,7 +4,7 @@
   <button type="button" class="btn btn-success m-2" (click)="doCat_create()">Create</button>
   <button type="button" class="btn btn-success m-2" (click)="doCat_update(idSelected)">Update</button>
   <button type="button" class="btn btn-success m-2" (click)="doCat_delete(idSelected)">Delete</button>
-  <button type="button" class="btn btn-success m-2" (click)="doCat_getAll()">getAllGets</button>
+  <button type="button" class="btn btn-success m-2" (click)="doCat_getSome()">getSomGets</button>
   <button type="button" class="btn btn-success m-2" (click)="doCat_get()">getGet</button>
 
   <h6 *ngIf="catAdded$"    >catAdded$:{{catAdded$|async|json}}</h6>
