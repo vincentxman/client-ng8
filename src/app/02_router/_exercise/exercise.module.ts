@@ -14,7 +14,7 @@ import { VShareModule } from 'src/_share';
 import { CountryLazyServiceModule } from './country/country.lazy.service.module';
 import { GhCatComponent } from './gh-test/gh-cat.component';
 import { GhQlLazyModule } from './gh-codegen/gh-ql-lazy.module';
-import { ItemComponent } from './item/item.component';
+import { ItemsComponent } from './items/items.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +25,9 @@ import { ItemComponent } from './item/item.component';
     TstComponent,
     CountryComponent,
     SortableHeaderDirective,
-
     NgbdTableCompleteComponent,
-
     GhCatComponent,
-
-    ItemComponent,
+    ItemsComponent,
   ],
   imports: [
     NgbModule,

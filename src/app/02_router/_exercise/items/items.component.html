@@ -1,0 +1,12 @@
+
+<app-page-wrapper-exercise pageTitle="Items">
+  <button type="button" class="btn btn-success m-2" (click)="doGetItems()">Get Items</button>
+  <div>Config=:{{config$|async|json}}</div>
+
+  <ul>
+    <li *ngFor="let i = index ; let item of items$ | async" (click)="doSelect(item.name)" >{{i}}:{{item.name}}, {{ item.qty
+      }}, {{item.description}}</li>
+  </ul>
+
+</app-page-wrapper-exercise>
+
