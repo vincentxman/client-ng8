@@ -26,9 +26,10 @@ import { GraphqlModule } from './graphql.module';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/** 配置 angular i18n **/
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-
 registerLocaleData(zh);
 
 @NgModule({
@@ -57,6 +58,8 @@ registerLocaleData(zh);
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }, // URL 使用 #
+
+    /** 配置 ng-zorro-antd 国际化（文案 及 日期） **/
     { provide: NZ_I18N, useValue: zh_CN },
   ],
   bootstrap: [AppComponent]

@@ -41,8 +41,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/style/styles.css",
               "src/style/app.scss",
-              "src/theme.less",
-              "node_modules/prismjs/themes/prism.css"
+              "src/theme.less"
             ],
             "scripts": ["node_modules/prismjs/prism.js"]
           },
