@@ -12,7 +12,7 @@ var config = {
   // include: ['*', '**/*'],      // this would upload everything except dot files
   include: ['*','**/*'],
   // e.g. exclude sourcemaps, and ALL files in node_modules (including dot files)
-  exclude: ['**/*.bak', "node_modules/**", "node_modules/**/.*"],
+  exclude: ['**/*.bak', '**/*.map', "node_modules/**", "node_modules/**/.*"],
   // delete ALL existing files at destination before uploading, if true
   deleteRemote: true,
   // Passive mode is forced (EPSV command is not sent)
