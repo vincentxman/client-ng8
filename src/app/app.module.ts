@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
@@ -52,6 +53,7 @@ registerLocaleData(zh);
     FormsModule,
 
     BrowserAnimationsModule,
+    MarkdownModule.forRoot(),
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],

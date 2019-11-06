@@ -44,7 +44,10 @@
               "src/theme.less",
               "node_modules/prismjs/themes/prism.css"
             ],
-            "scripts": ["node_modules/prismjs/prism.js"]
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/marked/lib/marked.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,7 +126,10 @@
               "node_modules/prismjs/themes/prism.css"
             ],
 
-            "scripts": ["node_modules/prismjs/prism.js"]
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/marked/lib/marked.js"
+            ]
           }
         },
         "lint": {
