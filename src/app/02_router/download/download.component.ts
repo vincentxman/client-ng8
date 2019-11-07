@@ -16,4 +16,6 @@ export class DownloadComponent implements OnInit {
   onError(err) {
     dump(err);
   }
+
+
 }

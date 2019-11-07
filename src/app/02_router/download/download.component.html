@@ -1,3 +1,9 @@
-<p>download works!</p>
+<div class="m-5">
 
-<div class="ml-5" markdown [src]="'docs/demo.md'" lineNumbers [start]="1" (error)="onError($event)"></div>
+  <div markdown [src]="'docs/demo.js'" lineNumbers [start]="5"
+    (error)="onError($event)"></div>
+
+  <div markdown [src]="'docs/README.md'" lineNumbers [start]="1"
+    (error)="onError($event)"></div>
+
+</div>
