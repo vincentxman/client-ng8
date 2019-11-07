@@ -36,6 +36,8 @@
     "bootstrap": "^4.3.1",
     "concurrently": "^4.1.2",
     "graphql-tag": "^2.10.1",
+    "jquery": "^3.4.1",
+    "materialize-css": "^1.0.0",
     "ng-zorro-antd": "^8.4.1",
     "ngx-markdown": "^8.2.1",
     "prismjs": "^1.17.1",

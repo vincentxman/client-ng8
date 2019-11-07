@@ -15,6 +15,9 @@ import { CountryLazyServiceModule } from './country/country.lazy.service.module'
 import { GhCatComponent } from './gh-test/gh-cat.component';
 import { GhQlLazyModule } from './gh-codegen/gh-ql-lazy.module';
 import { ItemsComponent } from './items/items.component';
+import { MarkdownTestComponent } from './markdown-test/markdown-test.component';
+import { MarkdownModule } from 'ngx-markdown';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { ItemsComponent } from './items/items.component';
     NgbdTableCompleteComponent,
     GhCatComponent,
     ItemsComponent,
+    MarkdownTestComponent,
   ],
   imports: [
     NgbModule,
@@ -37,6 +41,7 @@ import { ItemsComponent } from './items/items.component';
     ExerciseRoutingModule,
     CountryLazyServiceModule,
     GhQlLazyModule,
+    MarkdownModule.forChild(),
   ],
   exports: [
   ],

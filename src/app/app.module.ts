@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
 // TODO InMemoryDataService
@@ -26,8 +26,25 @@ import { VComponentsModule } from './02_router/_components/components.module';
 import { GraphqlModule } from './graphql.module';
 
 /** Markdown **/
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-import { markedOptionsFactory } from './app.module.helper';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+export function markedOptions(): MarkedOptions {
+  const renderer = new MarkedRenderer();
+
+  renderer.blockquote = (text: string) => {
+    return '<blockquote class="blockquote"><p>' + text + '</p></blockquote>';
+  };
+
+  return {
+    renderer: renderer,
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+  };
+}
 
 /** 配置 angular i18n **/
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
@@ -59,17 +76,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
 
     BrowserAnimationsModule,
-    MarkdownModule.forRoot(),
+
+
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: markedOptions,
+      },
+    }),
 
     // TODO InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
   ],
+
+  // URL 使用 #
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }, // URL 使用 #
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
 
     /** 配置 ng-zorro-antd 国际化（文案 及 日期） **/
     { provide: NZ_I18N, useValue: zh_CN },
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

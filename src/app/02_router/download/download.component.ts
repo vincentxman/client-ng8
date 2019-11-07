@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { dump } from '../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-download',
@@ -12,4 +13,7 @@ export class DownloadComponent implements OnInit {
   ngOnInit() {
   }
 
+  onError(err) {
+    dump(err);
+  }
 }
