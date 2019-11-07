@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { MarkdownModule } from 'ngx-markdown';
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,14 +25,19 @@ import { VShareModule } from 'src/_share';
 import { VComponentsModule } from './02_router/_components/components.module';
 import { GraphqlModule } from './graphql.module';
 
-import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/** Markdown **/
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { markedOptionsFactory } from './app.module.helper';
 
 /** 配置 angular i18n **/
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 registerLocaleData(zh);
+
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
