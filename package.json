@@ -12,7 +12,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
-    "generate-init": "graphql-codegen init"
+    "generate-init": "graphql-codegen init",
+    "4-http-server": "http-server -a 127.0.0.1 -p 4200"
   },
   "private": true,
   "dependencies": {
