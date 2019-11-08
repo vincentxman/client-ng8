@@ -1,29 +1,17 @@
-const { watch, lastRun, series, parallel, src, dest } = require('gulp');
+const path = require('path');
 
-var FtpDeploy = require("ftp-deploy");
-var ftpDeploy = new FtpDeploy();
-var config = {
-  user: "audioprint",
-  password: "12@*aZs&f=-23@%^@sddAZ",
-  host: "o-pen.com.cn",
-  port: 21,
-  localRoot: __dirname + "/dist/audioprint/",
-  remoteRoot: "/client-ng8/dist/audioprint/",
-  // include: ['*', '**/*'],      // this would upload everything except dot files
-  include: ['*','**/*'],
-  // e.g. exclude sourcemaps, and ALL files in node_modules (including dot files)
-  exclude: ['**/*.bak', '**/*.map', "node_modules/**", "node_modules/**/.*"],
-  // delete ALL existing files at destination before uploading, if true
-  deleteRemote: true,
-  // Passive mode is forced (EPSV command is not sent)
-  forcePasv: true
-};
+const projectDir = __dirname;
+const tsconfigPath = path.join(projectDir, 'scripts/gulp/tsconfig.json');
 
-function client2Ftp() {
-  return ftpDeploy
-    .deploy(config)
-    .then(res => console.log("finished:", res))
-    .catch(err => console.log(err));
+if (projectDir.includes(' ')) {
+  console.error('Error: Cannot run the build tasks if the project is ' +
+    'located in a directory with spaces in between. Please rename your project directory.');
+  process.exit(1);
 }
 
-exports.client2Ftp = client2Ftp;
+// Register TS compilation.
+require('ts-node').register({
+  project: tsconfigPath
+});
+
+require('./scripts/gulp/gulpfile');
