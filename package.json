@@ -8,7 +8,6 @@
     "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
     "4-http-server": "http-server -a 127.0.0.1 -p 4200",
     "0-myTest": "gulp z:dev",
-
     "ng": "ng",
     "start-4200": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
@@ -80,6 +79,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.2.0",
+    "gulp-copy": "^4.0.1",
     "gulp-imagemin": "^6.1.1",
     "gulp-rename": "^1.4.0",
     "gulp-sftp-up4": "^0.1.8",
