@@ -1,18 +1,9 @@
 
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "lib": ["es2015", "dom"],
     "module": "commonjs",
-    "moduleResolution": "node",
     "outDir": "../../out-tsc",
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "noEmitOnError": true,
-    "noImplicitAny": true,
     "target": "es5",
     "types": [
       "node"

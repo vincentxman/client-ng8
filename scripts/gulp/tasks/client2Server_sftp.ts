@@ -1,10 +1,10 @@
-import * as gulp from 'gulp';
 import { dump } from '../../../src/_share/utilities/tools';
 
+const gulp = require('gulp');
 const sftp = require('gulp-sftp-up4');
 
 gulp.task('client2Server_sftp', (done: (err?: string) => void) => {
-  dump('.....client2Server_sftp');
+  dump('client2Server_sftp');
 
   gulp.src(['./dist/audioprint/**', '!./dist/audioprint/assets/**'])
     .pipe(sftp({
