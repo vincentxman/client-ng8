@@ -40,6 +40,8 @@ ftpDeploy.on("upload-error", (data) => {
   dumpErr(data.err, 'upload-error'); // data will also include filename, relativePath, and other goodies
 });
 
+// 复制全部 dist/audioprint 内容
+// 复制前删除全部
 function client2Server_ftp(done: (err?: string) => void) {
   dump('client2Server_ftp');
   return ftpDeploy

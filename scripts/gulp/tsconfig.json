@@ -2,13 +2,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "baseUrl": "./",
     "outDir": "../../out-tsc",
     "target": "es5",
-    "types": [
-      "node"
-    ],
-    "baseUrl": "."
+    "module": "commonjs"
   },
   "files": [
     "gulpfile.ts"

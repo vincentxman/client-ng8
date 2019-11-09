@@ -2,18 +2,19 @@
   "name": "audioprint",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "0-start": "ng serve --proxy-config proxy.conf.json",
-    "start-4200": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
     "1-build-prod": "ng build --prod --aot",
     "2-client2Ftp": "gulp client2Server_sftp",
+    "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
+    "4-http-server": "http-server -a 127.0.0.1 -p 4200",
+
+    "ng": "ng",
+    "start-4200": "ng serve --proxy-config proxy.conf.json",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
-    "generate-init": "graphql-codegen init",
-    "4-http-server": "http-server -a 127.0.0.1 -p 4200"
+    "generate-init": "graphql-codegen init"
   },
   "private": true,
   "dependencies": {
