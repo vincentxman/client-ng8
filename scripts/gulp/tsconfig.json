@@ -7,7 +7,7 @@
     "lib": ["es2015", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../out-tsc",
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
