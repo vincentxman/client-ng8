@@ -97,7 +97,8 @@
     "callable-types": false,
     "jsdoc-format": false,
     "no-empty-interface": false,
-    "unified-signatures": false
+    "unified-signatures": false,
+    "no-namespace": false
   },
   "rulesDirectory": [
     "codelyzer"

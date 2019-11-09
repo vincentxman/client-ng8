@@ -16,7 +16,7 @@ export class ItemsService {
   constructor(private http: HttpClient) { }
 
   getConfig() {
-    return this.http.get('assets/config.json');
+    return this.http.get('config.json');
   }
 
   /** POST: add a new Item to the server */
