@@ -1,5 +1,8 @@
 import './tasks/clean';
+const gulp = require('gulp');
+import { dump } from '../../src/_share/utilities/tools';
 
-const c = 25;
-export { c };
-console.log(c);
+gulp.task('test', (done: () => void) => {
+  dump('gulp ok', 'test');
+  done();
+});
