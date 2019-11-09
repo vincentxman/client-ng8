@@ -7,6 +7,7 @@
     "2-client2Ftp": "gulp client2Server_sftp",
     "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
     "4-http-server": "http-server -a 127.0.0.1 -p 4200",
+    "0-myTest": "gulp z:dev",
 
     "ng": "ng",
     "start-4200": "ng serve --proxy-config proxy.conf.json",
