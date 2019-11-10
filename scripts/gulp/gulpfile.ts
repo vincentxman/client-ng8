@@ -12,8 +12,7 @@ const Consoler = require('../tools/console-dump');
 Consoler.dump('loading', 'gulpfile.ts');
 
 gulp.task('test', (done: () => void) => {
-  Consoler.dump('gulp ok', 'test');
-  Consoler.dump(JSON.stringify(buildConfig, null, '\t'), 'test');
+  Consoler.dump(buildConfig, 'test');
   done();
 });
 
