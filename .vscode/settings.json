@@ -20,7 +20,8 @@
       "cmd.exe.lnk": true,
       "**/*.lnk": true,
       "out-tsc": true,
-      "site": true
+      "site": true,
+      "components": true
     },
     "explorerExclude.backup": null,
     "git.ignoreLimitWarning": true,
