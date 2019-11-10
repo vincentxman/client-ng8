@@ -9,11 +9,11 @@ function generate(target) {
   const isSyncSpecific = target && (target !== 'init');
   if (!target) {
     fs.removeSync(`${showCasePath}/doc`);
-    Consoler.sleep(5000); // 防止出现 npm ERR! code ELIFECYCLE
+    // Consoler.sleep(5000); // 防止出现 npm ERR! code ELIFECYCLE
     fs.copySync(path.resolve(__dirname, '_site/doc'), `${showCasePath}/doc`);
   } else if (target === 'init') {
     fs.removeSync(`${showCasePath}`);
-    Consoler.sleep(15000); // 防止出现 npm ERR! code ELIFECYCLE
+    // Consoler.sleep(15000); // 防止出现 npm ERR! code ELIFECYCLE
     fs.copySync(path.resolve(__dirname, '_site'), `${showCasePath}`);
   } else {
     fs.removeSync(`${showCasePath}/doc/app/${target}`);
