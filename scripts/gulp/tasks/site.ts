@@ -14,7 +14,7 @@ task('init:site', done => {
 });
 
 /** Init site directory, and start watch and ng-serve */
-task('z:site', series(
+task('s:site', series(
   'init:site',
   // parallel('watch:site', 'serve:site')
 ));

@@ -2,7 +2,7 @@
   "name": "audioprint",
   "version": "0.0.0",
   "scripts": {
-    "0-myTest": "gulp z:dev",
+    "0-myTest": "gulp s:dev",
     "0-start": "ng serve --proxy-config proxy.conf.json",
     "1-build-prod": "ng build --prod --aot",
     "2-client2Ftp": "gulp client2Server_sftp",

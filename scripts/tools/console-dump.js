@@ -3,7 +3,7 @@ var clc = require('cli-color');
 // 颜色: https://zh.wikipedia.org/wiki/ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97
 const error = clc.red.bold;
 const warn = clc.yellow;
-const notice = clc.blue;
+const notice = clc.white;
 function Consoler() {
   Consoler.prototype.dumpErr = function (obj, title) {
     console.log(notice(`${title}>...`), error(`${obj}`));
