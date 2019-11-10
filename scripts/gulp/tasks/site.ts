@@ -1,10 +1,10 @@
 import { task, series, parallel } from "gulp";
-import { dump } from '../../../src/_share/utilities/tools';
+const Consoler = require('../tools/console-dump.js');
 const siteGenerate = require('../../site/generate-site');
 
 /** Parse demos and docs to site directory. */
 task('init:site', done => {
-  dump('init:site');
+  Consoler.dump('init:site');
 
   siteGenerate('init');
   done();

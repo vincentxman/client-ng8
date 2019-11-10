@@ -1,7 +1,7 @@
 // import * as gulp from 'gulp';
-import { dump, dumpErr } from '../../../src/_share/utilities/tools';
 import { buildConfig } from '../../build-config';
 import * as path from 'path';
+const Consoler = require('../../tools/console-dump');
 
 const gulp = require('gulp');
 const FtpDeploy = require("ftp-deploy");
@@ -25,7 +25,7 @@ const config = {
 };
 
 ftpDeploy.on("uploading", (data) => {
-  dump(`${data.transferredFileCount}/${data.totalFilesCount} ${data.filename}`, 'uploading'); // total file count being transferred
+  Consoler.dump(`${data.transferredFileCount}/${data.totalFilesCount} ${data.filename}`, 'uploading'); // total file count being transferred
 });
 
 // ftpDeploy.on("uploaded", (data) => {
@@ -37,21 +37,21 @@ ftpDeploy.on("uploading", (data) => {
 // });
 
 ftpDeploy.on("upload-error", (data) => {
-  dumpErr(data.err, 'upload-error'); // data will also include filename, relativePath, and other goodies
+  Consoler.dumpErr(data.err, 'upload-error'); // data will also include filename, relativePath, and other goodies
 });
 
 // 复制全部 dist/audioprint 内容
 // 复制前删除全部
 function client2Server_ftp(done: (err?: string) => void) {
-  dump('client2Server_ftp');
+  Consoler.dump('client2Server_ftp');
   return ftpDeploy
     .deploy(config)
     .then(_ => {
-      dump('OK', "Finished");
+      Consoler.dump('OK', "Finished");
       done();
     })
     .catch(err => {
-      dumpErr(err, "Error")
+      Consoler.dumpErr(err, "Error")
       done(err);
     });
 }

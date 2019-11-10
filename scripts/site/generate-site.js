@@ -1,11 +1,11 @@
 const fs = require('fs-extra');
 const path = require('path');
-const Tools = require('../tools/dump');
+const Consoler = require('../tools/console-dump.js').default;
 
 const showCasePath = path.resolve(__dirname, '../../site');
 
 function generate(target) {
-  Tools.dump(target, 'generate');
+  Consoler.dump(target, 'generate');
   const isSyncSpecific = target && (target !== 'init');
   if (!target) {
     fs.removeSync(`${showCasePath}/doc`);

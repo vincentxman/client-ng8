@@ -1,4 +1,4 @@
-import { dump } from '../../../src/_share/utilities/tools';
+const Consoler = require('../../tools/console-dump');
 
 const gulp = require('gulp');
 const sftp = require('gulp-sftp-up4');
@@ -6,7 +6,7 @@ const sftp = require('gulp-sftp-up4');
 // 复制部分 dist/audioprint 内容， 不包含 /dist/audioprint/assets/
 // 复制前不删除
 gulp.task('client2Server_sftp', (done: (err?: string) => void) => {
-  dump('client2Server_sftp');
+  Consoler.dump('client2Server_sftp');
 
   gulp.src(['./dist/audioprint/**', '!./dist/audioprint/assets/**'])
     .pipe(sftp({
