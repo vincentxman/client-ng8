@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
-const Consoler = require('../tools/console-dump.js').default;
+const Consoler = require('../tools/console-dump');
 
 const showCasePath = path.resolve(__dirname, '../../site');
 
@@ -9,11 +9,11 @@ function generate(target) {
   const isSyncSpecific = target && (target !== 'init');
   if (!target) {
     fs.removeSync(`${showCasePath}/doc`);
-    // Tools.sleep(5000); // 防止出现 npm ERR! code ELIFECYCLE
+    Consoler.sleep(5000); // 防止出现 npm ERR! code ELIFECYCLE
     fs.copySync(path.resolve(__dirname, '_site/doc'), `${showCasePath}/doc`);
   } else if (target === 'init') {
     fs.removeSync(`${showCasePath}`);
-    // Tools.sleep(15000); // 防止出现 npm ERR! code ELIFECYCLE
+    Consoler.sleep(15000); // 防止出现 npm ERR! code ELIFECYCLE
     fs.copySync(path.resolve(__dirname, '_site'), `${showCasePath}`);
   } else {
     fs.removeSync(`${showCasePath}/doc/app/${target}`);

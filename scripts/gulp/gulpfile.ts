@@ -1,8 +1,8 @@
 
 import './tasks/clean';
-// import './tasks/site';
 import './tasks/client2Server_sftp';
 import './tasks/client2Server_ftp';
+import './tasks/site';
 import { series } from 'gulp';
 const gulp = require('gulp');
 const Consoler = require('../tools/console-dump');
@@ -12,7 +12,7 @@ gulp.task('test', (done: () => void) => {
   done();
 });
 
-// gulp.task('z:dev', series(
-//   'clean',
-//   'z:site'
-// ));
+gulp.task('z:dev', series(
+  'clean',
+  'z:site'
+));
