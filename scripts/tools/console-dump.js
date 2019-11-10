@@ -8,12 +8,16 @@ function Consoler() {
   Consoler.prototype.dumpErr = function (obj, title) {
     if(obj instanceof Object)
       obj = JSON.stringify(obj, null, '\t');
+    if(!title)
+      title='';
     console.log(notice(`${title}>...`), error(`${obj}`));
   }
 
   Consoler.prototype.dump = function dump(obj, title) {
     if(obj instanceof Object)
       obj = JSON.stringify(obj, null, '\t');
+    if(!title)
+      title='';
     console.log(notice(`${title}>...`), warn(`${obj}`));
   }
 

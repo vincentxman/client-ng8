@@ -43,7 +43,7 @@ ftpDeploy.on("upload-error", (data) => {
 // 复制全部 dist/audioprint 内容
 // 复制前删除全部
 function client2Server_ftp(done: (err?: string) => void) {
-  Consoler.dump('client2Server_ftp');
+  Consoler.dump('client2Server_ftp', __filename);
   return ftpDeploy
     .deploy(config)
     .then(_ => {
