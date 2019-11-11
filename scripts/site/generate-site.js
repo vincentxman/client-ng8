@@ -4,11 +4,11 @@ const Consoler = require('../utils/console-dump');
 //
 const fs = require('fs-extra');
 const path = require('path');
-// const parseDocMdUtil = require('./utils/parse-doc-md');
+const parseDocMdUtil = require('./utils/parse-doc-md');
 const parseDemoMdUtil = require('./utils/parse-demo-md');
 const nameWithoutSuffixUtil = require('./utils/name-without-suffix');
 const generateCodeBox = require('./utils/generate-code-box');
-// const generateDemo = require('./utils/generate-demo');
+const generateDemo = require('./utils/generate-demo');
 // const generateDocs = require('./utils/generate-docs');
 // const generateRoutes = require('./utils/generate-routes');
 // const generateIframe = require('./utils/generate-iframe');
@@ -27,7 +27,7 @@ function generate(target) {
     fs.copySync(path.resolve(__dirname, '_site/doc'), `${showCasePath}/doc`);
   } else if (target === 'init') {
     fs.removeSync(`${showCasePath}`); // TODO
-    if(!fs.existsSync(`${showCasePath}`))
+    if (!fs.existsSync(`${showCasePath}`))
       fs.mkdirSync(`${showCasePath}`);
     fs.copySync(path.resolve(__dirname, '_site'), `${showCasePath}`);
   } else {
@@ -80,8 +80,8 @@ function generate(target) {
             demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`; // "NzDemoButtonBasicComponent"
             demoMap[nameKey]['enCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['en-US'], demoMap[nameKey].en, demoMap[nameKey].meta.iframe);
             demoMap[nameKey]['zhCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['zh-CN'], demoMap[nameKey].zh, demoMap[nameKey].meta.iframe);
-            if(nameKey==='basic')
-              Consoler.dump(demoMap,'5 demoMap');
+            if (nameKey === 'basic')
+              Consoler.dump(demoMap, '5 demoMap');
           }
           if (/.ts$/.test(demo)) {
             // 复制 components\button\demo\basic.ts 到 site\doc\app\button\basic.ts
@@ -89,8 +89,8 @@ function generate(target) {
             demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));   // e:\audioprint\client-ng8\components\button\demo\basic.ts
             // copy ts file to site->${component} folder
             fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts); // e:\audioprint\client-ng8\site\doc\app\button\basic.ts
-            if(nameKey==='basic')
-              Consoler.dump(demoMap,'6 demoMap');
+            if (nameKey === 'basic')
+              Consoler.dump(demoMap, '6 demoMap');
           }
           if (demo === 'module') {
             // 复制 components\button\demo\module 到 site\doc\app\button\module.ts
@@ -99,10 +99,49 @@ function generate(target) {
           }
         });
       }
+
+      // handle components->${component}->page folder, parent component of demo page
+      let pageDemo = '';
+      const pageDirPath = path.join(componentDirPath, 'page'); // e:\audioprint\client-ng8\components\button\page
+      if (fs.existsSync(pageDirPath)) {
+        const pageDir = fs.readdirSync(pageDirPath);
+        let zhLocale = '';
+        let enLocale = '';
+        pageDemo = {};
+        pageDir.forEach(file => {
+          if (/.ts$/.test(file)) {
+            pageDemo.raw = String(fs.readFileSync(path.join(pageDirPath, file)));
+          }
+          if (/^zh-CN.txt$/.test(file)) {
+            zhLocale = String(fs.readFileSync(path.join(pageDirPath, file)));
+          }
+          if (/^en-US.txt$/.test(file)) {
+            enLocale = String(fs.readFileSync(path.join(pageDirPath, file)));
+          }
+        });
+        pageDemo.enCode = pageDemo.raw.replace(/locale;/g, enLocale);
+        pageDemo.zhCode = pageDemo.raw.replace(/locale;/g, zhLocale);
+      }
+
+      // handle components->${component}->doc folder
+      // const result = {
+      //   name: componentName,
+      //   docZh: parseDocMdUtil(fs.readFileSync(path.join(componentDirPath, 'doc/index.zh-CN.md')), `components/${componentName}/doc/index.zh-CN.md`),
+      //   docEn: parseDocMdUtil(fs.readFileSync(path.join(componentDirPath, 'doc/index.en-US.md')), `components/${componentName}/doc/index.en-US.md`),
+      //   demoMap,
+      //   pageDemo
+      // };
+      // componentsDocMap[componentName] = { zh: result.docZh.meta, en: result.docEn.meta };
+      // componentsMap[componentName] = demoMap;
+      // generateDemo(showCaseComponentPath, result);
+
     }
-
-
   });
+
+
+
+
+
 }
 
 if (require.main === module) {
