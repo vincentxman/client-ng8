@@ -15,6 +15,7 @@ gulp.task('client2Server_sftp', (done: (err?: string) => void) => {
       pass: '12@*aZs&f=-23@%^@sddAZ',
       remotePath: '/client-ng8/dist/audioprint'
     }));
-
   done();
 });
+
+

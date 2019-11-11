@@ -25,5 +25,7 @@
   },
   "git.ignoreLimitWarning": true,
   "javascript.preferences.importModuleSpecifier": "relative",
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4
 }
