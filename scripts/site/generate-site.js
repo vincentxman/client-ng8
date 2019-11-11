@@ -5,15 +5,15 @@ const Consoler = require('../utils/console-dump');
 const fs = require('fs-extra');
 const path = require('path');
 // const parseDocMdUtil = require('./utils/parse-doc-md');
-// const parseDemoMdUtil = require('./utils/parse-demo-md');
-// const nameWithoutSuffixUtil = require('./utils/name-without-suffix');
-// const generateCodeBox = require('./utils/generate-code-box');
+const parseDemoMdUtil = require('./utils/parse-demo-md');
+const nameWithoutSuffixUtil = require('./utils/name-without-suffix');
+const generateCodeBox = require('./utils/generate-code-box');
 // const generateDemo = require('./utils/generate-demo');
 // const generateDocs = require('./utils/generate-docs');
 // const generateRoutes = require('./utils/generate-routes');
 // const generateIframe = require('./utils/generate-iframe');
-// const capitalizeFirstLetter = require('./utils/capitalize-first-letter');
-// const camelCase = require('./utils/camelcase');
+const capitalizeFirstLetter = require('./utils/capitalize-first-letter');
+const camelCase = require('./utils/camelcase');
 // const getMeta = require('./utils/get-meta');
 const arg = process.argv[2];
 // create site folder
@@ -26,7 +26,7 @@ function generate(target) {
     fs.removeSync(`${showCasePath}/doc`);
     fs.copySync(path.resolve(__dirname, '_site/doc'), `${showCasePath}/doc`);
   } else if (target === 'init') {
-    fs.removeSync(`${showCasePath}`);
+    fs.removeSync(`${showCasePath}`); // TODO
     if(!fs.existsSync(`${showCasePath}`))
       fs.mkdirSync(`${showCasePath}`);
     fs.copySync(path.resolve(__dirname, '_site'), `${showCasePath}`);
@@ -73,24 +73,30 @@ function generate(target) {
           Consoler.dump(demo, '4 demo'); // basic.md
 
           if (/.md$/.test(demo)) {
+            // 读取 components\button\demo\basic.md 转换成中英文 HTML 存入 demoMap[nameKey]['enCode'] / demoMap[nameKey]['zhCode']
             const nameKey = nameWithoutSuffixUtil(demo); // basic.md
             const demoMarkDownFile = fs.readFileSync(path.join(demoDirPath, demo)); // e:\audioprint\client-ng8\components\button\demo\basic.md
             demoMap[nameKey] = parseDemoMdUtil(demoMarkDownFile);
-            demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`;
+            demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`; // "NzDemoButtonBasicComponent"
             demoMap[nameKey]['enCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['en-US'], demoMap[nameKey].en, demoMap[nameKey].meta.iframe);
             demoMap[nameKey]['zhCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['zh-CN'], demoMap[nameKey].zh, demoMap[nameKey].meta.iframe);
-            Consoler.dump(demoMap,'5 demoMap');
+            if(nameKey==='basic')
+              Consoler.dump(demoMap,'5 demoMap');
           }
-          // if (/.ts$/.test(demo)) {
-          //   const nameKey = nameWithoutSuffixUtil(demo);
-          //   demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));
-          //   // copy ts file to site->${component} folder
-          //   fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts);
-          // }
-          // if (demo === 'module') {
-          //   const data = String(fs.readFileSync(path.join(demoDirPath, demo)));
-          //   fs.writeFileSync(path.join(showCaseComponentPath, 'module.ts'), data);
-          // }
+          if (/.ts$/.test(demo)) {
+            // 复制 components\button\demo\basic.ts 到 site\doc\app\button\basic.ts
+            const nameKey = nameWithoutSuffixUtil(demo); //basic.ts
+            demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));   // e:\audioprint\client-ng8\components\button\demo\basic.ts
+            // copy ts file to site->${component} folder
+            fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts); // e:\audioprint\client-ng8\site\doc\app\button\basic.ts
+            if(nameKey==='basic')
+              Consoler.dump(demoMap,'6 demoMap');
+          }
+          if (demo === 'module') {
+            // 复制 components\button\demo\module 到 site\doc\app\button\module.ts
+            const data = String(fs.readFileSync(path.join(demoDirPath, demo)));       // e:\audioprint\client-ng8\components\button\demo\module
+            fs.writeFileSync(path.join(showCaseComponentPath, 'module.ts'), data);    // e:\audioprint\client-ng8\site\doc\app\button\module.ts
+          }
         });
       }
     }

@@ -8,6 +8,9 @@ import { buildConfig } from '../build-config';
 import { series } from 'gulp';
 const gulp = require('gulp');
 const Consoler = require('../utils/console-dump');
+const clearConsole = require('clear-any-console');
+
+clearConsole();
 
 Consoler.dump('loading', __filename);
 
