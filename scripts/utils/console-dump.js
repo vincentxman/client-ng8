@@ -20,14 +20,6 @@ function Consoler() {
       title='';
     console.log(notice(`${title}>...`), warn(`${obj}`));
   }
-
-  Consoler.prototype.sleep = function (ms) {
-    Consoler.prototype.dump(`延迟${ms}ms`, 'sleep');
-    var start = (new Date()).getTime();
-    while ((new Date()).getTime() - start < ms) {
-      continue;
-    }
-  }
 }
 
 module.exports = new Consoler();

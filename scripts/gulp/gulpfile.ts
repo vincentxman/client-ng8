@@ -6,9 +6,8 @@ import './tasks/site';
 import { buildConfig } from '../build-config';
 
 import { series } from 'gulp';
-import { startWith } from 'rxjs/operators';
 const gulp = require('gulp');
-const Consoler = require('../tools/console-dump');
+const Consoler = require('../utils/console-dump');
 
 Consoler.dump('loading', __filename);
 

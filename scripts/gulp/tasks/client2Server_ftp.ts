@@ -1,7 +1,7 @@
 // import * as gulp from 'gulp';
 import { buildConfig } from '../../build-config';
 import * as path from 'path';
-const Consoler = require('../../tools/console-dump');
+const Consoler = require('../../utils/console-dump');
 
 const gulp = require('gulp');
 const FtpDeploy = require("ftp-deploy");

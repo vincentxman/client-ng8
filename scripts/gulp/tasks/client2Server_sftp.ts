@@ -1,4 +1,4 @@
-const Consoler = require('../../tools/console-dump');
+const Consoler = require('../../utils/console-dump');
 
 const gulp = require('gulp');
 const sftp = require('gulp-sftp-up4');

@@ -1,5 +1,5 @@
 import { task, series, parallel } from "gulp";
-const Consoler = require('../../tools/console-dump');
+const Consoler = require('../../utils/console-dump');
 const siteGenerate = require('../../site/generate-site');
 
 /** Parse demos and docs to site directory. */
