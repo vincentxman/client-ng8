@@ -6,6 +6,7 @@ import './tasks/site';
 import { buildConfig } from '../build-config';
 
 import { series } from 'gulp';
+import { startWith } from 'rxjs/operators';
 const gulp = require('gulp');
 const Consoler = require('../tools/console-dump');
 
@@ -16,7 +17,10 @@ gulp.task('test', (done: () => void) => {
   done();
 });
 
-gulp.task('s:dev', series(
+gulp.task('s:dev', series( // TODO Consoler
   'clean',
-  // 's:site'
+  's:site'
 ));
+
+
+

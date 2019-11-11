@@ -10,6 +10,23 @@
       "name": "Chrome",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Gulp",
+      "program": "${workspaceRoot}/gulpfile.js",
+      "stopOnEntry": true,
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceRoot}/gulpfile.js"
+      ],
+      "cwd": "${workspaceRoot}/",
+      "outFiles": [],
+      "sourceMaps": true,
+      "runtimeExecutable": null,
+      "env": {}
     }
   ]
 }

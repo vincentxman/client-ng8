@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
-// TODO InMemoryDataService
+// InMemoryDataService
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../services/in-memory-data.service';
 
@@ -86,7 +86,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       },
     }),
 
-    // TODO InMemoryDataService
+    // InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
   ],
 

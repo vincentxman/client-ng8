@@ -5,7 +5,7 @@ const Consoler = require('../tools/console-dump');
 const showCasePath = path.resolve(__dirname, '../../site');
 
 function generate(target) {
-  Consoler.dump(target, 'generate');
+  Consoler.dump(target, __filename);
   const isSyncSpecific = target && (target !== 'init');
   if (!target) {
     fs.removeSync(`${showCasePath}/doc`);
@@ -36,42 +36,42 @@ function generate(target) {
     if (componentName === 'style' || componentName === 'core' || componentName === 'locale' || componentName === 'i18n' || componentName === 'version') {
       return;
     }
-    Consoler.dump(componentDirPath,'1 componentDirPath');
+    Consoler.dump(componentDirPath, '1 componentDirPath');
 
     if (fs.statSync(componentDirPath).isDirectory()) {
       // create site/doc/app->${component} folder
       const showCaseComponentPath = path.join(showCaseTargetPath, componentName);
 
-      Consoler.dump(showCaseComponentPath,'2 showCaseComponentPath');
+      Consoler.dump(showCaseComponentPath, '2 showCaseComponentPath');
 
       fs.mkdirSync(showCaseComponentPath);
 
       // handle components->${component}->demo folder
       const demoDirPath = path.join(componentDirPath, 'demo');
-      Consoler.dump(demoDirPath,'3 demoDirPath');
+      Consoler.dump(demoDirPath, '3 demoDirPath');
       const demoMap = {};
       if (fs.existsSync(demoDirPath)) {
         const demoDir = fs.readdirSync(demoDirPath);
         demoDir.forEach(demo => {
-          Consoler.dump(demo,'4 demo');
-          // if (/.md$/.test(demo)) {
-          //   const nameKey = nameWithoutSuffixUtil(demo);
-          //   const demoMarkDownFile = fs.readFileSync(path.join(demoDirPath, demo));
-          //   demoMap[nameKey] = parseDemoMdUtil(demoMarkDownFile);
-          //   demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`;
-          //   demoMap[nameKey]['enCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['en-US'], demoMap[nameKey].en, demoMap[nameKey].meta.iframe);
-          //   demoMap[nameKey]['zhCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['zh-CN'], demoMap[nameKey].zh, demoMap[nameKey].meta.iframe);
-          // }
-          // if (/.ts$/.test(demo)) {
-          //   const nameKey = nameWithoutSuffixUtil(demo);
-          //   demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));
-          //   // copy ts file to site->${component} folder
-          //   fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts);
-          // }
-          // if (demo === 'module') {
-          //   const data = String(fs.readFileSync(path.join(demoDirPath, demo)));
-          //   fs.writeFileSync(path.join(showCaseComponentPath, 'module.ts'), data);
-          // }
+          Consoler.dump(demo, '4 demo'); // TODO Consoler
+          if (/.md$/.test(demo)) {
+            const nameKey = nameWithoutSuffixUtil(demo);
+            const demoMarkDownFile = fs.readFileSync(path.join(demoDirPath, demo));
+            demoMap[nameKey] = parseDemoMdUtil(demoMarkDownFile);
+            demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`;
+            demoMap[nameKey]['enCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['en-US'], demoMap[nameKey].en, demoMap[nameKey].meta.iframe);
+            demoMap[nameKey]['zhCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['zh-CN'], demoMap[nameKey].zh, demoMap[nameKey].meta.iframe);
+          }
+          if (/.ts$/.test(demo)) {
+            const nameKey = nameWithoutSuffixUtil(demo);
+            demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));
+            // copy ts file to site->${component} folder
+            fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts);
+          }
+          if (demo === 'module') {
+            const data = String(fs.readFileSync(path.join(demoDirPath, demo)));
+            fs.writeFileSync(path.join(showCaseComponentPath, 'module.ts'), data);
+          }
         });
       }
     }
