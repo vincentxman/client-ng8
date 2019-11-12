@@ -5,28 +5,35 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "node",
+      "request": "launch",
+      "name": "generate-site",
+      "program": "${workspaceFolder}/scripts/site/generate-site.js",
+      "args": [
+        "init"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Gulp test",
+      "program": "${workspaceFolder}/gulpfile.js",
+      "args": [
+        "test"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
       "type": "chrome",
       "request": "launch",
       "name": "Chrome",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug Gulp",
-      "program": "${workspaceRoot}/gulpfile.js",
-      "stopOnEntry": true,
-      "args": [
-        "-r",
-        "ts-node/register",
-        "${workspaceRoot}/gulpfile.js"
-      ],
-      "cwd": "${workspaceRoot}/",
-      "outFiles": [],
-      "sourceMaps": true,
-      "runtimeExecutable": null,
-      "env": {}
     }
   ]
 }

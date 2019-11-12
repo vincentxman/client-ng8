@@ -26,9 +26,11 @@ function generate(target) {
     fs.removeSync(`${showCasePath}/doc`);
     fs.copySync(path.resolve(__dirname, '_site/doc'), `${showCasePath}/doc`);
   } else if (target === 'init') {
-    fs.removeSync(`${showCasePath}`); // TODO
-    if (!fs.existsSync(`${showCasePath}`))
+    Consoler.dump("复制 _site => /site",__filename);
+    fs.removeSync(`${showCasePath}`);
+    if (!fs.existsSync(`${showCasePath}`)){
       fs.mkdirSync(`${showCasePath}`);
+    }
     fs.copySync(path.resolve(__dirname, '_site'), `${showCasePath}`);
   } else {
     fs.removeSync(`${showCasePath}/doc/app/${target}`);
@@ -42,7 +44,7 @@ function generate(target) {
   const componentsMap = {};
 
   rootDir.forEach(componentName => {
-    Consoler.dump(componentName, '....'); // button
+    // Consoler.dump(componentName, '....'); // button
     if (isSyncSpecific) {
       if (componentName !== target) {
         return;
@@ -53,26 +55,27 @@ function generate(target) {
     if (componentName === 'style' || componentName === 'core' || componentName === 'locale' || componentName === 'i18n' || componentName === 'version') {
       return;
     }
-    Consoler.dump(componentDirPath, '1 componentDirPath'); // e:\audioprint\client-ng8\components\button
+    // Consoler.dump(componentDirPath, '1 componentDirPath'); // e:\audioprint\client-ng8\components\button
 
     if (fs.statSync(componentDirPath).isDirectory()) {
       // create site/doc/app->${component} folder
       const showCaseComponentPath = path.join(showCaseTargetPath, componentName);
 
-      Consoler.dump(showCaseComponentPath, '2 showCaseComponentPath'); /// e:\audioprint\client-ng8\site\doc\app\button
+      // Consoler.dump(showCaseComponentPath, '2 showCaseComponentPath'); /// e:\audioprint\client-ng8\site\doc\app\button
 
       fs.mkdirSync(showCaseComponentPath);
 
       // handle components->${component}->demo folder
       const demoDirPath = path.join(componentDirPath, 'demo');
-      Consoler.dump(demoDirPath, '3 demoDirPath'); // e:\audioprint\client-ng8\components\button\demo
+      // Consoler.dump(demoDirPath, '3 demoDirPath'); // e:\audioprint\client-ng8\components\button\demo
       const demoMap = {};
       if (fs.existsSync(demoDirPath)) {
         const demoDir = fs.readdirSync(demoDirPath);
         demoDir.forEach(demo => {
-          Consoler.dump(demo, '4 demo'); // basic.md
+          // Consoler.dump(demo, '4 demo'); // basic.md
 
           if (/.md$/.test(demo)) {
+            Consoler.dump(`读取 ${path.relative('./',path.join(demoDirPath, demo))} 转换成中英文 HTML 存入 demoMap`, demo);
             // 读取 components\button\demo\basic.md 转换成中英文 HTML 存入 demoMap[nameKey]['enCode'] / demoMap[nameKey]['zhCode']
             const nameKey = nameWithoutSuffixUtil(demo); // basic.md
             const demoMarkDownFile = fs.readFileSync(path.join(demoDirPath, demo)); // e:\audioprint\client-ng8\components\button\demo\basic.md
@@ -80,17 +83,14 @@ function generate(target) {
             demoMap[nameKey]['name'] = `NzDemo${camelCase(capitalizeFirstLetter(componentName))}${camelCase(capitalizeFirstLetter(nameKey))}Component`; // "NzDemoButtonBasicComponent"
             demoMap[nameKey]['enCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['en-US'], demoMap[nameKey].en, demoMap[nameKey].meta.iframe);
             demoMap[nameKey]['zhCode'] = generateCodeBox(componentName, demoMap[nameKey]['name'], nameKey, demoMap[nameKey].meta.title['zh-CN'], demoMap[nameKey].zh, demoMap[nameKey].meta.iframe);
-            if (nameKey === 'basic')
-              Consoler.dump(demoMap, '5 demoMap');
           }
           if (/.ts$/.test(demo)) {
             // 复制 components\button\demo\basic.ts 到 site\doc\app\button\basic.ts
+            Consoler.dump(`复制 ${path.relative('./',path.join(demoDirPath, demo))} 到 ${path.relative('./',path.join(showCaseComponentPath, demo))}`, demo);
             const nameKey = nameWithoutSuffixUtil(demo); //basic.ts
             demoMap[nameKey].ts = String(fs.readFileSync(path.join(demoDirPath, demo)));   // e:\audioprint\client-ng8\components\button\demo\basic.ts
             // copy ts file to site->${component} folder
             fs.writeFileSync(path.join(showCaseComponentPath, demo), demoMap[nameKey].ts); // e:\audioprint\client-ng8\site\doc\app\button\basic.ts
-            if (nameKey === 'basic')
-              Consoler.dump(demoMap, '6 demoMap');
           }
           if (demo === 'module') {
             // 复制 components\button\demo\module 到 site\doc\app\button\module.ts

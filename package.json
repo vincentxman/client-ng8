@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "0-myTest": "gulp s:dev",
+    "0--generate": "node scripts/site/generate-site.js init",
     "0-start": "ng serve --proxy-config proxy.conf.json",
     "1-build-prod": "ng build --prod --aot",
-    "2-client2Ftp": "gulp client2Server_sftp",
+    "2-client2Ftp": "gulp client2Server_ftp",
     "3-codegen": "graphql-codegen --config src/codegen/codegen.yml",
     "4-http-server": "http-server -a 127.0.0.1 -p 4200",
     "ng": "ng",
