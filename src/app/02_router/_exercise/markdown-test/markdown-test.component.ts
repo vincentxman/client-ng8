@@ -4,7 +4,7 @@ import { dump } from '../../../../_share/utilities/tools';
 @Component({
   selector: 'app-markdown-test',
   templateUrl: './markdown-test.component.html',
-  styleUrls: ['./markdown-test.component.css']
+  styleUrls: ['./markdown-test.component.scss']
 })
 export class MarkdownTestComponent implements OnInit {
 

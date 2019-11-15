@@ -1,9 +1,11 @@
 <div class="m-5">
 
-  <div markdown [src]="'docs/demo.js'" lineNumbers [start]="5"
-    (error)="onError($event)"></div>
+  <h4>docs/demo.js</h4>
+  <markdown [src]="'docs/demo.js'" lineNumbers [start]="5"
+    (error)="onError($event)"></markdown>
 
-  <div markdown [src]="'docs/README.md'" lineNumbers [start]="1"
-    (error)="onError($event)"></div>
-
+    <h4>docs/docs/README.md</h4>
+  <markdown [src]="'docs/README.md'" lineNumbers [start]="1"
+    (error)="onError($event)"></markdown>
 </div>
+

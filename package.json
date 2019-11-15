@@ -2,8 +2,8 @@
   "name": "audioprint",
   "version": "0.0.0",
   "scripts": {
-    "0-myTest": "gulp s:dev",
-    "0--generate": "node scripts/site/generate-site.js init",
+    "myTest": "gulp s:dev",
+    "generate-site": "node scripts/site/generate-site.js init",
     "0-start": "ng serve --proxy-config proxy.conf.json",
     "1-build-prod": "ng build --prod --aot",
     "2-client2Ftp": "gulp client2Server_ftp",
