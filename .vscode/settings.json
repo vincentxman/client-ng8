@@ -29,5 +29,9 @@
   "typescript.preferences.importModuleSpecifier": "relative",
   "editor.detectIndentation": false,
 "editor.tabSize": 4,
-"explorerExclude.backup": null
+"explorerExclude.backup": null,
+"search.exclude": {
+	"**/dist": true,
+	"**/site": true
+}
 }
