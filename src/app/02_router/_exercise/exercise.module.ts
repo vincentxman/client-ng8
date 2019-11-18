@@ -18,7 +18,11 @@ import { ItemsComponent } from './items/items.component';
 import { MarkdownTestComponent } from './markdown-test/markdown-test.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { dump } from '../../../_share/utilities/tools';
-
+import { MyChildRouterTestComponent } from './my-child-router-test/my-child-router-test.component';
+import { ChildAComponent } from './my-child-router-test/child-a/child-a.component';
+import { ChildBComponent } from './my-child-router-test/child-b/child-b.component';
+import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
+import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,11 @@ import { dump } from '../../../_share/utilities/tools';
     GhCatComponent,
     ItemsComponent,
     MarkdownTestComponent,
+    MyChildRouterTestComponent,
+    ChildAComponent,
+    ChildBComponent,
+    MyChildAuxRouterTestComponent,
+    ChatComponent,
   ],
   imports: [
     NgbModule,
@@ -54,5 +63,4 @@ export class VExerciseModule {
   constructor() {
     dump('VExerciseModule');
   }
-  // { path: 'exercise', loadChildren: './02_router/_exercise/exercise.module#VExerciseModule' }, // 懒加载
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 import { GhQLComponent } from './gh-codegen/gh-ql.component';
 import { TstComponent } from './tst/tst.component';
 import { CountryComponent } from './country/country.component';
@@ -8,6 +8,11 @@ import { GhCatComponent } from './gh-test/gh-cat.component';
 import { ItemsComponent } from './items/items.component';
 import { MarkdownTestComponent } from './markdown-test/markdown-test.component';
 import { dump } from '../../../_share/utilities/tools';
+import { MyChildRouterTestComponent } from './my-child-router-test/my-child-router-test.component';
+import { ChildAComponent } from './my-child-router-test/child-a/child-a.component';
+import { ChildBComponent } from './my-child-router-test/child-b/child-b.component';
+import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
+import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 
 
 
@@ -19,6 +24,8 @@ SideNavExerciseComponent.sidebarItems = [
   'Items',
   'Country',
   'Markdown-test',
+  'Child-Router',
+  'Child-Aux-Router',
 ];
 
 const routes: Routes = [
@@ -29,6 +36,29 @@ const routes: Routes = [
   { path: 'tst', component: TstComponent },
   { path: 'country', component: CountryComponent },
   { path: 'markdown-test', component: MarkdownTestComponent },
+
+  // 子路由
+  {
+    path: 'child-router', component: MyChildRouterTestComponent, children: [
+      { path: '', component: ChildAComponent },
+      { path: 'a', component: ChildAComponent },
+      { path: 'b', component: ChildBComponent },
+      { path: '**', component: ChildAComponent },
+    ]
+  },
+
+  // 子路由 + 辅助路由
+  {
+    path: 'child-aux-router', component: MyChildAuxRouterTestComponent, children: [
+      { path: '', component: ChildAComponent },
+      { path: 'a', component: ChildAComponent },
+      { path: 'b', component: ChildBComponent },
+      { path: 'chat', component: ChatComponent, outlet: 'myaux' },
+      { path: '**', component: ChildAComponent },
+    ]
+  },
+
+  // 其他
   { path: '**', component: TstComponent },
 ];
 
