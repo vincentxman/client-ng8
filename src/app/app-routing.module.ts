@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'download', component: DownloadComponent },
   { path: 'components', children: COMPONENTS_ROUTES},
   { path: 'exercise', loadChildren: './02_router/_exercise/exercise.module#VExerciseModule' }, // 懒加载
-  { path: 'backstage', loadChildren:  () => import('./02_router/_backstage/backstage.module').then(m => m.BackstageModule) }, // 懒加载
+  { path: 'backstage', loadChildren: './02_router/_backstage/backstage.module#BackstageModule' }, // 懒加载
+  // { path: 'backstage', loadChildren:  () => import('./02_router/_backstage/backstage.module').then(m => m.BackstageModule) }, // 懒加载
   { path: '**', redirectTo: 'home' }
 ];
 

@@ -1,12 +1,12 @@
-:host {
-  display: block;
-  font-size: 13px;
-  margin: 0 auto 3rem;
-  max-width: 1170px;
-}
+// :host {
+//   display: block;
+//   font-size: 13px;
+//   margin: 0 auto 3rem;
+//   max-width: 1170px;
+// }
 
 ::ng-deep code:not([class*="language-"]) {
-  background: #f5f5f5;
+//  background: #f5f5f5;
   border-radius: 2px;
   color: #dd4a68;
   padding: 2px 4px;
@@ -124,7 +124,7 @@ section:first-of-type {
 }
 
 ::ng-deep pre {
-  background: #f5f5f5 !important;
+// background: #3b3636 !important;
   border-color: transparent !important;
   margin-bottom: 24px;
   padding: 13px;
