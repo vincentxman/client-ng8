@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
     WelcomeComponent,
   ],
   imports: [
-    CommonModule,
     BackstageRoutingModule,
+    CommonModule,
     // IconsProviderModule,
 
     /** 导入 ng-zorro-antd 模块 **/

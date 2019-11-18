@@ -34,11 +34,11 @@ import { MarkdownModule } from 'ngx-markdown';
     MarkdownTestComponent,
   ],
   imports: [
+    ExerciseRoutingModule,
     NgbModule,
     FormsModule,
     CommonModule,
     VShareModule,
-    ExerciseRoutingModule,
     CountryLazyServiceModule,
     GhQlLazyModule,
     MarkdownModule.forChild(),
