@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Snippet } from 'src/_share/code/snippet';
+import { dump } from '../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-getting-started',
@@ -8,6 +9,9 @@ import { Snippet } from 'src/_share/code/snippet';
 })
 export class GettingStartedComponent {
 
+  constructor() {
+    dump('GettingStartedComponent');
+  }
   codeInstall = Snippet({
     lang: 'bash',
     code: `npm install --save @ng-bootstrap/ng-boostrap`,

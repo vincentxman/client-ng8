@@ -5,6 +5,7 @@ import { BackstageRoutingModule } from './backstage-routing.module';
 // import { IconsProviderModule } from '../../icons-provider.module';
 import { NzMenuModule, NzIconModule, NzSliderModule, NzLayoutModule } from 'ng-zorro-antd';
 import { CommonModule } from '@angular/common';
+import { dump } from '../../../_share/utilities/tools';
 
 @NgModule({
   declarations: [
@@ -28,4 +29,8 @@ import { CommonModule } from '@angular/common';
     // NgZorroAntdModule,
   ]
 })
-export class BackstageModule { }
+export class BackstageModule {
+  constructor() {
+    dump('BackstageModule');
+  }
+ }

@@ -8,7 +8,9 @@ import { dump } from '../../../_share/utilities/tools';
 })
 export class DownloadComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    dump('DownloadComponent');
+  }
 
   ngOnInit() {
   }

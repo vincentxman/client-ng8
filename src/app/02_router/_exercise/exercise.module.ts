@@ -17,6 +17,7 @@ import { GhQlLazyModule } from './gh-codegen/gh-ql-lazy.module';
 import { ItemsComponent } from './items/items.component';
 import { MarkdownTestComponent } from './markdown-test/markdown-test.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { dump } from '../../../_share/utilities/tools';
 
 
 @NgModule({
@@ -34,11 +35,11 @@ import { MarkdownModule } from 'ngx-markdown';
     MarkdownTestComponent,
   ],
   imports: [
-    ExerciseRoutingModule,
     NgbModule,
     FormsModule,
     CommonModule,
     VShareModule,
+    ExerciseRoutingModule,
     CountryLazyServiceModule,
     GhQlLazyModule,
     MarkdownModule.forChild(),
@@ -50,5 +51,8 @@ import { MarkdownModule } from 'ngx-markdown';
   ],
 })
 export class VExerciseModule {
+  constructor() {
+    dump('VExerciseModule');
+  }
   // { path: 'exercise', loadChildren: './02_router/_exercise/exercise.module#VExerciseModule' }, // 懒加载
 }

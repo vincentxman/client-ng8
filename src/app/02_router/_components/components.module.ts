@@ -7,6 +7,7 @@ import { SideNavComponent } from './_wrapper/side-nav/side-nav.component';
 import { PageWrapperComponent } from './_wrapper/page-wrapper/page-wrapper.component';
 import { VShareModule } from 'src/_share';
 import { ComponentsRoutingModule } from './components-routing.module';
+import { dump } from '../../../_share/utilities/tools';
 
 
 @NgModule({
@@ -31,4 +32,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
   ],
 })
 export class VComponentsModule {
+  constructor() {
+    dump('VComponentsModule');
+  }
 }

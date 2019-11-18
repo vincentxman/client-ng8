@@ -167,6 +167,36 @@ section:first-of-type {
   float: right;
 }
 
+a {
+  color: #900;
+  text-decoration: #090;
+  background-color: transparent; // remove the gray background on active links in IE 10.
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  &:hover {
+    color: #009;
+  }
+
+  &:active {
+    color: #009;
+  }
+
+  &:active,
+  &:hover {
+    text-decoration:  #0FF;
+    outline: 0;
+  }
+
+  &[disabled] {
+    color: #555;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
 /* materialize global css reset for demo puprose */
 markdown {
   ::ng-deep {

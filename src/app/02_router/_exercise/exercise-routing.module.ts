@@ -7,6 +7,7 @@ import { SideNavExerciseComponent } from './_wrapper/side-nav-exercise/side-nav-
 import { GhCatComponent } from './gh-test/gh-cat.component';
 import { ItemsComponent } from './items/items.component';
 import { MarkdownTestComponent } from './markdown-test/markdown-test.component';
+import { dump } from '../../../_share/utilities/tools';
 
 
 
@@ -35,6 +36,10 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ExerciseRoutingModule { }
+export class ExerciseRoutingModule {
+  constructor() {
+    dump('ExerciseRoutingModule');
+  }
+}
 
 

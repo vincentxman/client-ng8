@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CatDto, Cat } from './_graphql/_codegen';
 import { GhQLService } from './gh-ql.service';
+import { dump } from '../../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-gh-ql',
@@ -21,6 +22,7 @@ export class GhQLComponent implements OnInit {
   constructor(
     private ghQlService: GhQLService,
   ) {
+    dump('GhQLComponent');
     this.cats$ = this.ghQlService.cat_getSome(0, 5);
   }
 

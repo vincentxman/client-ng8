@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { dump } from '../../../_share/utilities/tools';
 
 
 @Component({
@@ -9,5 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class HomeComponent {
   public version: string = environment.version;
-
+  constructor() {
+    dump('HomeComponent');
+  }
 }
