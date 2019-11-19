@@ -13,10 +13,8 @@ import { ChildAComponent } from './my-child-router-test/child-a/child-a.componen
 import { ChildBComponent } from './my-child-router-test/child-b/child-b.component';
 import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
-import { MyLoginGuard } from './guard/mylogin.guard';
-import { MyUnsavedGuard } from './guard/myunsaved.guard';
-import { ExerciseToastService } from './_service/my-toasts.service';
-import { ProductResolve } from './guard/product.resolve';
+import { MyLoginGuard } from './route-guard/mylogin.guard';
+import { MyUnsavedGuard } from './route-guard/myunsaved.guard';
 
 
 
