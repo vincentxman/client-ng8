@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule, Router, CanDeactivate } from '@angular/router';
 import { GhQLComponent } from './gh-codegen/gh-ql.component';
 import { TstComponent } from './tst/tst.component';
 import { CountryComponent } from './country/country.component';
@@ -13,6 +13,8 @@ import { ChildAComponent } from './my-child-router-test/child-a/child-a.componen
 import { ChildBComponent } from './my-child-router-test/child-b/child-b.component';
 import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
+import { MyLoginGuard } from './guard/mylogin.guard';
+import { MyUnsavedGuard } from './guard/myunsaved.guard';
 
 
 
@@ -35,7 +37,10 @@ const routes: Routes = [
   { path: 'items', component: ItemsComponent },
   { path: 'tst', component: TstComponent },
   { path: 'country', component: CountryComponent },
-  { path: 'markdown-test', component: MarkdownTestComponent },
+  { path: 'markdown-test', component: MarkdownTestComponent,
+     canActivate: [MyLoginGuard],
+     canDeactivate: [MyUnsavedGuard],
+  },
 
   // 子路由
   {
@@ -64,7 +69,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [MyLoginGuard, MyUnsavedGuard],
 })
 export class ExerciseRoutingModule {
   constructor() {

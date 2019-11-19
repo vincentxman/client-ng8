@@ -23,6 +23,8 @@ import { ChildAComponent } from './my-child-router-test/child-a/child-a.componen
 import { ChildBComponent } from './my-child-router-test/child-b/child-b.component';
 import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
+import { MyLazyModule } from './_service/my-lazy.module';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
     ChildBComponent,
     MyChildAuxRouterTestComponent,
     ChatComponent,
+    MyToastsContainerComponent,
   ],
   imports: [
     NgbModule,
@@ -51,6 +54,7 @@ import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
     ExerciseRoutingModule,
     CountryLazyServiceModule,
     GhQlLazyModule,
+    MyLazyModule,
     MarkdownModule.forChild(),
   ],
   exports: [
