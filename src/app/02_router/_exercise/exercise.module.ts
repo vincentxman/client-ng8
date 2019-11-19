@@ -24,7 +24,8 @@ import { ChildBComponent } from './my-child-router-test/child-b/child-b.componen
 import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-child-aux-router-test.component';
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 import { MyLazyModule } from './_service/my-lazy.module';
-
+import { MyToastsContainerComponent } from './_service/my-toast-container.component';
+import { ExerciseToastService } from './_service/my-toasts.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { MyLazyModule } from './_service/my-lazy.module';
   exports: [
   ],
   providers: [
-
+    ExerciseToastService
   ],
 })
 export class VExerciseModule {

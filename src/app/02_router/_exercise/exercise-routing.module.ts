@@ -15,6 +15,7 @@ import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-chi
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 import { MyLoginGuard } from './guard/mylogin.guard';
 import { MyUnsavedGuard } from './guard/myunsaved.guard';
+import { ExerciseToastService } from './_service/my-toasts.service';
 
 
 
@@ -70,7 +71,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [MyLoginGuard, MyUnsavedGuard],
+  providers: [ MyLoginGuard, MyUnsavedGuard, ],
 })
 export class ExerciseRoutingModule {
   constructor() {
