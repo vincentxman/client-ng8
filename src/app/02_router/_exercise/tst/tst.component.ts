@@ -25,19 +25,19 @@ export class TstComponent implements OnInit {
   getProducts(): void {
     dump('onclick');
     this.productService.getProducts()
-      .subscribe(products => dump(products, 'getProducts'));
+      .subscribe(products => dump(JSON.stringify(products), 'getProducts'));
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe((heroes) => {
         this.heroes = heroes;
-        dump(heroes, 'getHeroes');
+        dump(JSON.stringify(heroes), 'getHeroes');
       });
   }
 
   getExcep(): void {
     this.excepService.getProducts()
-    .subscribe(products => dump(products, 'getProducts'));
+    .subscribe(products => dump(JSON.stringify(products), 'getProducts'));
   }
 }

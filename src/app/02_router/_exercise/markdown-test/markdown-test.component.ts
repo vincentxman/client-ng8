@@ -11,8 +11,6 @@ export class MarkdownTestComponent implements OnInit {
   constructor(public toastService: ExerciseToastService) { }
 
   ngOnInit() {
-    this.toastService.show('标准 toast');
-    this.toastService.show('成功 toast', { classname: 'bg-success text-light', delay: 2000 });
   }
 
   onError(err) {
