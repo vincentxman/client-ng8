@@ -16,6 +16,7 @@ import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 import { MyLoginGuard } from './guard/mylogin.guard';
 import { MyUnsavedGuard } from './guard/myunsaved.guard';
 import { ExerciseToastService } from './_service/my-toasts.service';
+import { ProductResolve } from './guard/product.resolve';
 
 
 
@@ -36,11 +37,15 @@ const routes: Routes = [
   { path: 'gh-codegen', component: GhQLComponent },
   { path: 'gh-test', component: GhCatComponent },
   { path: 'items', component: ItemsComponent },
-  { path: 'tst', component: TstComponent },
+  {
+    path: 'tst', component: TstComponent,
+    // resolve: { product: ProductResolve } // resolve 执行路由前判断是否需要...
+  },
   { path: 'country', component: CountryComponent },
-  { path: 'markdown-test', component: MarkdownTestComponent,
-     canActivate: [MyLoginGuard],
-     canDeactivate: [MyUnsavedGuard],
+  {
+    path: 'markdown-test', component: MarkdownTestComponent,
+    canActivate: [MyLoginGuard],
+    canDeactivate: [MyUnsavedGuard],
   },
 
   // 子路由
@@ -71,7 +76,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [ MyLoginGuard, MyUnsavedGuard, ],
+  providers: [MyLoginGuard, MyUnsavedGuard,],
 })
 export class ExerciseRoutingModule {
   constructor() {
