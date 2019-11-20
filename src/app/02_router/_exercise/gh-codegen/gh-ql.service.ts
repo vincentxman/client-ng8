@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { GhQlLazyModule } from './gh-ql-lazy.module';
 import { dump } from '../../../../_share/utilities/tools';
-import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: GhQlLazyModule
@@ -25,15 +24,15 @@ export class GhQLService {
   }
 
   subscription_catAdded(): Observable<any> {
-    return this.catAddedGQL.subscribe((result) => { dump(result.data, 'catAddedGQL'); });
+    return this.catAddedGQL.subscribe((result) => { dump(result.data, 'catAddedGQL.subscribe'); });
   }
 
   subscription_catUpdated(): Observable<any> {
-    return this.catUpdatedGQL.subscribe((result) => { dump(result.data, 'catUpdatedGQL'); });
+    return this.catUpdatedGQL.subscribe((result) => { dump(result.data, 'catUpdatedGQL.subscribe'); });
   }
 
   subscription_catDeleted(): Observable<any> {
-    return this.catDeletedGQL.subscribe((result) => { dump(result.data, 'catDeletedGQL'); });
+    return this.catDeletedGQL.subscribe((result) => { dump(result.data, 'catDeletedGQL.subscribe'); });
   }
 
   cat_getSome(
@@ -44,7 +43,7 @@ export class GhQLService {
     // this.cats = this.getCatsGQL.fetch({ limit: 30 }).pipe(map(
     this.loading$.emit(1);
     return this.getCatsGQL.watch(
-      { skip , limit }, // curPage, orderBy, filter, skip = (curPage-1)*pageSize
+      { skip, limit }, // curPage, orderBy, filter, skip = (curPage-1)*pageSize
       {
         notifyOnNetworkStatusChange: true,
         fetchPolicy,
@@ -52,7 +51,7 @@ export class GhQLService {
     ).valueChanges.pipe(map(
       (result, loading) => {
         this.loading$.emit(loading);
-        dump(result.data.cats, 'valueChanges');
+        dump(result.data.cats, 'valueChanges', true);
         return result.data.cats;
       })
     );
@@ -66,7 +65,7 @@ export class GhQLService {
     ).valueChanges.pipe(map(
       (result, loading) => {
         this.loading$.emit(loading);
-        dump(result.data.cat, 'valueChanges');
+        dump(result.data.cat, 'valueChanges', true);
         return result.data.cat;
       })
     );

@@ -2,16 +2,20 @@ import { environment } from '../../environments/environment';
 const isProd = environment.production;
 
 
-export function dumpErr(obj: any, title: string = '') {
+export function dumpErr(obj: any, title: string = '', bJson = false) {
   if (isProd) { return; }
-  // const sObj = json ? JSON.stringify(obj) : obj;
+  if (bJson) {
+    obj = JSON.stringify(obj);
+  }
   // tslint:disable-next-line:no-console
   console.log(`${title}>...`, `${obj}`);
 }
 
-export function dump(obj: any, title: string = '') {
+export function dump(obj: any, title: string = '', bJson = false) {
   if (isProd) { return; }
-  // const sObj = json ? JSON.stringify(obj) : obj;
+  if (bJson) {
+    obj = JSON.stringify(obj);
+  }
   // tslint:disable-next-line:no-console
   console.log(`${title}>...`, `${obj}`);
 }

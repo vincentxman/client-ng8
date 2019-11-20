@@ -7,9 +7,13 @@
   <button type="button" class="btn btn-success m-2" (click)="doCat_getSome()">getSomGets</button>
   <button type="button" class="btn btn-success m-2" (click)="doCat_get()">getGet</button>
 
-  <h6 *ngIf="catAdded$"    >catAdded$:{{catAdded$|async|json}}</h6>
-  <h6 *ngIf="catUpdated$"  >catUpdated$:{{catUpdated$|async|json}}</h6>
-  <h6 *ngIf="catDeleted$"  >catDeleted$:{{catDeleted$|async|json}}</h6>
+  <div class="alert alert-primary" role="alert">
+    <h6>Websocket Subscription: </h6>
+    <div *ngIf="catAdded$"    >catAdded$:{{catAdded$|async|json}}</div>
+    <div *ngIf="catUpdated$"  >catUpdated$:{{catUpdated$|async|json}}</div>
+    <div *ngIf="catDeleted$"  >catDeleted$:{{catDeleted$|async|json}}</div>
+  </div>
+
   <h6 *ngIf="cat$"  >cat$:{{cat$|async|json}}</h6>
   <h6 *ngIf="idSelected">idSelected: {{idSelected}}</h6>
   <h6 *ngIf="loading" >Loading...</h6>

@@ -25,14 +25,14 @@ export class TstComponent implements OnInit {
   getProducts(): void {
     dump('onclick');
     this.productService.getProducts()
-      .subscribe(products => dump(JSON.stringify(products), 'getProducts'));
+      .subscribe(products => dump(products, 'getProducts', true));
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe((heroes) => {
         this.heroes = heroes;
-        dump(JSON.stringify(heroes), 'getHeroes');
+        dump(heroes, 'getHeroes', true);
       });
   }
 
