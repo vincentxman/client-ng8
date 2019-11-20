@@ -3,9 +3,11 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { DownloadComponent } from './02_router/download/download.component';
 import { HomeComponent } from './02_router/home/home.component';
 import { GettingStartedComponent } from './02_router/getting-started/getting-started.component';
+import { RegisterComponent } from './02_router/register/register.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'download', component: DownloadComponent },
