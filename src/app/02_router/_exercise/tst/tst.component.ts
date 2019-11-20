@@ -4,6 +4,7 @@ import { HeroService } from 'src/app/02_router/_exercise/tst/service/hero.servic
 import { Hero } from './class/hero';
 import { dump } from '../../../../_share/utilities/tools';
 import { ExcepService } from './service/excep.service';
+const $ = require('jquery');
 
 @Component({
   selector: 'app-tst',
@@ -17,9 +18,12 @@ export class TstComponent implements OnInit {
     private productService: ProductService,
     private heroService: HeroService,
     private excepService: ExcepService,
-    ) { }
+  ) { }
 
   ngOnInit() {
+    const j = $('#jqueryTest');
+    j.html('<span class="badge badge-primary">Success:</span> jquery worked.');
+    j.css("color", "green");
   }
 
   getProducts(): void {
@@ -38,6 +42,6 @@ export class TstComponent implements OnInit {
 
   getExcep(): void {
     this.excepService.getProducts()
-    .subscribe(products => dump(JSON.stringify(products), 'getProducts'));
+      .subscribe(products => dump(JSON.stringify(products), 'getProducts'));
   }
 }
