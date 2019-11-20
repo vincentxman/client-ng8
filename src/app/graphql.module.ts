@@ -11,9 +11,10 @@ import { OperationDefinitionNode } from 'graphql/language/ast';
 import { environment } from 'src/environments/environment';
 
 export function createApollo(httpLink: HttpLink) {
-  const uri = environment.production ?
-    'wss://www.audioprint.cn/graphql?subscription=1' :
-    'ws://localhost:8000/graphql?subscription=1';
+  // const uri = environment.production ?
+  //   'wss://www.audioprint.cn/graphql?subscription=1' :
+  //   'ws://localhost:8000/graphql?subscription=1';
+  const uri = environment.uriWebsocket;
   const ws = new WebSocketLink({
     uri,
     options: {

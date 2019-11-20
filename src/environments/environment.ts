@@ -7,6 +7,7 @@ import { versions } from './versions';
 export const environment = {
   production: false,
   // vincent
+  uriWebsocket: 'ws://localhost:8000/graphql?subscription=1',
   isMemoDB: false,
   version: versions.app
 };
