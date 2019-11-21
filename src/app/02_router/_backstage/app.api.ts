@@ -23,7 +23,7 @@ export class Client {
 
     constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
-        this.baseUrl = baseUrl ? baseUrl : "http://localhost:8080/api";
+        this.baseUrl = baseUrl ? baseUrl :  "api";// "http://localhost:8080/api";
     }
 
     hello(): Observable<void> {
@@ -53,8 +53,8 @@ export class Client {
 
     protected processHello(response: HttpResponseBase): Observable<void> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -81,7 +81,7 @@ export class UserClient {
 
     constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
-        this.baseUrl = baseUrl ? baseUrl : "http://localhost:8080/api";
+        this.baseUrl = baseUrl ? baseUrl : "api";// "http://localhost:8080/api";
     }
 
     register(registerVm: RegisterVm): Observable<UserVm> {
@@ -95,7 +95,7 @@ export class UserClient {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -116,8 +116,8 @@ export class UserClient {
 
     protected processRegister(response: HttpResponseBase): Observable<UserVm> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -154,7 +154,7 @@ export class UserClient {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -175,8 +175,8 @@ export class UserClient {
 
     protected processLogin(response: HttpResponseBase): Observable<LoginResponseVm> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -213,7 +213,7 @@ export class TodoClient {
 
     constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
-        this.baseUrl = baseUrl ? baseUrl : "http://localhost:8080/api";
+        this.baseUrl = baseUrl ? baseUrl :  "api";// "http://localhost:8080/api";
     }
 
     create(todoParams: TodoParams): Observable<TodoVm> {
@@ -227,7 +227,7 @@ export class TodoClient {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -248,8 +248,8 @@ export class TodoClient {
 
     protected processCreate(response: HttpResponseBase): Observable<TodoVm> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -278,7 +278,7 @@ export class TodoClient {
     getall(isCompleted?: boolean | null | undefined, level?: Level[] | null | undefined): Observable<TodoVm[]> {
         let url_ = this.baseUrl + "/todos?";
         if (isCompleted !== undefined)
-            url_ += "isCompleted=" + encodeURIComponent("" + isCompleted) + "&"; 
+            url_ += "isCompleted=" + encodeURIComponent("" + isCompleted) + "&";
         if (level !== undefined)
             level && level.forEach(item => { url_ += "level=" + encodeURIComponent("" + item) + "&"; });
         url_ = url_.replace(/[?&]$/, "");
@@ -307,8 +307,8 @@ export class TodoClient {
 
     protected processGetall(response: HttpResponseBase): Observable<TodoVm[]> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -349,7 +349,7 @@ export class TodoClient {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -370,8 +370,8 @@ export class TodoClient {
 
     protected processUpdate(response: HttpResponseBase): Observable<TodoVm> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -401,7 +401,7 @@ export class TodoClient {
         let url_ = this.baseUrl + "/todos/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -428,8 +428,8 @@ export class TodoClient {
 
     protected processDelete(response: HttpResponseBase): Observable<TodoVm> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -493,7 +493,7 @@ export class RegisterVm implements IRegisterVm {
         data["password"] = this.password !== undefined ? this.password : <any>null;
         data["firstName"] = this.firstName !== undefined ? this.firstName : <any>null;
         data["lastName"] = this.lastName !== undefined ? this.lastName : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -553,7 +553,7 @@ export class UserVm implements IUserVm {
         data["lastName"] = this.lastName !== undefined ? this.lastName : <any>null;
         data["fullName"] = this.fullName !== undefined ? this.fullName : <any>null;
         data["role"] = this.role !== undefined ? this.role : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -614,7 +614,7 @@ export class ApiException implements IApiException {
         data["errors"] = this.errors !== undefined ? this.errors : <any>null;
         data["timestamp"] = this.timestamp !== undefined ? this.timestamp : <any>null;
         data["path"] = this.path !== undefined ? this.path : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -659,7 +659,7 @@ export class LoginVm implements ILoginVm {
         data = typeof data === 'object' ? data : {};
         data["username"] = this.username !== undefined ? this.username : <any>null;
         data["password"] = this.password !== undefined ? this.password : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -702,7 +702,7 @@ export class LoginResponseVm implements ILoginResponseVm {
         data = typeof data === 'object' ? data : {};
         data["token"] = this.token !== undefined ? this.token : <any>null;
         data["user"] = this.user ? this.user.toJSON() : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -742,7 +742,7 @@ export class TodoParams implements ITodoParams {
         data = typeof data === 'object' ? data : {};
         data["content"] = this.content !== undefined ? this.content : <any>null;
         data["level"] = this.level !== undefined ? this.level : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -794,7 +794,7 @@ export class TodoVm implements ITodoVm {
         data["content"] = this.content !== undefined ? this.content : <any>null;
         data["level"] = this.level !== undefined ? this.level : <any>null;
         data["isCompleted"] = this.isCompleted !== undefined ? this.isCompleted : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -808,34 +808,34 @@ export interface ITodoVm {
 }
 
 export enum Level {
-    Low = "Low", 
-    Normal = "Normal", 
-    High = "High", 
+    Low = "Low",
+    Normal = "Normal",
+    High = "High",
 }
 
 export enum UserVmRole {
-    Admin = "Admin", 
-    User = "User", 
+    Admin = "Admin",
+    User = "User",
 }
 
 export enum TodoParamsLevel {
-    Low = "Low", 
-    Normal = "Normal", 
-    High = "High", 
+    Low = "Low",
+    Normal = "Normal",
+    High = "High",
 }
 
 export enum TodoVmLevel {
-    Low = "Low", 
-    Normal = "Normal", 
-    High = "High", 
+    Low = "Low",
+    Normal = "Normal",
+    High = "High",
 }
 
 export class SwaggerException extends Error {
     message: string;
-    status: number; 
-    response: string; 
+    status: number;
+    response: string;
     headers: { [key: string]: any; };
-    result: any; 
+    result: any;
 
     constructor(message: string, status: number, response: string, headers: { [key: string]: any; }, result: any) {
         super();
@@ -867,12 +867,12 @@ function blobToText(blob: any): Observable<string> {
             observer.next("");
             observer.complete();
         } else {
-            let reader = new FileReader(); 
-            reader.onload = event => { 
+            let reader = new FileReader();
+            reader.onload = event => {
                 observer.next((<any>event.target).result);
                 observer.complete();
             };
-            reader.readAsText(blob); 
+            reader.readAsText(blob);
         }
     });
 }

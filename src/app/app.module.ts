@@ -55,6 +55,7 @@ registerLocaleData(zh);
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { dump } from '../_share/utilities/tools';
+import { IconsProviderModule } from './icons-provider.module';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { dump } from '../_share/utilities/tools';
     VShareModule,
     VComponentsModule,
     FormsModule,
+    IconsProviderModule,
 
     BrowserAnimationsModule,
 

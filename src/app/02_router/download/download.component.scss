@@ -1,27 +1,20 @@
 // :host {
-//   display: block;
+//   display  : block;
 //   font-size: 13px;
-//   margin: 0 auto 3rem;
+//   margin   : 0 auto 3rem;
 //   max-width: 1170px;
 // }
-
-::ng-deep code:not([class*="language-"]) {
-//  background: #f5f5f5;
-  border-radius: 2px;
-  color: #dd4a68;
-  padding: 2px 4px;
-}
 
 .fixed-action-btn {
   @media (max-width: 992px) {
     bottom: 16px;
-    right: 16px;
+    right : 16px;
   }
 }
 
 svg.center {
   display: flex;
-  margin: 0 auto;
+  margin : 0 auto;
 }
 
 ::ng-deep {
@@ -30,7 +23,8 @@ svg.center {
   }
 
   h2 {
-    font-size: 2.28rem
+    font-size: 2.28rem;
+    color    : rgb(0, 0, 131);
   }
 
   h3 {
@@ -54,8 +48,8 @@ svg.center {
   margin-bottom: 0;
 
   a {
-    color: #c7254e;
-    height: 1.8rem;
+    color     : #c7254e;
+    height    : 1.8rem;
     transition: padding 300ms ease-out;
 
     &:not(:hover) {
@@ -63,20 +57,20 @@ svg.center {
     }
 
     &:hover {
-      color: #ff3e6f;
+      color            : #ff3e6f;
       border-left-width: 2px;
     }
   }
 }
 
 .title-based-on {
-  color: #690;
+  color      : #690;
   font-weight: 300;
-  margin-top: 4px;
+  margin-top : 4px;
 
   a {
-    border: 0;
-    color: #0089ec;
+    border : 0;
+    color  : #0089ec;
     padding: 0;
 
     &:hover {
@@ -86,24 +80,24 @@ svg.center {
 }
 
 .menu-subtitle {
-  margin: 4px 0;
+  margin  : 4px 0;
   position: relative;
 
   span {
-    background: #ffffff;
-    padding-right: 8px;
+    background    : #ffffff;
+    padding-right : 8px;
     text-transform: uppercase;
   }
 
   &:before {
-    background: rgba(0,0,0,0.14);
-    content: "";
-    display: block;
-    height: 1px;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    top: 11px;
+    background: rgba(0, 0, 0, 0.14);
+    content   : "";
+    display   : block;
+    height    : 1px;
+    width     : 100%;
+    z-index   : -1;
+    position  : absolute;
+    top       : 11px;
 
     @media (min-width: 993px) {
       width: 225px;
@@ -118,16 +112,16 @@ section:first-of-type {
 }
 
 .subtitle {
-  border-bottom: 1px solid rgba(0,0,0,0.14);
+  border-bottom : 1px solid rgba(0, 0, 0, 0.14);
   padding-bottom: 1rem;
-  margin: 3rem 0 2rem;
+  margin        : 3rem 0 2rem;
 }
 
 ::ng-deep pre {
-//  background: #f5f5f5 !important;
-  border-color: transparent !important;
+  // background: #3b3636 !important;
+  border-color : transparent !important;
   margin-bottom: 24px;
-  padding: 13px;
+  padding      : 13px;
 }
 
 .katex-usage,
@@ -156,35 +150,42 @@ section:first-of-type {
 .pipe-textarea,
 .variable-textarea {
   border-radius: 4px;
-  margin-top: 8px;
-  padding: 8px;
+  margin-top   : 8px;
+  padding      : 8px;
 }
 
 .katex-usage,
 .pipe-usage,
 .variable-binding {
   display: block;
-  float: right;
+  float  : right;
 }
 
 /* materialize global css reset for demo puprose */
 markdown {
   ::ng-deep {
     blockquote {
-      padding: 0 1em;
-      color: rgba(0,0,0,0.535);
-      border-left: 0.25em solid rgba(0,0,0,0.11);
+      padding    : 0 1em;
+      color      : rgba(0, 0, 0, 0.535);
+      border-left: 0.25em solid rgba(0, 0, 0, 0.11);
+    }
+
+    code[class*='language-'],
+    pre[class*='language-'] {
+      background-color: rgb(12, 11, 11); // same as bootstrap card header
+      border-radius   : 3px;
     }
 
     table {
-      border-spacing: 0;
+      border-spacing : 0;
       border-collapse: collapse;
-      margin-bottom: 16px;
+      margin-bottom  : 16px;
+      width          : 100%;
 
       th,
       td {
         padding: 6px 13px;
-        border: 1px solid #ddd;
+        border : 1px solid #ddd;
 
         &[align="left"] {
           text-align: left;
@@ -200,13 +201,13 @@ markdown {
       }
 
       tr:nth-child(2n) {
-        background-color: rgba(0,0,0,0.03);
+        background-color: rgba(0, 0, 0, 0.03);
       }
     }
 
     ul {
       list-style-type: inherit;
-      padding-left: 40px !important;
+      padding-left   : 40px !important;
     }
 
     li {
@@ -217,5 +218,7 @@ markdown {
     ol ul {
       list-style-type: circle;
     }
+
+
   }
 }

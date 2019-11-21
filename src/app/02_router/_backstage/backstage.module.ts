@@ -3,10 +3,11 @@ import { BackstageWrapperComponent } from './_wrapper/backstage-wrapper.componen
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BackstageRoutingModule } from './backstage-routing.module';
 // import { IconsProviderModule } from '../../icons-provider.module';
-import { NzMenuModule, NzIconModule, NzSliderModule, NzLayoutModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CommonModule } from '@angular/common';
 import { dump } from '../../../_share/utilities/tools';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,15 +17,20 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BackstageRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     // IconsProviderModule,
 
     /** 导入 ng-zorro-antd 模块 **/
-    // NgZorroAntdModule,
-    NzLayoutModule,
-    NzIconModule,
-    NzMenuModule,
-    NzSliderModule,
+    NgZorroAntdModule,
+    // NzFormModule,
+    // NzCardModule,
+    // NzLayoutModule,
+    // NzInputModule,
+    // NzIconModule,
+    // NzMenuModule,
+    // NzSliderModule,
   ],
   exports: [
     // IconsProviderModule,

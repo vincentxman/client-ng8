@@ -43,25 +43,25 @@ export class ItemsComponent implements OnInit {
     id = id ? id : this.idSelected;
 
     this.itemservice.item_get(id)
-      .subscribe(item => dump(item, 'doGetItem()'));
+      .subscribe(item => dump(item, 'doGetItem()', true));
   }
 
   doCreateItem() {
     const newItem = { name: 'itemX', qty: 50, description: 'iiiiitem' } as Item;
     this.itemservice
       .item_create(newItem)
-      .subscribe(item => dump(item, 'doCreateItem()'));
+      .subscribe(item => dump(item, 'doCreateItem()', true));
   }
 
   doDeleteItem() {
     this.itemservice.item_delete(this.idSelected)
-      .subscribe(item => dump(item, 'doDeleteItem()'));
+      .subscribe(item => dump(item, 'doDeleteItem()', true));
   }
 
   doUpdateItem() {
     const newItem = { _id: this.idSelected, name: 'nnnnuuuuu', qty: 99999, description: 'uuuuuuu' };
     this.itemservice
       .item_update(newItem)
-      .subscribe(item => dump(item, 'doUpdateItem()'));
+      .subscribe(item => dump(item, 'doUpdateItem()', true));
   }
 }
