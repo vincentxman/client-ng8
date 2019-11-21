@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { throwError } from '../../../../node_modules/rxjs';
-import { ApiException, RegisterVm, UserClient, UserVm } from '../../app.api';
+import { throwError } from 'rxjs';
+import { ApiException, RegisterVm, UserClient, UserVm } from '../../../app.api';
 
 @Component({
     selector: 'app-register',

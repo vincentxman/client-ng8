@@ -55,7 +55,6 @@ registerLocaleData(zh);
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { dump } from '../_share/utilities/tools';
-import { RegisterComponent } from './02_router/register/register.component';
 
 
 @NgModule({
@@ -66,7 +65,6 @@ import { RegisterComponent } from './02_router/register/register.component';
     HeaderComponent,
     FooterComponent,
     GettingStartedComponent,
-    RegisterComponent,
   ],
   imports: [
     NgbModule,
@@ -107,5 +105,5 @@ export class AppModule {
   constructor() {
     dump('AppModule');
   }
- }
+}
 

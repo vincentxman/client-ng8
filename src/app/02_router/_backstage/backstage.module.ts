@@ -6,11 +6,13 @@ import { BackstageRoutingModule } from './backstage-routing.module';
 import { NzMenuModule, NzIconModule, NzSliderModule, NzLayoutModule } from 'ng-zorro-antd';
 import { CommonModule } from '@angular/common';
 import { dump } from '../../../_share/utilities/tools';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     BackstageWrapperComponent,
     WelcomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BackstageRoutingModule,
