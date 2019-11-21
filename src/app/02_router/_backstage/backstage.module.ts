@@ -8,12 +8,14 @@ import { CommonModule } from '@angular/common';
 import { dump } from '../../../_share/utilities/tools';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     BackstageWrapperComponent,
     WelcomeComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BackstageRoutingModule,

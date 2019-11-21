@@ -4,11 +4,18 @@
     nzWidth="256px"
     nzBreakpoint="md"
     [(nzCollapsed)]="isCollapsed"
+    [nzCollapsedWidth]="50"
     [nzTrigger]="null">
     <ul nz-menu nzTheme="dark" nzMode="inline"
       [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
+          <!-- <li nz-menu-item nzMatchRouter>
+            <a routerLink="/backstage/login">登录</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+              <a routerLink="/backstage/register">注册</a>
+          </li> -->
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/backstage/welcome">Welcome</a>
           </li>
