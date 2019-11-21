@@ -39,8 +39,20 @@
       </div>
 
       <ul class="social-buttons navbar-nav flex-row ml-md-auto d-2 d-md-flex align-items-center">
-        <a class="nav-link"  style="font-size:small" [routerLink]="['/register']">登录</a>
-        <a class="nav-link"  style="font-size:small" [routerLink]="['/register']">游文聪</a>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary nav-link" style="font-size:small" id="dropdownBasic1" ngbDropdownToggle>游文聪</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem [routerLink]="['/login']"   >登录</button>
+            <button ngbDropdownItem [routerLink]="['/register']">注册</button>
+            <button ngbDropdownItem [routerLink]="['/userinfo']">个人</button>
+          </div>
+        </div>
 
       </ul>
+
+
+
+
+
+
 </header>
