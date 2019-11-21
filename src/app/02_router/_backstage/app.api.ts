@@ -180,21 +180,21 @@ export class UserClient {
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 201) {
+        if (status === 201) { // 201 (Created/已创建)
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result201: any = null;
             let resultData201 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result201 = resultData201 ? LoginResponseVm.fromJS(resultData201) : new LoginResponseVm();
             return _observableOf(result201);
             }));
-        } else if (status === 400) {
+        } else if (status === 400) { // 400 (Bad Request/错误请求)
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else if (status !== 200 && status !== 204) { // 204 (No Content/无内容) // 200 (OK/正常)
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));

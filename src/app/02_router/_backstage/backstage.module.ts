@@ -3,7 +3,7 @@ import { BackstageWrapperComponent } from './_wrapper/backstage-wrapper.componen
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BackstageRoutingModule } from './backstage-routing.module';
 // import { IconsProviderModule } from '../../icons-provider.module';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NzLayoutModule, NzMenuModule, NzSliderModule, NzFormModule, NzCardModule, NzInputModule, NzIconModule } from 'ng-zorro-antd';
 import { CommonModule } from '@angular/common';
 import { dump } from '../../../_share/utilities/tools';
 import { RegisterComponent } from './register/register.component';
@@ -25,14 +25,14 @@ import { LoginComponent } from './login/login.component';
     // IconsProviderModule,
 
     /** 导入 ng-zorro-antd 模块 **/
-    NgZorroAntdModule,
-    // NzFormModule,
-    // NzCardModule,
-    // NzLayoutModule,
-    // NzInputModule,
-    // NzIconModule,
-    // NzMenuModule,
-    // NzSliderModule,
+    // NgZorroAntdModule,
+    NzLayoutModule,
+    NzSliderModule,
+    NzMenuModule,
+    NzFormModule,
+    NzCardModule,
+    NzInputModule,
+    NzIconModule,
   ],
   exports: [
     // IconsProviderModule,
