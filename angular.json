@@ -21,11 +21,6 @@
             "aot": false,
             "assets": [
               {
-                "glob": "favicon.ico",
-                "input": "src/public",
-                "output": "/"
-              },
-              {
                 "glob": "**/*",
                 "input": "src/public",
                 "output": "/"
