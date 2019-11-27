@@ -15,11 +15,13 @@ import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-chi
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 import { MyLoginGuard } from './route-guard/mylogin.guard';
 import { MyUnsavedGuard } from './route-guard/myunsaved.guard';
+import { RxjsTestComponent } from './rxjs-test/rxjs-test.component';
 
 
 
 // 必须与router的path名称相同，大小写不用一样
 SideNavExerciseComponent.sidebarItems = [
+  'Rxjs-test',
   'Gh-codegen',
   'Gh-test',
   'Tst',
@@ -32,6 +34,7 @@ SideNavExerciseComponent.sidebarItems = [
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'tst' },
+  { path: 'rxjs-test', component: RxjsTestComponent },
   { path: 'gh-codegen', component: GhQLComponent },
   { path: 'gh-test', component: GhCatComponent },
   { path: 'items', component: ItemsComponent },

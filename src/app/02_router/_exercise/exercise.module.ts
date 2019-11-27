@@ -25,6 +25,8 @@ import { MyChildAuxRouterTestComponent } from './my-child-aux-router-test/my-chi
 import { ChatComponent } from './my-child-aux-router-test/chat/chat.component';
 import { MyLazyModule } from './_service/my-lazy.module';
 import { MyToastsContainerComponent } from './_service/my-toast-container.component';
+import { RxjsTestComponent } from './rxjs-test/rxjs-test.component';
+import { ZippyComponent } from './rxjs-test/sub/zippy/zippy.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { MyToastsContainerComponent } from './_service/my-toast-container.compon
     MyChildAuxRouterTestComponent,
     ChatComponent,
     MyToastsContainerComponent,
+    RxjsTestComponent,
+    ZippyComponent,
   ],
   imports: [
     NgbModule,

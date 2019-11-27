@@ -1,0 +1,11 @@
+<app-page-wrapper-exercise pageTitle="Rxjs-Test">
+    <app-page-header title="Create an observable from" fragment="create-an-observable-from" class="mt-0"></app-page-header>
+  <button type="button" class="btn btn-info m-2" (click)="from_promise()">from_promise</button>
+  <button type="button" class="btn btn-info m-2" (click)="from_ajax()">from_ajax</button>
+  <button type="button" class="btn btn-info m-2" (click)="from_counter()">from_counter</button>
+  <br>
+  <button id="my-element" class="alert alert-info p-2" role="alert" >from_event</button>
+  <app-zippy (open2)="showZippy('open2() done')" (close2)="showZippy('close2() done')" class="m-3 p-2">
+     <abbr class="initialism" title="Title">Text</abbr>
+  </app-zippy>
+</app-page-wrapper-exercise>

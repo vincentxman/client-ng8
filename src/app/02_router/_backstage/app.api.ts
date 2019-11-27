@@ -85,7 +85,7 @@ export class UserClient {
     }
 
     register(registerVm: RegisterVm): Observable<UserVm> {
-        let url_ = this.baseUrl + "/user/register";
+        let url_ = this.baseUrl + "/users/register";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(registerVm);
@@ -144,7 +144,7 @@ export class UserClient {
     }
 
     login(loginVm: LoginVm): Observable<LoginResponseVm> {
-        let url_ = this.baseUrl + "/user/login";
+        let url_ = this.baseUrl + "/users/login";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(loginVm);

@@ -102,5 +102,6 @@
   },
   "rulesDirectory": [
     "codelyzer"
-  ]
+  ],
+  "component-selector":false
 }

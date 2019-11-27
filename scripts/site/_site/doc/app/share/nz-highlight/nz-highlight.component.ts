@@ -2,9 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChil
 @Component({
   selector: 'nz-highlight',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <pre class="language-angular"><code [innerHTML]="nzCode"></code></pre>
-  `
+  template: `<pre class="language-angular"><code [innerHTML]="nzCode"></code></pre>`
 })
 export class NzHighlightComponent implements OnInit {
   _code: string;
