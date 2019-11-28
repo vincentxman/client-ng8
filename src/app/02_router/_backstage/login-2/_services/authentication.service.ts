@@ -1,8 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BackstageLazyModule } from '../../backstage-lazy/backstage-lazy.module';
 
-@Injectable()
+@Injectable({providedIn: BackstageLazyModule})
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 

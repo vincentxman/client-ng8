@@ -9,6 +9,8 @@ import { dump } from '../../../_share/utilities/tools';
 import { RegisterComponent } from './login-1/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login-1/login/login.component';
+import { Register2Component } from './login-2/register';
+import { BackstageLazyModule } from './backstage-lazy/backstage-lazy.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,10 @@ import { LoginComponent } from './login-1/login/login.component';
     WelcomeComponent,
     RegisterComponent,
     LoginComponent,
+    Register2Component,
   ],
   imports: [
+    BackstageLazyModule,
     BackstageRoutingModule,
     FormsModule,
     ReactiveFormsModule,

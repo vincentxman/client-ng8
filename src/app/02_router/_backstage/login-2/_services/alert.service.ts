@@ -1,8 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { BackstageLazyModule } from '../../backstage-lazy/backstage-lazy.module';
 
-@Injectable()
+@Injectable({providedIn: BackstageLazyModule})
 export class AlertService {
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;

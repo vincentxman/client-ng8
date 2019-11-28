@@ -2,8 +2,9 @@
 import { HttpClient } from '@angular/common/http';
 
 import { User } from '../_models';
+import { BackstageLazyModule } from '../../backstage-lazy/backstage-lazy.module';
 
-@Injectable()
+@Injectable({providedIn: BackstageLazyModule})
 export class UserService {
   apiUrl = 'api';
   constructor(private http: HttpClient) { }
