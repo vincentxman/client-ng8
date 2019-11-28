@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 // import { catchError } from 'rxjs/operators';
 // import { of, throwError } from '../../../../node_modules/rxjs';
 import { ApiException, LoginResponseVm, LoginVm, UserClient } from '../app.api';
-import { dump } from '../../../../_share/utilities/tools';
+import { dump } from '../../../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-login',

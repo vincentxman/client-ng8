@@ -6,9 +6,9 @@ import { BackstageRoutingModule } from './backstage-routing.module';
 import { NgZorroAntdModule, NzLayoutModule, NzMenuModule, NzSliderModule, NzFormModule, NzCardModule, NzInputModule, NzIconModule } from 'ng-zorro-antd';
 import { CommonModule } from '@angular/common';
 import { dump } from '../../../_share/utilities/tools';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './login-1/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login-1/login/login.component';
 
 @NgModule({
   declarations: [

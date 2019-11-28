@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ApiException, RegisterVm, UserClient, UserVm } from '../app.api';
-import { dumpErr, dump } from '../../../../_share/utilities/tools';
+import { dumpErr, dump } from '../../../../../_share/utilities/tools';
 
 @Component({
   selector: 'app-register',
