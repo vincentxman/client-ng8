@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login-1/login/login.component';
 import { Register2Component } from './login-2/register';
 import { BackstageLazyModule } from './backstage-lazy/backstage-lazy.module';
+import { Login2Component } from './login-2/login';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BackstageLazyModule } from './backstage-lazy/backstage-lazy.module';
     WelcomeComponent,
     RegisterComponent,
     LoginComponent,
+    Login2Component,
     Register2Component,
   ],
   imports: [
