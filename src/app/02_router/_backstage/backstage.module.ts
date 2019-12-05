@@ -9,18 +9,25 @@ import { dump } from '../../../_share/utilities/tools';
 import { RegisterComponent } from './login-1/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login-1/login/login.component';
-import { Register2Component } from './login-2/register';
+import { Register2Component } from './login-2/_pageOld/register';
 import { BackstageLazyModule } from './backstage-lazy/backstage-lazy.module';
-import { Login2Component } from './login-2/login';
+import { Login2Component } from './login-2/_pageOld/login';
+import { Register3Component } from './login-2/register/register.component';
+import { Login3Component } from './login-2/login/login.component';
 
 @NgModule({
   declarations: [
     BackstageWrapperComponent,
     WelcomeComponent,
-    RegisterComponent,
+
     LoginComponent,
+    RegisterComponent,
+
     Login2Component,
     Register2Component,
+
+    Register3Component,
+    Login3Component,
   ],
   imports: [
     BackstageLazyModule,
@@ -49,4 +56,4 @@ export class BackstageModule {
   constructor() {
     dump('BackstageModule');
   }
- }
+}

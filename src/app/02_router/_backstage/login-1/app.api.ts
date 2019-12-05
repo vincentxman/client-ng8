@@ -6,8 +6,8 @@
 //----------------------
 // ReSharper disable InconsistentNaming
 
-import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 'rxjs/operators';
-import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
+import { mergeMap, catchError} from 'rxjs/operators';
+import { Observable, throwError, of} from 'rxjs';
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angular/common/http';
 
@@ -37,17 +37,17 @@ export class Client {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processHello(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processHello(<any>response_);
                 } catch (e) {
-                    return <Observable<void>><any>_observableThrow(e);
+                    return <Observable<void>><any>throwError(e);
                 }
             } else
-                return <Observable<void>><any>_observableThrow(response_);
+                return <Observable<void>><any>throwError(response_);
         }));
     }
 
@@ -59,15 +59,15 @@ export class Client {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(<any>null);
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
+            return of<void>(<any>null);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
+        return of<void>(<any>null);
     }
 }
 
@@ -100,17 +100,17 @@ export class UserClient {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processRegister(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processRegister(<any>response_);
                 } catch (e) {
-                    return <Observable<UserVm>><any>_observableThrow(e);
+                    return <Observable<UserVm>><any>throwError(e);
                 }
             } else
-                return <Observable<UserVm>><any>_observableThrow(response_);
+                return <Observable<UserVm>><any>throwError(response_);
         }));
     }
 
@@ -122,25 +122,25 @@ export class UserClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 201) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result201: any = null;
             let resultData201 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result201 = resultData201 ? UserVm.fromJS(resultData201) : new UserVm();
-            return _observableOf(result201);
+            return of(result201);
             }));
         } else if (status === 400) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<UserVm>(<any>null);
+        return of<UserVm>(<any>null);
     }
 
     login(loginVm: LoginVm): Observable<LoginResponseVm> {
@@ -159,17 +159,17 @@ export class UserClient {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processLogin(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processLogin(<any>response_);
                 } catch (e) {
-                    return <Observable<LoginResponseVm>><any>_observableThrow(e);
+                    return <Observable<LoginResponseVm>><any>throwError(e);
                 }
             } else
-                return <Observable<LoginResponseVm>><any>_observableThrow(response_);
+                return <Observable<LoginResponseVm>><any>throwError(response_);
         }));
     }
 
@@ -181,25 +181,25 @@ export class UserClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 201) { // 201 (Created/已创建)
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result201: any = null;
             let resultData201 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result201 = resultData201 ? LoginResponseVm.fromJS(resultData201) : new LoginResponseVm();
-            return _observableOf(result201);
+            return of(result201);
             }));
         } else if (status === 400) { // 400 (Bad Request/错误请求)
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) { // 204 (No Content/无内容) // 200 (OK/正常)
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<LoginResponseVm>(<any>null);
+        return of<LoginResponseVm>(<any>null);
     }
 }
 
@@ -232,17 +232,17 @@ export class TodoClient {
             })
         };
 
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("post", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processCreate(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processCreate(<any>response_);
                 } catch (e) {
-                    return <Observable<TodoVm>><any>_observableThrow(e);
+                    return <Observable<TodoVm>><any>throwError(e);
                 }
             } else
-                return <Observable<TodoVm>><any>_observableThrow(response_);
+                return <Observable<TodoVm>><any>throwError(response_);
         }));
     }
 
@@ -254,25 +254,25 @@ export class TodoClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 201) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result201: any = null;
             let resultData201 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result201 = resultData201 ? TodoVm.fromJS(resultData201) : new TodoVm();
-            return _observableOf(result201);
+            return of(result201);
             }));
         } else if (status === 400) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<TodoVm>(<any>null);
+        return of<TodoVm>(<any>null);
     }
 
     getall(isCompleted?: boolean | null | undefined, level?: Level[] | null | undefined): Observable<TodoVm[]> {
@@ -291,17 +291,17 @@ export class TodoClient {
             })
         };
 
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("get", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processGetall(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processGetall(<any>response_);
                 } catch (e) {
-                    return <Observable<TodoVm[]>><any>_observableThrow(e);
+                    return <Observable<TodoVm[]>><any>throwError(e);
                 }
             } else
-                return <Observable<TodoVm[]>><any>_observableThrow(response_);
+                return <Observable<TodoVm[]>><any>throwError(response_);
         }));
     }
 
@@ -313,7 +313,7 @@ export class TodoClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             if (resultData200 && resultData200.constructor === Array) {
@@ -321,21 +321,21 @@ export class TodoClient {
                 for (let item of resultData200)
                     result200.push(TodoVm.fromJS(item));
             }
-            return _observableOf(result200);
+            return of(result200);
             }));
         } else if (status === 400) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<TodoVm[]>(<any>null);
+        return of<TodoVm[]>(<any>null);
     }
 
     update(todoVm: TodoVm): Observable<TodoVm> {
@@ -354,17 +354,17 @@ export class TodoClient {
             })
         };
 
-        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("put", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processUpdate(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processUpdate(<any>response_);
                 } catch (e) {
-                    return <Observable<TodoVm>><any>_observableThrow(e);
+                    return <Observable<TodoVm>><any>throwError(e);
                 }
             } else
-                return <Observable<TodoVm>><any>_observableThrow(response_);
+                return <Observable<TodoVm>><any>throwError(response_);
         }));
     }
 
@@ -376,25 +376,25 @@ export class TodoClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result200 = resultData200 ? TodoVm.fromJS(resultData200) : new TodoVm();
-            return _observableOf(result200);
+            return of(result200);
             }));
         } else if (status === 400) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<TodoVm>(<any>null);
+        return of<TodoVm>(<any>null);
     }
 
     delete(id: string): Observable<TodoVm> {
@@ -412,17 +412,17 @@ export class TodoClient {
             })
         };
 
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+        return this.http.request("delete", url_, options_).pipe(mergeMap((response_ : any) => {
             return this.processDelete(response_);
-        })).pipe(_observableCatch((response_: any) => {
+        })).pipe(catchError((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
                     return this.processDelete(<any>response_);
                 } catch (e) {
-                    return <Observable<TodoVm>><any>_observableThrow(e);
+                    return <Observable<TodoVm>><any>throwError(e);
                 }
             } else
-                return <Observable<TodoVm>><any>_observableThrow(response_);
+                return <Observable<TodoVm>><any>throwError(response_);
         }));
     }
 
@@ -434,25 +434,25 @@ export class TodoClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result200 = resultData200 ? TodoVm.fromJS(resultData200) : new TodoVm();
-            return _observableOf(result200);
+            return of(result200);
             }));
         } else if (status === 400) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             let result400: any = null;
             let resultData400 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result400 = resultData400 ? ApiException.fromJS(resultData400) : new ApiException();
             return throwException("A server error occurred.", status, _responseText, _headers, result400);
             }));
         } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return blobToText(responseBlob).pipe(mergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<TodoVm>(<any>null);
+        return of<TodoVm>(<any>null);
     }
 }
 
@@ -856,9 +856,9 @@ export class SwaggerException extends Error {
 
 function throwException(message: string, status: number, response: string, headers: { [key: string]: any; }, result?: any): Observable<any> {
     if(result !== null && result !== undefined)
-        return _observableThrow(result);
+        return throwError(result);
     else
-        return _observableThrow(new SwaggerException(message, status, response, headers, null));
+        return throwError(new SwaggerException(message, status, response, headers, null));
 }
 
 function blobToText(blob: any): Observable<string> {

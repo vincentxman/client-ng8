@@ -7,7 +7,7 @@ import { dump } from '../../../_share/utilities/tools';
   styleUrls: ['./download.component.scss']
 })
 export class DownloadComponent implements OnInit {
-
+  data2 = 52;
   constructor() {
     dump('DownloadComponent');
   }
@@ -19,5 +19,10 @@ export class DownloadComponent implements OnInit {
     dump(err);
   }
 
+  doClick(an) {
+    // tslint:disable-next-line:no-console
+    console.log('........', an.data2);
+
+  }
 
 }
