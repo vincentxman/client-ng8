@@ -34,5 +34,6 @@
     "**/dist": true,
     "**/site": true
 },
-"npm-scripts.showStartNotification": false
+"npm-scripts.showStartNotification": false,
+"editor.find.autoFindInSelection": "always"
 }
