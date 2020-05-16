@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'download', component: DownloadComponent },
-  { path: 'components', loadChildren: './02_router/_components/components.module#VComponentsModule' }, // 懒加载
-  { path: 'exercise', loadChildren: './02_router/_exercise/exercise.module#VExerciseModule' }, // 懒加载
-  { path: 'backstage', loadChildren: './02_router/_backstage/backstage.module#BackstageModule' }, // 懒加载
+  { path: 'components', loadChildren: () => import('./02_router/_components/components.module').then(m => m.VComponentsModule)}, // 懒加载
+  { path: 'exercise', loadChildren: () => import('./02_router/_exercise/exercise.module').then(m => m.VExerciseModule)}, // 懒加载
+  { path: 'backstage', loadChildren: () => import('./02_router/_backstage/backstage.module').then(m => m.BackstageModule)}, // 懒加载
   { path: '**', redirectTo: 'home' }
 ];
 
