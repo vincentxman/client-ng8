@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2019-11-03T01:01:17+08:00
+// Generated in 2020-05-16T17:23:26+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -156,7 +156,7 @@ export const GetCatDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class GetCatGQL extends Apollo.Query<GetCatQuery, GetCatQueryVariables> {
   document = GetCatDocument;
@@ -173,7 +173,7 @@ export const GetCatsDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class GetCatsGQL extends Apollo.Query<
   GetCatsQuery,
@@ -193,7 +193,7 @@ export const CreateCatDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CreateCatGQL extends Apollo.Mutation<
   CreateCatMutation,
@@ -212,7 +212,7 @@ export const DeleteCatDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class DeleteCatGQL extends Apollo.Mutation<
   DeleteCatMutation,
@@ -232,7 +232,7 @@ export const UpdateCatDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UpdateCatGQL extends Apollo.Mutation<
   UpdateCatMutation,
@@ -252,7 +252,7 @@ export const CatAddedDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CatAddedGQL extends Apollo.Subscription<
   CatAddedSubscription,
@@ -272,7 +272,7 @@ export const CatUpdatedDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CatUpdatedGQL extends Apollo.Subscription<
   CatUpdatedSubscription,
@@ -292,7 +292,7 @@ export const CatDeletedDocument = gql`
 `;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CatDeletedGQL extends Apollo.Subscription<
   CatDeletedSubscription,
