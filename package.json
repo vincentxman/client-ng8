@@ -16,7 +16,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate-init": "graphql-codegen init"
+    "generate-init": "graphql-codegen init",
+    "postinstall": "ngcc",
+    "outdated":"npm outdated"
   },
   "private": true,
   "dependencies": {
