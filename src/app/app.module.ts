@@ -37,10 +37,10 @@ export function markedOptions(): MarkedOptions {
   return {
     renderer: renderer,
     gfm: true,
-    tables: false,
+    // tables: false,
     breaks: false,
     pedantic: false,
-    sanitize: false,
+    // sanitize: false,
     smartLists: true,
     smartypants: false,
   };

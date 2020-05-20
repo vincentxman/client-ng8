@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 export type Maybe<T> = T | null;
-// Generated in 2020-05-16T17:23:26+08:00
+// Generated in 2020-05-18T09:01:46+08:00
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -13,15 +13,25 @@ export type Scalars = {
   Float: number;
 };
 
+export type Query = {
+  __typename?: "Query";
+  hello: Scalars["String"];
+  cats: Array<Cat>;
+  cat: Cat;
+};
+
+export type QueryCatsArgs = {
+  limit?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
+};
+
+export type QueryCatArgs = {
+  id: Scalars["String"];
+};
+
 export type Cat = {
   __typename?: "Cat";
   id: Scalars["ID"];
-  name: Scalars["String"];
-  age: Scalars["Int"];
-  breed?: Maybe<Scalars["String"]>;
-};
-
-export type CatDto = {
   name: Scalars["String"];
   age: Scalars["Int"];
   breed?: Maybe<Scalars["String"]>;
@@ -47,20 +57,10 @@ export type MutationDeleteCatArgs = {
   id: Scalars["String"];
 };
 
-export type Query = {
-  __typename?: "Query";
-  hello: Scalars["String"];
-  cats: Array<Cat>;
-  cat: Cat;
-};
-
-export type QueryCatsArgs = {
-  limit?: Maybe<Scalars["Int"]>;
-  skip?: Maybe<Scalars["Int"]>;
-};
-
-export type QueryCatArgs = {
-  id: Scalars["String"];
+export type CatDto = {
+  name: Scalars["String"];
+  age: Scalars["Int"];
+  breed?: Maybe<Scalars["String"]>;
 };
 
 export type Subscription = {
