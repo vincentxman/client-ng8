@@ -59,6 +59,9 @@ import { IconsProviderModule } from './icons-provider.module';
 
 
 @NgModule({
+
+  // declarations: 声明本模块中拥有的视图类。
+  // Angular 有三种视图类：组件(Component)、指令(Directive)和管道(Pipe)。
   declarations: [
     AppComponent,
     HomeComponent,
@@ -67,6 +70,13 @@ import { IconsProviderModule } from './icons-provider.module';
     FooterComponent,
     GettingStartedComponent,
   ],
+
+  // exports: declarations 的子集，可用于其它模块的组件模板。
+  exports: [
+  ],
+
+  // imports 本模块声明的组件模板需要的类所在的其它模块。
+  // (类似调用 include *.h + 库)（这里的 Module 类似程序库）
   imports: [
     NgbModule,
     BrowserModule,
@@ -77,10 +87,7 @@ import { IconsProviderModule } from './icons-provider.module';
     VComponentsModule,
     FormsModule,
     IconsProviderModule,
-
     BrowserAnimationsModule,
-
-
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
@@ -88,11 +95,11 @@ import { IconsProviderModule } from './icons-provider.module';
         useFactory: markedOptions,
       },
     }),
-
     // InMemoryDataService
     environment.isMemoDB ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) : [],
   ],
 
+  // providers 服务的创建者，并加入到全局服务列表中，可用于应用任何部分。
   // URL 使用 #
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
@@ -101,7 +108,10 @@ import { IconsProviderModule } from './icons-provider.module';
     { provide: NZ_I18N, useValue: zh_CN },
   ],
 
-  bootstrap: [AppComponent]
+  // bootstrap 指定应用的主视图（称为根组件），它是所有其它视图的宿主。只有根模块才能设置 bootstrap 属性。
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
   constructor() {
